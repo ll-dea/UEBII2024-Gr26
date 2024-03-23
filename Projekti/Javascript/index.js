@@ -14,12 +14,3 @@ function changeImg() {
 }
 document.addEventListener(onload, changeImg());
 
-document.addEventListener("DOMContentLoaded", function () {
-    var header = document.querySelector('header');
-
-    function toggleHeaderBackground() {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-    }
-
-    window.addEventListener('scroll', toggleHeaderBackground);
-});

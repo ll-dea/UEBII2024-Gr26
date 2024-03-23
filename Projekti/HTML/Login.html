@@ -30,4 +30,19 @@
   </footer>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).ready(function(){
+        var header = $(".sticky-header");
+        var sticky = header.offset().top;
+
+        $(window).scroll(function() {
+            if (window.pageYOffset > sticky) {
+                header.addClass("fixed");
+            } else {
+                header.removeClass("fixed");
+            }
+        });
+    });
+</script>
 </html>
