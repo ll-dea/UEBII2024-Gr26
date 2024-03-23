@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Krijimi i Slide show</title>
+    <link rel="stylesheet" href="validimi.css">
+    <style type ="text/css">
+
+    #kontenti {
+        display: flex ;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: cursive 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        width: 500px;
+        margin:0 auto;
+    }
+    #kontenti img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    button{
+        border-radius: 100%;
+        border-style: inherit;
+        width: 40px;
+        height: 40px;
+        font: 15pt;
+    }
+    button:hover{
+        background-color: rgb(189, 186, 186);
+    }
+    </style>
+</head>
+<body>
+    <div id="kontenti">
+        <header>
+        <h1>Some ideas of our design projects: </h1>
+        <img id="slideshow" src="Photo3.jpg">
+        </header>
+        <button onclick="changeImg()">Next</button>
+    </div>
+
+
+    <script>
+        let i = 0;
+        let imgArray = ['Photo1.jpg', 'Photo2.jpg', 'Photo3.jpg', 'Photo4.jpg', 'Photo6.jpg', 'Photo7.jpg', 'Photo8.jpg', 'Photo9.jpg'];
+
+        function changeImg(){
+            document.getElementById('slideshow').src = imgArray[i];
+
+            if(i< imgArray.length -1){
+                i++;
+            }
+            else{
+                i=0;
+            }
+            //setTimeout("changeImg()", 2600);
+        }
+        document.addEventListener(onload, changeImg());
+    </script>
+
+</body>
+</html>
