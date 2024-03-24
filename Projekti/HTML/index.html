@@ -8,33 +8,41 @@
   <link rel="stylesheet" href="../CSS/index.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+
   <script src="../Javascript/index.js"></script>
 </head>
 
-<body>
+<body class="truculenta">
 
   <header class="sticky-header">
     <h1>Gardening Shop</h1>
-  </header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Login.html">Login</a>
+      <a href="About.html">About</a>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="Login.html">Login</a>
-    <a href="About.html">About</a>
-  
-  </nav>
+    </nav>
+  </header>
+  <br><br><br><br><br>
+
   <div id="kontenti">
     <div style="background-color: #8efc8c;">
-      
-     <a href="Login.html"> <img id="slideshow" src="./foto/Photo13.jpg"></a>
-      <button onclick="changeImg()">➤ </button>
+
+      <a href="Login.html"> <img id="slideshow" src="./foto/Photo13.jpg"></a>
+      <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
+
     </div>
   </div>
+  <br><br>
   <div style="padding: 20px;">
     <div class="row">
 
       <h class="display-4 " style="text-align: center;">Best Selling</h>
     </div>
+    <br>
     <h3>Tools:</h>
       <br><br>
       <div id="item1" class="row" style="padding-left: 5%; ">
@@ -173,16 +181,46 @@
   </div>
   </div>
   <br><br>
+  <div class="row" style="align-items: center;">
+    <img src="./foto/Photo18.png" alt="Promo">
+  </div>
+  <br><br>
   <div class="row" style="height: 400px;">
-    <div class="col-1"></div>
-    <div class="col-7">
-      <img src="./foto/Photo16.png" alt="Garden">
+
+    <div class="col-6">
+      <div style="padding-left: 100px;"><img src="./foto/Photo16.png" style="width: 550px;" alt="Garden"></div>
+
     </div>
-    <div class="col-3">
+    <div class="col-6">
+      <br><br>
       <h class="display-5"> Ready, Set, Grow!</h>
-      <p>Many herbs are easy to grow from seed. Here we'll focus on the direct-sow method, which works well for growing herbs throughout the season.</p>
+      <br><br>
+      <p>Many herbs are easy to grow from seed. Here we'll focus on the direct-sow method, which works well for growing
+        herbs throughout the season.</p>
     </div>
-    <div class="col-1"></div>
+
+  </div>
+
+  <div class="row" style="height: 400px;">
+
+    <div class="col-6">
+      <br><br>
+      <div style="padding-left: 100px;padding-right: 20px;">
+        <h class="display-5"> Raised Bed Buying Guide</h>
+        <br><br>
+        <p>There are tons of good reasons to garden in raised beds: bigger harvests and more control, fewer weeds and
+          less
+          bending. We offer one of the largest assortments of raised beds available — dozens of sizes, colors, and
+          materials; self-watering options; accessories to increase growing space and functionality — and the friendly
+          and
+          knowledgeable support to guide you to the raised bed garden of your dreams!</p>
+      </div>
+    </div>
+    <div class="col-6">
+
+      <img src="./foto/Photo17.png" style="width: 500px;" alt="Garden">
+    </div>
+
   </div>
   <footer>
     &copy; 2024 Gardening Shop. All rights reserved.

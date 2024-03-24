@@ -1,48 +1,91 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-  }
-  .container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 0 20px;
-  }
-  form {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  input[type="text"],
-  input[type="password"],
-  input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-  }
-  input[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-  }
-  input[type="submit"]:hover {
-    background-color: #555;
-  }
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+  font-family: "Truculenta";
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+header {
+  background-color: #8efc8c;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  
+}
+header a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 0 20px;
+
+}
+
+form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #8efc8c;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #8efc8c;
+}
+
+footer {
+  background-color: #8efc8c;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8efc8c;
+  padding: 10px 0;
+ 
+  text-align: center;
+  z-index: 1000;
+}
+.truculenta {
+  font-family: "Truculenta", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+header.sticky-header{
+  padding-right: 5px;
+}
