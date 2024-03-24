@@ -179,7 +179,13 @@
 
 
   </div>
-  </div>
+  
+  <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true"
+  style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c;">
+  <span>&#9733; </span>
+</button>
+
+  
   <br><br>
   <div class="row" style="align-items: center;">
     <img src="./foto/Photo18.png" alt="Promo">
@@ -227,5 +233,36 @@
   </footer>
 
 </body>
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var backToTopButton = document.getElementById('backToTopButton');
+
+      function toggleBackToTopButton() {
+        backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
+      }
+
+      // Scroll to Top 
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function animateBackToTopButton() {
+        $('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce');
+      }
+
+      window.addEventListener('scroll', function () {
+        toggleBackToTopButton();
+
+        if (window.scrollY > 300) {
+          animateBackToTopButton();
+        }
+      });
+
+      backToTopButton.addEventListener('click', scrollToTop);
+    });
+
+
+</script>
 
 </html>

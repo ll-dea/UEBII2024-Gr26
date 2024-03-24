@@ -86,3 +86,23 @@ button:hover{
 header.sticky-header{
   padding-left: 6px;
 }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#backToTopButton {
+position: fixed;
+bottom: 20px;
+right: 20px;
+user-select: none;
+cursor: grab;
+transition: all 0.3s;
+z-index: 4; 
+}
+
+#backToTopButton:hover span {
+animation: spin 1.5s linear infinite;
+transform-origin: center;
+display: inline-block;
+}
