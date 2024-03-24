@@ -1,4 +1,4 @@
 # UEBII2024-Gr26
 
-- Ky projekt eshte implementuar nga studentet e Fakultetit te Inxhinieris Elektrike dhe Kompjuterike, drejtimi Kompjuterika
+- Ky eshte nje projekt semestrial i implementuar nga studentet e Fakultetit te Inxhinieris Elektrike dhe Kompjuterike, drejtimi Kompjuterika
 - Tema e ketij projekti eshte nje market online per gjera te kopshtit
