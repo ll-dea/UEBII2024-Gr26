@@ -1,0 +1,13 @@
+.div1{
+    padding-top: 50px;
+    width: 700px; 
+    height:400px;
+    background-color:#8efc8c; 
+    color:white;
+}
+.buton1 {
+    width: 100px; 
+    height:40px; 
+    font-size:small;
+    color:#5df65a
+}

@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="../CSS/index.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+    rel="stylesheet">
 
   <script src="../Javascript/index.js"></script>
 </head>
@@ -179,13 +180,13 @@
 
 
   </div>
-  
-  <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true"
-  style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c;">
-  <span>&#9733; </span>
-</button>
 
-  
+  <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true"
+    style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c;">
+    <span>&#9733; </span>
+  </button>
+
+
   <br><br>
   <div class="row" style="align-items: center;">
     <img src="./foto/Photo18.png" alt="Promo">
@@ -228,39 +229,71 @@
     </div>
 
   </div>
+  <div id="kontakt" class="row" style="padding: 50px; background-color: #8efc8c ">
+    <div class="middle col-6 ">
+      <div class="info">
+        <h2>Meet Us</h2>
+        <p>Rruga B, Prishtina 10000</p>
+        <p>Phone : +383111000</p>
+        <p>Office Hours : 8:00am - 17:00pm</p>
+      </div>
+
+    </div>
+
+    <div class="form col-6 " style="align-items: center;">
+      <h2 style="margin-left: 15px;">Contact Us</h2>
+      <form id="contactForm" onsubmit="return validateForm()">
+        <div class="inputs">
+          <input style="height: 50px; width: 500px;" type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="name.surname@gmail.com">
+          <textarea style="height: 100px ; width: 500px;" class="form-control" id="exampleFormControlTextarea1"
+            rows="3"></textarea>
+
+          <button type="submit" class="btn btn-light mx-auto ">Send</button>
+
+        </div>
+      </form>
+      </center>
+
+
+
+
+    </div>
+  </div>
+
   <footer>
     &copy; 2024 Gardening Shop. All rights reserved.
   </footer>
 
 </body>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var backToTopButton = document.getElementById('backToTopButton');
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var backToTopButton = document.getElementById('backToTopButton');
 
-      function toggleBackToTopButton() {
-        backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
+    function toggleBackToTopButton() {
+      backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
+    }
+
+    // Scroll to Top 
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function animateBackToTopButton() {
+      $('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce');
+    }
+
+    window.addEventListener('scroll', function () {
+      toggleBackToTopButton();
+
+      if (window.scrollY > 300) {
+        animateBackToTopButton();
       }
-
-      // Scroll to Top 
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      function animateBackToTopButton() {
-        $('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce');
-      }
-
-      window.addEventListener('scroll', function () {
-        toggleBackToTopButton();
-
-        if (window.scrollY > 300) {
-          animateBackToTopButton();
-        }
-      });
-
-      backToTopButton.addEventListener('click', scrollToTop);
     });
+
+    backToTopButton.addEventListener('click', scrollToTop);
+  });
 
 
 </script>
