@@ -29,9 +29,9 @@
   <header class="sticky-header">
     <h1>Gardening Shop</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="Login.html">Login</a>
-      <a href="About.html">About</a>
+      <a href="home.php">Home</a>
+      <a href="mycart.php">My Cart</a>
+      <a href="about.php">About</a>
 
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary0" style=" background-color : #8efc8c">
