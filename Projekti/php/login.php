@@ -26,7 +26,7 @@
             <div id="square" class="row div1">
 
                 <h class="display-3">Hello <?php echo $name; ?></h>
-                <br><br>
+                
                 <h class="display-6">You have sucessfully logged in.</h>
                 <br><br><br>
                 <a href="../HTML/index.html"><button type="button" class="btn btn-light btn-lg buton1">Go Home</button></a>
