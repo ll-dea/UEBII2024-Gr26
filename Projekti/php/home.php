@@ -32,7 +32,7 @@
   <div id="kontenti">
     <div style="background-color: #8efc8c;">
 
-      <a href="Login.html"> <img id="slideshow" src="./foto/Photo13.jpg"></a>
+      <a href="Login.html"> <img id="slideshow" src="../HTML/foto/Photo13.jpg"></a>
       <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
 
     </div>
@@ -50,18 +50,16 @@
         
         <div id="item1emri1" class="col-3">
           <div class="card" style="width: 18rem;">
-            <img src="./foto/Photo1.jpg" class="card-img-top" style="height: 250px;" alt="Gloves">
+            <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;" alt="Gloves">
             <div class="card-body">
               <h5 class="card-title">Gloves</h5>
-              <form method="post" action="add_to_cart.php">
-              <button type="submit" name="save">*</button>
-              </form>
+              <a href="./Login.html" class="btn btn-primary">Order Now</a>
             </div>
           </div>
         </div>
         <div id="item1emri2" class="col-3 ">
           <div class="card" style="width: 18rem;">
-            <img src="./foto/Photo2.jpg" class="card-img-top" style="height: 250px;" alt="Pruning Shears">
+            <img src="../HTML/foto/Photo2.jpg" class="card-img-top" style="height: 250px;" alt="Pruning Shears">
             <div class="card-body">
               <h5 class="card-title">Pruning Shears</h5>
 
@@ -71,7 +69,7 @@
         </div>
         <div id="item1emri3" class="col-3">
           <div class="card" style="width: 18rem;">
-            <img src="./foto/Photo3.jpg" class="card-img-top" style="height: 250px;" alt="Loppers">
+            <img src="../HTML/foto/Photo3.jpg" class="card-img-top" style="height: 250px;" alt="Loppers">
             <div class="card-body">
               <h5 class="card-title">Loppers</h5>
 
@@ -81,7 +79,7 @@
         </div>
         <div id="item1emri4" class="col-3">
           <div class="card" style="width: 18rem;">
-            <img src="./foto/Photo4.jpg" class="card-img-top" style="height: 250px;" alt="Garden Fork">
+            <img src="../HTML/foto/Photo4.jpg" class="card-img-top" style="height: 250px;" alt="Garden Fork">
             <div class="card-body">
               <h5 class="card-title">Garden Fork</h5>
 
@@ -96,7 +94,7 @@
         <div id="item2" class="row" style="padding-left: 5%;">
           <div id="item2emri1" class="col-3">
             <div class="card" style="width: 18rem;">
-              <img src="./foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant">
+              <img src="../HTML/foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant">
               <div class="card-body">
                 <h5 class="card-title">Snake Plant</h5>
 
@@ -106,7 +104,7 @@
           </div>
           <div id="item2emri2" class="col-3 ">
             <div class="card" style="width: 18rem;">
-              <img src="./foto/Photo6.jpg" class="card-img-top" style="height: 250px;" alt="Pothos ">
+              <img src="../HTML/foto/Photo6.jpg" class="card-img-top" style="height: 250px;" alt="Pothos ">
               <div class="card-body">
                 <h5 class="card-title">Pothos</h5>
 
@@ -116,7 +114,7 @@
           </div>
           <div id="item2emri3" class="col-3">
             <div class="card" style="width: 18rem;">
-              <img src="./foto/Photo7.png" class="card-img-top" style="height: 250px;" alt="ZZ Plant">
+              <img src="../HTML/foto/Photo7.png" class="card-img-top" style="height: 250px;" alt="ZZ Plant">
               <div class="card-body">
                 <h5 class="card-title">ZZ Plant</h5>
 
@@ -126,7 +124,7 @@
           </div>
           <div id="item2emri4" class="col-3">
             <div class="card" style="width: 18rem;">
-              <img src="./foto/Photo8.jpg" class="card-img-top" style="height: 250px;" alt="Peace Lily">
+              <img src="../HTML/foto/Photo8.jpg" class="card-img-top" style="height: 250px;" alt="Peace Lily">
               <div class="card-body">
                 <h5 class="card-title">Peace Lily</h5>
 
@@ -140,7 +138,7 @@
           <div id="zhanri3" class="row" style="padding-left: 5%;">
             <div id="zhanri3emri1" class="col-3">
               <div class="card" style="width: 18rem;">
-                <img src="./foto/Photo9.jpg" class="card-img-top" style="height: 250px;" alt="Garmets">
+                <img src="../HTML/foto/Photo9.jpg" class="card-img-top" style="height: 250px;" alt="Garmets">
                 <div class="card-body">
                   <h5 class="card-title">Lighting</h5>
 
@@ -150,7 +148,7 @@
             </div>
             <div id="zhanri3emri2" class="col-3 ">
               <div class="card" style="width: 18rem;">
-                <img src="./foto/Photo10.jpeg" class="card-img-top" style="height: 250px;" alt="Garmets">
+                <img src="../HTML/foto/Photo10.jpeg" class="card-img-top" style="height: 250px;" alt="Garmets">
                 <div class="card-body">
                   <h5 class="card-title">Garmets</h5>
 
@@ -160,7 +158,7 @@
             </div>
             <div id="zhanri3emri3" class="col-3">
               <div class="card" style="width: 18rem;">
-                <img src="./foto/Photo11.jpg" class="card-img-top" style="height: 250px;" alt="Shelf">
+                <img src="../HTML/foto/Photo11.jpg" class="card-img-top" style="height: 250px;" alt="Shelf">
                 <div class="card-body">
                   <h5 class="card-title">Shelf</h5>
 
@@ -170,7 +168,7 @@
             </div>
             <div id="zhanri3emri3" class="col-3">
               <div class="card" style="width: 18rem;">
-                <img src="./foto/Photo12.jpg" class="card-img-top" style="height: 250px;" alt="Vertical Gardening">
+                <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;" alt="Vertical Gardening">
                 <div class="card-body">
                   <h5 class="card-title">Vertical Gardening</h5>
 
@@ -197,7 +195,7 @@
   <div class="row" style="height: 400px;">
 
     <div class="col-6">
-      <div style="padding-left: 100px;"><img src="./foto/Photo16.png" style="width: 550px;" alt="Garden"></div>
+      <div style="padding-left: 100px;"><img src="../HTML/foto/Photo16.png" style="width: 550px;" alt="Garden"></div>
 
     </div>
     <div class="col-6">
@@ -227,7 +225,7 @@
     </div>
     <div class="col-6">
 
-      <img src="./foto/Photo17.png" style="width: 500px;" alt="Garden">
+      <img src="../HTML/foto/Photo17.png" style="width: 500px;" alt="Garden">
     </div>
 
   </div>
