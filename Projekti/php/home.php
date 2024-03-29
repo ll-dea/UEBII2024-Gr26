@@ -21,9 +21,9 @@
   <header class="sticky-header">
     <h1>Gardening Shop</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="Login.html">Login</a>
-      <a href="About.html">About</a>
+      <a href="home.php">Home</a>
+      <a href="mycart.php">My Cart</a>
+      <a href="about.php">About</a>
 
     </nav>
   </header>
