@@ -115,21 +115,6 @@
     </div>
   </section>
 
-  <!-- SUBSCRIBTION NEWSLETTER END  -->
-
-
-
-
-
-
-
-  <!-- PAGE ANCHORS -->
-
-
-
-  <!-- PAGE ANCHORS END -->
-
-
 
   <!-- HISTORY SECTION -->
   <div id="history-section" class="history-section" style="width: 100%; height: 85vh;">

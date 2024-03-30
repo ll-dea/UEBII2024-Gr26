@@ -297,5 +297,41 @@
 
 
 </script>
+<script>
+   function validateForm() {
+      var email = document.getElementById('exampleInputEmail1').value;
+
+      // Email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+
+      // BUTTON ANIMATION
+      function clickButton() {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Email eshte Derguar!"
+        });
+      }
+
+      clickButton();
+
+      return true;
+    }
+
+</script>
 
 </html>
