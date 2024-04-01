@@ -4,7 +4,9 @@ session_start();
 // Your items array
 $items = [
     "Tools:" => [
-        "Gloves" => 4,
+        "Gloves" => [
+            "img" => '../HTML/foto'
+        ],
         "Pruning Shears" => 3,
         "Loppers" => 6,
         "Garden Fork" => 7

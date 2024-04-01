@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <!-- Include your custom JavaScript file -->
     <script src="../Javascript/index.js"></script>
 </head>
+
 <body class="truculenta">
     <!-- Header -->
     <header class="sticky-header">
@@ -22,25 +24,27 @@
         </nav>
     </header>
     <?php
-// Include the file where $items is defined or instantiated
-include_once 'add_to_cart.php';
+    // Include the file where $items is defined or instantiated
+    include_once 'add_to_cart.php';
 
-// Now include home.php
-include_once 'home.php';
-?>
+    // Now include home.php
+    include_once 'home.php';
+    ?>
     <br><br><br><br><br><br><br><br>
     <!-- Items -->
     <div class="container">
         <h2 class="text-center">Best Selling</h2>
         <!-- Tool Items -->
         <div class="row">
-            <?php foreach ($items['Tools:'] as $item => $price): ?>
+            <?php foreach ($items['Tools:'] as $item => $price) : ?>
                 <div class="col-md-3">
-                    <div class="card">
+                    <div class="card" style="width: 18rem;">
+                    <img src="./foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant">
+
                         <div class="card-body">
                             <h5 class="card-title"><?= $item ?></h5>
                             <p class="card-text">Price: $<?= $price ?></p>
-                            <button class="btn btn-primary addToCart" data-category="Tools:" data-item="<?= $item ?>">Add to Cart</button>
+                            <button class="btn btn-primary" data-category="Tools:" data-item="<?= $item ?>">Order Now</button>
                         </div>
                     </div>
                 </div>
@@ -48,13 +52,16 @@ include_once 'home.php';
         </div>
         <!-- Plants Items -->
         <div class="row">
-            <?php foreach ($items['Plants'] as $item => $price): ?>
+            <?php foreach ($items['Plants'] as $item => $price) : ?>
                 <div class="col-md-3">
-                    <div class="card">
+                    <div class="card" style="width: 18rem;">
+                    <img src="./foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant">
+
                         <div class="card-body">
+
                             <h5 class="card-title"><?= $item ?></h5>
                             <p class="card-text">Price: $<?= $price ?></p>
-                            <button class="btn btn-primary addToCart" data-category="Plants" data-item="<?= $item ?>">Add to Cart</button>
+                            <button class="btn btn-primary" data-category="Tools:" data-item="<?= $item ?>">Order Now</button>
                         </div>
                     </div>
                 </div>
@@ -62,13 +69,14 @@ include_once 'home.php';
         </div>
         <!-- Decorations Items -->
         <div class="row">
-            <?php foreach ($items['Decorations'] as $item => $price): ?>
+            <?php foreach ($items['Decorations'] as $item => $price) : ?>
                 <div class="col-md-3">
-                    <div class="card">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant">
                         <div class="card-body">
                             <h5 class="card-title"><?= $item ?></h5>
                             <p class="card-text">Price: $<?= $price ?></p>
-                            <button class="btn btn-primary addToCart" data-category="Decorations" data-item="<?= $item ?>">Add to Cart</button>
+                            <button class="btn btn-primary" data-category="Tools:" data-item="<?= $item ?>">Order Now</button>
                         </div>
                     </div>
                 </div>
@@ -113,4 +121,5 @@ include_once 'home.php';
         }
     </script>
 </body>
+
 </html>
