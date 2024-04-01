@@ -29,7 +29,7 @@
                 
                 <h class="display-6">You have sucessfully logged in.</h>
                 <br><br><br>
-                <a href="../HTML/index.html"><button type="button" class="btn btn-light btn-lg buton1">Go Home</button></a>
+                <a href="home.php"><button type="button" class="btn btn-light btn-lg buton1">Go Home</button></a>
             </div>
         </center>
     </div>
