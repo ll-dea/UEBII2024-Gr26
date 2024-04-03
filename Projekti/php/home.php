@@ -240,7 +240,7 @@
     <div class="row" style="height: 400px;">
 
         <div class="col-6">
-            <div style="padding-left: 100px;"><img src="./foto/Photo16.png" style="width: 550px;" alt="Garden"></div>
+            <div style="padding-left: 100px;"><img src="../HTML/foto/Photo16.png" style="width: 550px;" alt="Garden"></div>
 
         </div>
         <div class="col-6">
