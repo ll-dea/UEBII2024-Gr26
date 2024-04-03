@@ -25,7 +25,7 @@
         <center>
             <div id="square" class="row div1">
 
-                <h class="display-3">Hello <?php echo $name; ?></h>
+                <h class="display-3">Hello <?php echo strtoupper($name);; ?></h>
                 
                 <h class="display-6">You have sucessfully logged in.</h>
                 <br><br><br>

@@ -1,0 +1,51 @@
+table th {
+  
+    background-color: #8efc8c;
+    color: white;
+    border: 1px solid black;
+}
+th{
+    padding-left: 168px;
+    padding-right: 168px;
+}
+td {
+    padding-left: 169px;
+}
+header {
+    background-color: #8efc8c;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    
+    
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  header a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+  .sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #8efc8c; 
+    padding: 10px 0; 
+    
+    text-align: center; 
+    z-index: 1000; 
+  }
+  header.sticky-header{
+    padding-left: 6px;
+  }
+  h1 {
+    text-align: center;
+  }
+  body{
+    background-image: url('../HTML/foto/photo18');
+  }

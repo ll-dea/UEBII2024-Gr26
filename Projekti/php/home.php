@@ -1,3 +1,24 @@
+php
+Copy code
+<?php
+session_start();
+
+// Initialize cart if not set
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
+// Add item to cart
+if (isset($_POST['add_to_cart'])) {
+    $item = $_POST['add_to_cart'];
+    if (array_key_exists($item, $_SESSION['cart'])) {
+        $_SESSION['cart'][$item]++;
+    } else {
+        $_SESSION['cart'][$item] = 1;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +59,7 @@
         </div>
     </div>
     <br><br>
+    <form action="mycart.php" method="post">
     <div style="padding: 20px;">
         <div class="row">
 
@@ -53,11 +75,7 @@
                         <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;" alt="Gloves">
                         <div class="card-body">
                             <h5 class="card-title">Gloves</h5>
-                            <form method="post">
-                                <input type="hidden" name="Gloves" value="1"> <!-- Replace with your item ID -->
-                                <input type="number" name="quantity" value="1" min="1">
-                                <button type="submit" onclick="addToCart()">Add to Cart</button>
-                            </form>
+                            <button type="submit" name="add_to_cart" value="Gloves">Buy</button>
                         </div>
                     </div>
                 </div>
@@ -67,11 +85,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Pruning Shears</h5>
 
-                            <form method="post" >
-                                <input type="hidden" name="Pruning Shears" value="1"> <!-- Replace with your item ID -->
-                                <input type="number" name="quantity" value="1" min="1">
-                                <button type="submit" onclick="addToCart()">Add to Cart</button>
-                            </form>
+                            <button type="submit" name="add_to_cart" value="Pruning Shears">Buy</button>
+
                         </div>
                     </div>
                 </div>
@@ -81,11 +96,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Loppers</h5>
 
-                            <form method="post" >
-                                <input type="hidden" name="Loppers" value="1"> <!-- Replace with your item ID -->
-                                <input type="number" name="quantity" value="1" min="1">
-                                <button type="submit" onclick="addToCart()">Add to Cart</button>
-                            </form>
+                            <button type="submit" name="add_to_cart" value="Loppers">Buy</button>
+
                         </div>
                     </div>
                 </div>
@@ -95,11 +107,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Garden Fork</h5>
 
-                            <form method="post" >
-                                <input type="hidden" name="Garden Fork" value="1"> <!-- Replace with your item ID -->
-                                <input type="number" name="quantity" value="1" min="1">
-                                <button type="submit" onclick="addToCart()">Add to Cart</button>
-                            </form>
+                            <button type="submit" name="add_to_cart" value="Garden Fork">Buy</button>
+
                         </div>
                     </div>
                 </div>
@@ -114,11 +123,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Snake Plant</h5>
 
-                                <form method="post" >
-                                    <input type="hidden" name="Snake Plant" value="1"> <!-- Replace with your item ID -->
-                                    <input type="number" name="quantity" value="1" min="1">
-                                    <button type="submit" onclick="addToCart()">Add to Cart</button>
-                                </form>
+                                <button type="submit" name="add_to_cart" value="Snake Plant">Buy</button>
+
                             </div>
                         </div>
                     </div>
@@ -128,11 +134,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Pothos</h5>
 
-                                <form method="post" >
-                                    <input type="hidden" name="Pothos" value="1"> <!-- Replace with your item ID -->
-                                    <input type="number" name="quantity" value="1" min="1">
-                                    <button type="submit" onclick="addToCart()">Add to Cart</button>
-                                </form>
+                                <button type="submit" name="add_to_cart" value="Pothos">Buy</button>
+
                             </div>
                         </div>
                     </div>
@@ -142,11 +145,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">ZZ Plant</h5>
 
-                                <form method="post" >
-                                    <input type="hidden" name="ZZ Plant" value="1"> <!-- Replace with your item ID -->
-                                    <input type="number" name="quantity" value="1" min="1">
-                                    <button type="submit" onclick="addToCart()">Add to Cart</button>
-                                </form>
+                                <button type="submit" name="add_to_cart" value="ZZ Plant">Buy</button>
+
                             </div>
                         </div>
                     </div>
@@ -156,11 +156,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Peace Lily</h5>
 
-                                <form method="post" >
-                                    <input type="hidden" name="Peace Lily" value="1"> <!-- Replace with your item ID -->
-                                    <input type="number" name="quantity" value="1" min="1">
-                                    <button type="submit" onclick="addToCart()">Add to Cart</button>
-                                </form>
+                                <button type="submit" name="add_to_cart" value="Peace Lily">Buy</button>
+
                             </div>
                         </div>
                     </div>
@@ -174,11 +171,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Lighting</h5>
 
-                                    <form method="post" >
-                                        <input type="hidden" name="Lighting" value="1"> <!-- Replace with your item ID -->
-                                        <input type="number" name="quantity" value="1" min="1">
-                                        <button type="submit" onclick="addToCart()">Add to Cart</button>
-                                    </form>
+                                    <button type="submit" name="add_to_cart" value="Lighting">Buy</button>
+
                                 </div>
                             </div>
                         </div>
@@ -188,11 +182,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Garmets</h5>
 
-                                    <form method="post" >
-                                        <input type="hidden" name="Garmets" value="1"> <!-- Replace with your item ID -->
-                                        <input type="number" name="quantity" value="1" min="1">
-                                        <button type="submit" onclick="addToCart()">Add to Cart</button>
-                                    </form>
+                                    <button type="submit" name="add_to_cart" value="Garmets">Buy</button>
+
                                 </div>
                             </div>
                         </div>
@@ -202,11 +193,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Shelf</h5>
 
-                                    <form method="post" >
-                                        <input type="hidden" name="Shelf" value="1"> <!-- Replace with your item ID -->
-                                        <input type="number" name="quantity" value="1" min="1">
-                                        <button type="submit" onclick="addToCart()">Add to Cart</button>
-                                    </form>
+                                    <button type="submit" name="add_to_cart" value="Shelf">Buy</button>
+
                                 </div>
                             </div>
                         </div>
@@ -215,12 +203,8 @@
                                 <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;" alt="Vertical Gardening">
                                 <div class="card-body">
                                     <h5 class="card-title">Vertical Gardening</h5>
+                                    <button type="submit" name="add_to_cart" value="Vertical Gardening">Buy</button>
 
-                                    <form method="post" action="add_to_cart.php">
-                                        <input type="hidden" name="Vertical Gardening" value="1"> <!-- Replace with your item ID -->
-                                        <input type="number" name="quantity" value="1" min="1">
-                                        <button type="submit">Add to Cart</button>
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -228,6 +212,15 @@
 
 
     </div>
+    <?php 
+        // Add hidden fields for previously added items
+        foreach ($_SESSION['cart'] as $item => $quantity) {
+            echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
+            echo "<input type='hidden' name='cart[$item][price]' value='$quantity'>";
+        }
+        ?>
+
+    </form>
 
     <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c;">
         <span>&#9733; </span>
