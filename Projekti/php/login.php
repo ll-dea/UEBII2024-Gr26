@@ -39,6 +39,9 @@
     </style>
     <title>Garden Shop</title>
 </head>
+<?php
+define('BASE_URL', 'home.php');
+?>
 <body>
     <div class="container">
         <?php
@@ -64,7 +67,7 @@
         
         <h1>Welcome to our website <?php echo strtoupper($name); ?>!</h1>
         <p>This is your visit number <?php echo $_SESSION['visit_count']; ?>.</p>
-        <a href="home.php" style="color: #8efc8c;">Go Home</a>
+        <a href="<?php echo BASE_URL; ?>" style="color: #8efc8c;">Go Home</a>
     </div>
 </body>
 </html>

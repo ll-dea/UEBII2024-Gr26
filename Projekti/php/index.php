@@ -50,9 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <header class="sticky-header">
     <h1 style="padding-right: 5px;" >Gardening Shop</h1>
     <nav style="padding-right: 5px;">
-      <a href="home.html">Home</a>
-      <a href="Login.html">Login</a>
-      <a href="About.html">About</a>
+      <a href="home.php">Home</a>
+      <a href="index.php">Login</a>
+      <a href="about.php">About</a>
 
     </nav>
   </header>
