@@ -30,7 +30,7 @@
             text-align: center; /* Center content */
         }
         h1 {
-            color: #007bff; /* Set heading color */
+            color: #8efc8c; /* Set heading color */
             margin-bottom: 20px; /* Add space below heading */
         }
         p {
@@ -64,6 +64,7 @@
         
         <h1>Welcome to our website <?php echo strtoupper($name); ?>!</h1>
         <p>This is your visit number <?php echo $_SESSION['visit_count']; ?>.</p>
+        <a href="home.php" style="color: #8efc8c;">Go Home</a>
     </div>
 </body>
 </html>
