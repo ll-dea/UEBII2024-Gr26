@@ -44,9 +44,15 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/mycart.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
     <title>My Cart</title>
     <style>
         body {
@@ -55,60 +61,86 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             margin: 0;
             padding: 0;
         }
+
         h1 {
             text-align: center;
             margin-top: 20px;
         }
+
         table {
             width: 80%;
             margin: 0 auto;
             border-collapse: collapse;
             background-color: #fff;
         }
-        th, td {
+
+        th,
+        td {
             padding: 10px;
             padding-left: 150px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+
         th {
             background-color: #f2f2f2;
             font-weight: bold;
             text-transform: uppercase;
         }
-        
+
         a {
             color: #c62828;
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         a:hover {
             color: #8e0000;
         }
+
         select {
             margin-bottom: 20px;
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+
         select:focus {
             outline: none;
             border-color: #8e0000;
         }
     </style>
 </head>
-<body>
-    <h1>My Cart</h1>
-    <div style="text-align: center;">
-        <!-- Dropdown list for sorting -->
-        <select id="sort-select" onchange="sortCart()">
-        <option value="default" selected disabled>Default</option>
-            <option value="name-asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name-asc') echo 'selected'; ?>>Sort by Item Name (A-Z)</option>
-            <option value="name-desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name-desc') echo 'selected'; ?>>Sort by Item Name (Z-A)</option>
-            <option value="price-asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'price-asc') echo 'selected'; ?>>Sort by Price (Low to High)</option>
-            <option value="price-desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'price-desc') echo 'selected'; ?>>Sort by Price (High to Low)</option>
-        </select>
-    </div>
+
+<body style="background-color: white; margin:0; padding:0;" class="truculenta">
+
+    <header style="padding: 0;" class="sticky-header">
+        <h1>Gardening Shop</h1>
+        <nav>
+            <a href="home.php">Home</a>
+            <a href="mycart.php">My Cart</a>
+            <a href="about.php">About</a>
+
+        </nav>
+        <div class="row">
+            <div class="col-6">
+                <h1 style="float: right;">My Cart</h1>
+            </div>
+            <div class="col-6">
+                <!-- Dropdown list for sorting -->
+                <select style="float: left; margin-top:25px" id="sort-select" onchange="sortCart()">
+                    <option value="default" selected disabled>Default</option>
+                    <option value="name-asc" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'name-asc') echo 'selected'; ?>>Sort by Item Name (A-Z)</option>
+                    <option value="name-desc" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'name-desc') echo 'selected'; ?>>Sort by Item Name (Z-A)</option>
+                    <option value="price-asc" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'price-asc') echo 'selected'; ?>>Sort by Price (Low to High)</option>
+                    <option value="price-desc" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'price-desc') echo 'selected'; ?>>Sort by Price (High to Low)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+
+    <br><br><br><br><br><br><br><br><br>
     <br>
     <table>
         <tr>
@@ -144,11 +176,17 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             window.location.href = "mycart.php?sort=" + sortOption;
         }
     </script>
+     <footer>
+    &copy; 2024 Gardening Shop. All rights reserved.
+  </footer>
+
 </body>
+
 </html>
 
 <?php
-function getPriceByItem($item) {
+function getPriceByItem($item)
+{
     switch ($item) {
         case 'Gloves':
             return 10;

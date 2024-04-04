@@ -12,7 +12,7 @@ th{
 header {
     background-color: #8efc8c;
     color: #fff;
-    padding: 10px 20px;
+    
     text-align: center;
     
     
@@ -39,7 +39,7 @@ header {
     z-index: 1000; 
   }
   header.sticky-header{
-    padding-left: 6px;
+    
   }
   h1 {
     text-align: center;
@@ -54,4 +54,13 @@ header {
     font-style: normal;
     font-variation-settings:
       "wdth" 100;
+  }
+  footer {
+    background-color: #8efc8c;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
