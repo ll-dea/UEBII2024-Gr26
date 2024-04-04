@@ -1,13 +1,25 @@
-.div1{
-    padding-top: 50px;
-    width: 700px; 
-    height:400px;
-    background-color:#8efc8c; 
-    color:white;
+
+body {
+    font-family: 'Truculenta', sans-serif; /* Use the custom font */
+    background-color: #f8f9fa; /* Set background color */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
-.buton1 {
-    width: 100px; 
-    height:40px; 
-    font-size:small;
-    color:#5df65a
+.container {
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add shadow */
+    padding: 20px;
+    text-align: center; /* Center content */
+}
+h1 {
+    color: #8efc8c; /* Set heading color */
+    margin-bottom: 20px; /* Add space below heading */
+}
+p {
+    color: #6c757d; /* Set paragraph color */
 }
