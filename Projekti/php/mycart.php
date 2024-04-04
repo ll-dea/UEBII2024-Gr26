@@ -67,6 +67,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
         }
         th, td {
             padding: 10px;
+            padding-left: 150px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -75,12 +76,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             font-weight: bold;
             text-transform: uppercase;
         }
-        td:nth-child(3) {
-            text-align: right;
-        }
-        td:nth-child(4) {
-            text-align: center;
-        }
+        
         a {
             color: #c62828;
             text-decoration: none;
@@ -106,6 +102,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     <div style="text-align: center;">
         <!-- Dropdown list for sorting -->
         <select id="sort-select" onchange="sortCart()">
+        <option value="default" selected disabled>Default</option>
             <option value="name-asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name-asc') echo 'selected'; ?>>Sort by Item Name (A-Z)</option>
             <option value="name-desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name-desc') echo 'selected'; ?>>Sort by Item Name (Z-A)</option>
             <option value="price-asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'price-asc') echo 'selected'; ?>>Sort by Price (Low to High)</option>

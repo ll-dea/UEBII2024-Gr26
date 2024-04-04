@@ -42,9 +42,7 @@
 <?php
 define('BASE_URL', 'home.php');
 ?>
-<body>
-    <div class="container">
-        <?php
+  <?php
         $name = $_POST["emri"];
         ?>
 
@@ -64,6 +62,9 @@ define('BASE_URL', 'home.php');
         // Use session to store the visit count value
         $_SESSION['visit_count'] = $visit_count;
         ?>
+<body  style="<?php if($visit_count % 2 == 0) { echo 'background-color: #8efc8c;'; } else { echo 'background-color:rgb(251, 242, 111) ;'; } ?>">
+    <div class="container">
+      
         
         <h1>Welcome to our website <?php echo strtoupper($name); ?>!</h1>
         <p>This is your visit number <?php echo $_SESSION['visit_count']; ?>.</p>
