@@ -38,30 +38,30 @@ if (isset($_GET['remove'])) {
 
     <title>My Cart</title>
 </head>
-<header class="sticky-header">
-        <h1>Gardening Shop</h1>
-        <nav>
-            <a href="home.php">Home</a>
-            <a href="mycart.php">My Cart</a>
-            <a href="about.php">About</a>
+<header class="sticky-header" style="padding-right:17px;">
+    <h1>Gardening Shop</h1>
+    <nav>
+        <a href="home.php">Home</a>
+        <a href="mycart.php">My Cart</a>
+        <a href="about.php">About</a>
 
-        </nav>
-    </header>
-    <br><br><br><br><br>
+    </nav>
+</header>
+<br><br><br><br><br>
 
-<body>
+<body class="truculenta">
     <h1>My Cart</h1>
     <table>
         <tr>
             <div>
-                
-                    <th >Item</th>
-                
-                    <th > Quantity</th>
-              
-                    <th >Price</th>
-                    <th >Action</th>
-                
+
+                <th>Item</th>
+
+                <th> Quantity</th>
+
+                <th>Price</th>
+                <th>Action</th>
+
             </div>
         </tr>
         <?php
@@ -69,41 +69,41 @@ if (isset($_GET['remove'])) {
         foreach ($_SESSION['cart'] as $item => $quantity) {
             $price = 0;
             switch ($item) {
-                case 'item1':
+                case 'Gloves':
                     $price = 10;
                     break;
-                case 'item2':
+                case 'Pruning Shears':
                     $price = 15;
                     break;
-                case 'item3':
+                case 'Loppers':
                     $price = 20;
                     break;
-                case 'item4':
+                case 'Garden Fork':
                     $price = 25;
                     break;
-                case 'item5':
+                case 'Snake Plant':
                     $price = 30;
                     break;
-                case 'item6':
+                case 'ZZ Plant':
                     $price = 35;
                     break;
-                case 'item7':
+                case 'Peace Lily':
                     $price = 40;
                     break;
-                case 'item8':
+                case 'Pothos':
+                    $price = 65;
+                    break;
+                case 'Lighting':
                     $price = 45;
                     break;
-                case 'item9':
+                case 'Garmets':
                     $price = 50;
                     break;
-                case 'item10':
+                case 'Shelf':
                     $price = 55;
                     break;
-                case 'item11':
+                case 'Vertical Gardening':
                     $price = 60;
-                    break;
-                case 'item12':
-                    $price = 65;
                     break;
                 default:
                     $price = 0;
@@ -118,7 +118,7 @@ if (isset($_GET['remove'])) {
         }
 
         ?>
-        
+
         <tr>
             <td colspan="2"><strong>Total</strong></td>
             <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
