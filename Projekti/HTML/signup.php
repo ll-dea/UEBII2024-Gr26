@@ -1,3 +1,78 @@
+<?php
+session_start();
+
+// Ruan mesazhet e gabimeve nëse ndodhin
+$errors = array();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Kontrollo nëse ka emrin e përdoruesit të dorëzuar
+    if (isset($_POST['emri'])) {
+        $emri = $_POST['emri'];
+        $emri = preg_replace('/ë/', 'e', $emri);
+        
+        // Kontrolloni nëse emri përmban vetëm shkronja dhe hapësira
+        if (!preg_match("/^[A-Za-z-' ]*$/", $emri)) {
+            $errors['error_emri'] = "Emri i përdoruesit mund të përmbajë vetëm shkronja, viza, dhe hapësira.";
+        }
+    }
+
+    // Kontrollo nëse ka mbiemrin e përdoruesit të dorëzuar
+    if (isset($_POST['mbiemri'])) {
+        $mbiemri = $_POST['mbiemri'];
+        $mbiemri = preg_replace('/ë/', 'e', $mbiemri);
+        if (!preg_match('/^[A-Za-z\s]+$/', $mbiemri)) {
+            $errors['error_mbiemri'] = "Mbiemri duhet të përmbajë vetëm shkronja dhe hapsira.";
+        }
+    }
+
+    // Kontrollo nëse ka emailin ose numrin e telefonit të përdoruesit të dorëzuar
+    if (isset($_POST['contactType'])) {
+        $contactType = $_POST['contactType'];
+
+        if ($contactType === 'email') {
+            if (isset($_POST['email'])) {
+                $email = $_POST['email'];
+
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $errors['error_email'] = "Adresa e emailit nuk është e vlefshme.";
+                }
+            }
+        } elseif ($contactType === 'phone') {
+            if (isset($_POST['telefoni'])) {
+                $telefoni = $_POST['telefoni'];
+
+                if (!preg_match('/^[0-9]{9,15}$/', $telefoni)) {
+                    $errors['error_telefoni'] = "Numri i telefonit duhet të përmbajë vetëm shifra dhe të jetë në mes 9 dhe 15 karaktere në gjatësi.";
+                }
+            }
+        }
+    }
+
+    if (isset($_POST['password'])) {
+        $password = $_POST['password'];
+
+        // Kontrolloni se fjalëkalimi ka të paktën një shkronjë të madhe, një shkronjë të vogël dhe një numër
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/', $password)) {
+            $errors['error_password'] = "Fjalëkalimi duhet të përmbajë të paktën një shkronjë të madhe, një shkronjë të vogël dhe një numër, dhe të jetë më i gjatë se 8 karaktere.";
+        }
+    }
+
+    // Nëse nuk ka asnjë gabim, ruaj të dhënat dhe kthehu në faqen e konfirmimit
+    if (empty($errors)) {
+        $_SESSION['emri'] = $_POST['emri'];
+        $_SESSION['mbiemri'] = $_POST['mbiemri'];
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['telefoni'] = $_POST['telefoni'];
+
+        session_write_close();
+
+        header('Location: konfirmimi.php');
+        exit();
+    }
+}
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -73,14 +148,12 @@
             <a href="index.html">Home</a>
             <a href="Login.html">Login</a>
             <a href="about.php">About</a>
-           
+            <a href="signup.html">Signup</a>
         </nav>
     </header>
 
     <div class="container">
-        <form action="validate_signup.php" method="post" id="signupForm">
-
-
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="signupForm">
             <div class="mb-3">
                 <label for="emri" class="form-label">Emri:</label>
                 <input type="text" class="form-control" id="emri" name="emri" placeholder="John" required>
@@ -111,7 +184,7 @@
                 <input type="password" class="form-control" id="password" name="password"
                     placeholder="Shkruani fjalëkalimin tuaj" required>
             </div>
-            <input type="submit" value="Sign Up"> 
+            <input type="submit" value="Sign Up">
             <a href="Login.html" style="font-size:small;">Do you have an account? Click here!</a>
         </form>
     </div>
@@ -121,30 +194,21 @@
     </footer>
 
     <script>
-       document.addEventListener('DOMContentLoaded', function () {
-    var contactTypeField = document.getElementById('contactType');
-    var emailField = document.getElementById('emailField');
-    var phoneField = document.getElementById('phoneField');
+        document.addEventListener('DOMContentLoaded', function () {
+            var contactTypeField = document.getElementById('contactType');
+            var emailField = document.getElementById('emailField');
+            var phoneField = document.getElementById('phoneField');
 
-    // Vendosni vlerën fillestare të fshehur për fushën e numrit të telefonit
-    var phoneFieldHidden = true;
-
-    contactTypeField.addEventListener('change', function () {
-        if (contactTypeField.value === 'email') {
-            emailField.style.display = 'block';
-            // Nëse fusha e numrit të telefonit është fshehur dhe përdoruesi zgjedh opsionin "Email",
-            // Vendosni vlerën për të qenë e fshehur
-            if (phoneFieldHidden) {
-                phoneField.style.display = 'none';
-            }
-        } else if (contactTypeField.value === 'phone') {
-            phoneField.style.display = 'block';
-            // Nëse përdoruesi zgjedh opsionin "Telefon", vendosni vlerën për të qenë e shfaqur
-            phoneFieldHidden = false;
-            emailField.style.display = 'none';
-        }
-    });
-});
+            contactTypeField.addEventListener('change', function () {
+                if (contactTypeField.value === 'email') {
+                    emailField.style.display = 'block';
+                    phoneField.style.display = 'none';
+                } else if (contactTypeField.value === 'phone') {
+                    emailField.style.display = 'none';
+                    phoneField.style.display = 'block';
+                }
+            });
+        });
     </script>
 
 </body>
