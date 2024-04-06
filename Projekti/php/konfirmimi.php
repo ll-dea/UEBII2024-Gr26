@@ -1,12 +1,14 @@
 <?php
 session_start();
-
+error_reporting(E_ALL);
 // Kontrollo nëse ka të dhëna të regjistrimit në sesion
 if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['email']) && isset($_SESSION['telefoni'])) {
     // Merrni të dhënat nga sesioni
     $emri = preg_replace('/ë/', 'e', $_SESSION['emri']);
     $mbiemri = preg_replace('/ë/', 'e', $_SESSION['mbiemri']);
     $email = $_SESSION['email'];
+    $telefoni = $_SESSION['telefoni'];
+
     $telefoni_formatuar = preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1-$2-$3', $telefoni);
     
 
@@ -17,7 +19,7 @@ if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['
     echo "<p>Emri: $emri</p>";
     echo "<p>Mbiemri: $mbiemri</p>";
     echo "<p>Email: $email</p>";
-    echo "<p>Numri i telefonit: $telefoni</p>";
+    echo "<p>Numri i telefonit: $telefoni_formatuar</p>";
 
     // Pastro sesionin pasi t'ju tregohen të dhënat
     session_unset();

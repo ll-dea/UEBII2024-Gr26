@@ -57,6 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['telefoni'] = $_POST['telefoni'];
 
+          // Sigurohuni që të gjitha ndryshimet në sesion janë ruajtur
+    session_write_close();
+
         header('Location: konfirmimi.php');
         exit();
     }
