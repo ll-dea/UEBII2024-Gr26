@@ -25,23 +25,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Kontrollo nëse ka emailin e përdoruesit të dorëzuar
-    if (isset($_POST['email'])) {
-        $email = $_POST['email'];
+    // Kontrollo nëse ka emailin ose numrin e telefonit të përdoruesit të dorëzuar
+if (isset($_POST['contactType'])) {
+    $contactType = $_POST['contactType'];
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['error_email'] = "Adresa e emailit nuk është e vlefshme.";
+    if ($contactType === 'email') {
+        if (isset($_POST['email'])) {
+            $email = $_POST['email'];
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors['error_email'] = "Adresa e emailit nuk është e vlefshme.";
+            }
+        }
+    } elseif ($contactType === 'phone') {
+        if (isset($_POST['telefoni'])) {
+            $telefoni = $_POST['telefoni'];
+
+            if (!preg_match('/^[0-9]{9,15}$/', $telefoni)) {
+                $errors['error_telefoni'] = "Numri i telefonit duhet të përmbajë vetëm shifra dhe të jetë në mes 9 dhe 15 karaktere në gjatësi.";
+            }
         }
     }
-
-    // Kontrollo nëse ka numrin e telefonit të përdoruesit të dorëzuar
-    if (isset($_POST['telefoni'])) {
-        $telefoni = $_POST['telefoni'];
-
-        if (!preg_match('/^[0-9]{9,15}$/', $telefoni)) {
-            $errors['error_telefoni'] = "Numri i telefonit duhet të përmbajë vetëm shifra dhe të jetë në mes 9 dhe 15 karaktere në gjatësi.";
-        }
-    }
+}
     if (isset($_POST['password'])) {
         $password = $_POST['password'];
 
@@ -60,8 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Sigurohuni që të gjitha ndryshimet në sesion janë ruajtur
     session_write_close();
 
-        header('Location: konfirmimi.php');
-        exit();
+    include 'konfirmimi.php'; // Përfshini skedarin e konfirmimit
+    exit(); // Dhe mbyllni skriptën pas përfundimit të pjesës së procesimit të regjistrimit
     }
 }
 
