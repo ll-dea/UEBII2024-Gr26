@@ -121,21 +121,30 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var contactTypeField = document.getElementById('contactType');
-            var emailField = document.getElementById('emailField');
-            var phoneField = document.getElementById('phoneField');
+       document.addEventListener('DOMContentLoaded', function () {
+    var contactTypeField = document.getElementById('contactType');
+    var emailField = document.getElementById('emailField');
+    var phoneField = document.getElementById('phoneField');
 
-            contactTypeField.addEventListener('change', function () {
-                if (contactTypeField.value === 'email') {
-                    emailField.style.display = 'block';
-                    phoneField.style.display = 'none';
-                } else if (contactTypeField.value === 'phone') {
-                    emailField.style.display = 'none';
-                    phoneField.style.display = 'block';
-                }
-            });
-        });
+    // Vendosni vlerën fillestare të fshehur për fushën e numrit të telefonit
+    var phoneFieldHidden = true;
+
+    contactTypeField.addEventListener('change', function () {
+        if (contactTypeField.value === 'email') {
+            emailField.style.display = 'block';
+            // Nëse fusha e numrit të telefonit është fshehur dhe përdoruesi zgjedh opsionin "Email",
+            // Vendosni vlerën për të qenë e fshehur
+            if (phoneFieldHidden) {
+                phoneField.style.display = 'none';
+            }
+        } else if (contactTypeField.value === 'phone') {
+            phoneField.style.display = 'block';
+            // Nëse përdoruesi zgjedh opsionin "Telefon", vendosni vlerën për të qenë e shfaqur
+            phoneFieldHidden = false;
+            emailField.style.display = 'none';
+        }
+    });
+});
     </script>
 
 </body>
