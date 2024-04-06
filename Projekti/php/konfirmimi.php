@@ -4,10 +4,13 @@ session_start();
 // Kontrollo nëse ka të dhëna të regjistrimit në sesion
 if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['email']) && isset($_SESSION['telefoni'])) {
     // Merrni të dhënat nga sesioni
-    $emri = $_SESSION['emri'];
-    $mbiemri = $_SESSION['mbiemri'];
+    $emri = preg_replace('/ë/', 'e', $_SESSION['emri']);
+    $mbiemri = preg_replace('/ë/', 'e', $_SESSION['mbiemri']);
     $email = $_SESSION['email'];
-    $telefoni = $_SESSION['telefoni'];
+    $telefoni_formatuar = preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1-$2-$3', $telefoni);
+    
+
+   
 
     // Shfaqi një mesazh për regjistrimin e suksesshëm dhe të dhënat e përdoruesit
     echo "<h2>Regjistrimi është kryer me sukses!</h2>";
@@ -19,6 +22,8 @@ if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['
     // Pastro sesionin pasi t'ju tregohen të dhënat
     session_unset();
     session_destroy();
+    header('Location: home.php');
+    exit();
 } else {
     // Nëse nuk ka të dhëna të regjistrimit në sesion, shfaq një mesazh për gabim
     echo "<p>Të dhënat e regjistrimit nuk janë gjetur. Ju lutem kryeni regjistrimin.</p>";

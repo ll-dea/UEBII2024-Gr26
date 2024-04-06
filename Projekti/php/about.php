@@ -29,7 +29,7 @@
   <header class="sticky-header">
     <h1>Gardening Shop</h1>
     <nav>
-      <a href="home.php">Home</a>
+      <a href="index.html">Home</a>
       <a href="mycart.php">My Cart</a>
       <a href="about.php">About</a>
 
