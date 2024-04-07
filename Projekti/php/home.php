@@ -2,7 +2,7 @@ php
 Copy code
 <?php
 session_start();
-include 'classes.php'; 
+
 
 // Initialize cart if not set
 if (!isset($_SESSION['cart'])) {
@@ -39,6 +39,8 @@ if (isset($_POST['add_to_cart'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 
 
     <script src="../Javascript/index.js"></script>
@@ -219,7 +221,9 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
 
 
-               <?php 
+         <div class="container">
+        <div class="row">
+            <?php
                $products = array(
                 $gloves = new Product("Gloves", 10, 50, "A pair of gardening gloves for protection."),
                 $pruningShears = new Product("Pruning Shears", 15, 30, "Pruning shears for cutting stems and small branches."),
@@ -237,15 +241,24 @@ if (isset($_POST['add_to_cart'])) {
                 $verticalGardening = new Product("Vertical Gardening", 50, 8, "Vertical gardening solutions for maximizing space."),
                 
             );
-            ?>
 
-            
-            <?php foreach ($products as $product): ?>
-                <div class="modal fade" id="productModal<?= strtolower(str_replace(' ', '', $product->name)) ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= strtolower(str_replace(' ', '', $product->name)) ?>" aria-hidden="true">
+            foreach ($products as $key => $product) {
+            ?>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="../HTML/foto/<?= strtolower(str_replace(' ', '', $product->name)) ?>.jpg" class="card-img-top" style="height: 250px;" alt="<?= $product->name ?>" data-toggle="modal" data-target="#productModal<?= $key ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $product->name ?></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="productModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= $key ?>" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="productModalLabel<?= strtolower(str_replace(' ', '', $product->name)) ?>"><?= $product->name ?></h5>
+                                <h5 class="modal-title" id="productModalLabel<?= $key ?>"><?= $product->name ?></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -256,14 +269,17 @@ if (isset($_POST['add_to_cart'])) {
                                 <?php if ($product->isAvailable()): ?>
                                     <p>In stock</p>
                                 <?php else: ?>
-                                    <p>Out of stock. It will be back soon</p>
+                                    <p>Out of stock</p>
                                 <?php endif; ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
-    <?php 
+            <?php } ?>
+        </div>
+    </div>
+        
+
         // Add hidden fields for previously added items
         foreach ($_SESSION['cart'] as $item => $quantity) {
             echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
