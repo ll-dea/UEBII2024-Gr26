@@ -17,59 +17,12 @@ if (isset($_POST['add_to_cart'])) {
         $_SESSION['cart'][$item] = 1;
     }
 }
-class Product {
-    public $name;
-    public $price;
-    public $stock;
 
-    public function __construct($name, $price, $stock) {
-        $this->name = $name;
-        $this->price = $price;
-        $this->stock = $stock;
-    }
-
-    public function displayInfo() {
-        echo "Produkti: " . $this->name . "<br>";
-        echo "Çmimi: $" . $this->price . "<br>";
-        echo "Stoku: " . $this->stock . "<br>";
-        echo "=========================<br>";
-    }
-}
-
-// Klasa për produkte të cilat janë mjete
-class Tool extends Product {
-    public function __construct($name, $price, $stock) {
-        parent::__construct($name, $price, $stock);
-    }
-
-    public function displayInfo() {
-        parent::displayInfo();
-    }
-}
-
-// Klasa për produkte të cilat janë bimë
-class Plant extends Product {
-    public function __construct($name, $price, $stock) {
-        parent::__construct($name, $price, $stock);
-    }
-
-    public function displayInfo() {
-        parent::displayInfo();
-    }
-}
-
-// Klasa për produkte të cilat janë dekorime
-class Decoration extends Product {
-    public function __construct($name, $price, $stock) {
-        parent::__construct($name, $price, $stock);
-    }
-
-    public function displayInfo() {
-        parent::displayInfo();
-    }
-}
+include 'classes.php'; // Përfshini file-n e klasave
 ?>
-?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
