@@ -82,7 +82,7 @@ if (isset($_POST['add_to_cart'])) {
 
                 <div id="Gloves" class="col-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;" alt="Gloves" data-toggle="modal" data-target="#productModal1">
+                        <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;" alt="Gloves" data-toggle="modal" data-target="#productModal2">
                         <div class="card-body">
                             <h5 class="card-title">Gloves</h5>
                             <button type="submit" name="add_to_cart" value="Gloves">Buy</button>
@@ -91,7 +91,7 @@ if (isset($_POST['add_to_cart'])) {
                 </div>
                 <div id="Pruning Shears" class="col-3 ">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo2.jpg" class="card-img-top" style="height: 250px;" alt="Pruning Shears"data-toggle="modal" data-target="#productModal2">
+                        <img src="../HTML/foto/Photo2.jpg" class="card-img-top" style="height: 250px;" alt="Pruning Shears"data-toggle="modal" data-target="#productModal3">
                         <div class="card-body">
                             <h5 class="card-title">Pruning Shears</h5>
 
@@ -102,7 +102,7 @@ if (isset($_POST['add_to_cart'])) {
                 </div>
                 <div id="Loppers" class="col-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo3.jpg" class="card-img-top" style="height: 250px;" alt="Loppers" data-toggle="modal" data-target="#productModal3">
+                        <img src="../HTML/foto/Photo3.jpg" class="card-img-top" style="height: 250px;" alt="Loppers" data-toggle="modal" data-target="#productModal4">
                         <div class="card-body">
                             <h5 class="card-title">Loppers</h5>
 
@@ -113,7 +113,7 @@ if (isset($_POST['add_to_cart'])) {
                 </div>
                 <div id="Garden Fork" class="col-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo4.jpg" class="card-img-top" style="height: 250px;" alt="Garden Fork" data-toggle="modal" data-target="#productModal4">
+                        <img src="../HTML/foto/Photo4.jpg" class="card-img-top" style="height: 250px;" alt="Garden Fork" data-toggle="modal" data-target="#productModal5">
                         <div class="card-body">
                             <h5 class="card-title">Garden Fork</h5>
 
@@ -129,7 +129,7 @@ if (isset($_POST['add_to_cart'])) {
                 <div id="item2" class="row" style="padding-left: 5%;">
                     <div id="Snake Plant" class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant" data-toggle="modal" data-target="#productModal5">
+                            <img src="../HTML/foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant" data-toggle="modal" data-target="#productModal6">
                             <div class="card-body">
                                 <h5 class="card-title">Snake Plant</h5>
 
@@ -140,7 +140,7 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     <div id="Pothos" class="col-3 ">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo6.jpg" class="card-img-top" style="height: 250px;" alt="Pothos " data-toggle="modal" data-target="#productModal6">
+                            <img src="../HTML/foto/Photo6.jpg" class="card-img-top" style="height: 250px;" alt="Pothos " data-toggle="modal" data-target="#productModal7">
                             <div class="card-body">
                                 <h5 class="card-title">Pothos</h5>
 
@@ -151,7 +151,7 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     <div id="ZZ Plant" class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo7.png" class="card-img-top" style="height: 250px;" alt="ZZ Plant"data-toggle="modal" data-target="#productModal7">
+                            <img src="../HTML/foto/Photo7.png" class="card-img-top" style="height: 250px;" alt="ZZ Plant"data-toggle="modal" data-target="#productModal8">
                             <div class="card-body">
                                 <h5 class="card-title">ZZ Plant</h5>
 
@@ -162,7 +162,7 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     <div id="Peace Lily" class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo8.jpg" class="card-img-top" style="height: 250px;" alt="Peace Lily" data-toggle="modal" data-target="#productModal8">
+                            <img src="../HTML/foto/Photo8.jpg" class="card-img-top" style="height: 250px;" alt="Peace Lily" data-toggle="modal" data-target="#productModal9">
                             <div class="card-body">
                                 <h5 class="card-title">Peace Lily</h5>
 
@@ -177,7 +177,7 @@ if (isset($_POST['add_to_cart'])) {
                     <div id="item3" class="row" style="padding-left: 5%;">
                         <div id="Lighting" class="col-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo9.jpg" class="card-img-top" style="height: 250px;" alt="Garmets" data-toggle="modal" data-target="#productModal9">
+                                <img src="../HTML/foto/Photo9.jpg" class="card-img-top" style="height: 250px;" alt="Garmets" data-toggle="modal" data-target="#productModal10">
                                 <div class="card-body">
                                     <h5 class="card-title">Lighting</h5>
 
@@ -188,7 +188,7 @@ if (isset($_POST['add_to_cart'])) {
                         </div>
                         <div id="Garmets" class="col-3 ">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo10.jpeg" class="card-img-top" style="height: 250px;" alt="Garmets" data-toggle="modal" data-target="#productModal10">
+                                <img src="../HTML/foto/Photo10.jpeg" class="card-img-top" style="height: 250px;" alt="Garmets" data-toggle="modal" data-target="#productModal11">
                                 <div class="card-body">
                                     <h5 class="card-title">Garmets</h5>
 
@@ -199,7 +199,7 @@ if (isset($_POST['add_to_cart'])) {
                         </div>
                         <div id="Shelf" class="col-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo11.jpg" class="card-img-top" style="height: 250px;" alt="Shelf" data-toggle="modal" data-target="#productModal11">
+                                <img src="../HTML/foto/Photo11.jpg" class="card-img-top" style="height: 250px;" alt="Shelf" data-toggle="modal" data-target="#productModal12">
                                 <div class="card-body">
                                     <h5 class="card-title">Shelf</h5>
 
@@ -210,7 +210,7 @@ if (isset($_POST['add_to_cart'])) {
                         </div>
                         <div id="Vertical Gardening" class="col-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;" alt="Vertical Gardening" data-toggle="modal" data-target="#productModal12">
+                                <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;" alt="Vertical Gardening" data-toggle="modal" data-target="#productModal13">
                                 <div class="card-body">
                                     <h5 class="card-title">Vertical Gardening</h5>
                                     <button type="submit" name="add_to_cart" value="Vertical Gardening">Buy</button>
