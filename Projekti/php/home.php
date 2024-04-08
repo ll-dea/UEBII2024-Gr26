@@ -2,7 +2,7 @@ php
 Copy code
 <?php
 session_start();
-
+include 'classes.php'; 
 
 // Initialize cart if not set
 if (!isset($_SESSION['cart'])) {
@@ -82,7 +82,7 @@ if (isset($_POST['add_to_cart'])) {
 
                 <div id="Gloves" class="col-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;" alt="Gloves">
+                        <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;" alt="Gloves" data-toggle="modal" data-target="#productModal1">
                         <div class="card-body">
                             <h5 class="card-title">Gloves</h5>
                             <button type="submit" name="add_to_cart" value="Gloves">Buy</button>
@@ -91,7 +91,7 @@ if (isset($_POST['add_to_cart'])) {
                 </div>
                 <div id="Pruning Shears" class="col-3 ">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo2.jpg" class="card-img-top" style="height: 250px;" alt="Pruning Shears">
+                        <img src="../HTML/foto/Photo2.jpg" class="card-img-top" style="height: 250px;" alt="Pruning Shears"data-toggle="modal" data-target="#productModal2">
                         <div class="card-body">
                             <h5 class="card-title">Pruning Shears</h5>
 
@@ -102,7 +102,7 @@ if (isset($_POST['add_to_cart'])) {
                 </div>
                 <div id="Loppers" class="col-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo3.jpg" class="card-img-top" style="height: 250px;" alt="Loppers">
+                        <img src="../HTML/foto/Photo3.jpg" class="card-img-top" style="height: 250px;" alt="Loppers" data-toggle="modal" data-target="#productModal3">
                         <div class="card-body">
                             <h5 class="card-title">Loppers</h5>
 
@@ -113,7 +113,7 @@ if (isset($_POST['add_to_cart'])) {
                 </div>
                 <div id="Garden Fork" class="col-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo4.jpg" class="card-img-top" style="height: 250px;" alt="Garden Fork">
+                        <img src="../HTML/foto/Photo4.jpg" class="card-img-top" style="height: 250px;" alt="Garden Fork" data-toggle="modal" data-target="#productModal4">
                         <div class="card-body">
                             <h5 class="card-title">Garden Fork</h5>
 
@@ -129,7 +129,7 @@ if (isset($_POST['add_to_cart'])) {
                 <div id="item2" class="row" style="padding-left: 5%;">
                     <div id="Snake Plant" class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant">
+                            <img src="../HTML/foto/Photo5.jpg" class="card-img-top" style="height: 250px;" alt="Snake Plant" data-toggle="modal" data-target="#productModal5">
                             <div class="card-body">
                                 <h5 class="card-title">Snake Plant</h5>
 
@@ -140,7 +140,7 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     <div id="Pothos" class="col-3 ">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo6.jpg" class="card-img-top" style="height: 250px;" alt="Pothos ">
+                            <img src="../HTML/foto/Photo6.jpg" class="card-img-top" style="height: 250px;" alt="Pothos " data-toggle="modal" data-target="#productModal6">
                             <div class="card-body">
                                 <h5 class="card-title">Pothos</h5>
 
@@ -151,7 +151,7 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     <div id="ZZ Plant" class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo7.png" class="card-img-top" style="height: 250px;" alt="ZZ Plant">
+                            <img src="../HTML/foto/Photo7.png" class="card-img-top" style="height: 250px;" alt="ZZ Plant"data-toggle="modal" data-target="#productModal7">
                             <div class="card-body">
                                 <h5 class="card-title">ZZ Plant</h5>
 
@@ -162,7 +162,7 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     <div id="Peace Lily" class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="../HTML/foto/Photo8.jpg" class="card-img-top" style="height: 250px;" alt="Peace Lily">
+                            <img src="../HTML/foto/Photo8.jpg" class="card-img-top" style="height: 250px;" alt="Peace Lily" data-toggle="modal" data-target="#productModal8">
                             <div class="card-body">
                                 <h5 class="card-title">Peace Lily</h5>
 
@@ -177,7 +177,7 @@ if (isset($_POST['add_to_cart'])) {
                     <div id="item3" class="row" style="padding-left: 5%;">
                         <div id="Lighting" class="col-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo9.jpg" class="card-img-top" style="height: 250px;" alt="Garmets">
+                                <img src="../HTML/foto/Photo9.jpg" class="card-img-top" style="height: 250px;" alt="Garmets" data-toggle="modal" data-target="#productModal9">
                                 <div class="card-body">
                                     <h5 class="card-title">Lighting</h5>
 
@@ -188,7 +188,7 @@ if (isset($_POST['add_to_cart'])) {
                         </div>
                         <div id="Garmets" class="col-3 ">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo10.jpeg" class="card-img-top" style="height: 250px;" alt="Garmets">
+                                <img src="../HTML/foto/Photo10.jpeg" class="card-img-top" style="height: 250px;" alt="Garmets" data-toggle="modal" data-target="#productModal10">
                                 <div class="card-body">
                                     <h5 class="card-title">Garmets</h5>
 
@@ -199,7 +199,7 @@ if (isset($_POST['add_to_cart'])) {
                         </div>
                         <div id="Shelf" class="col-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo11.jpg" class="card-img-top" style="height: 250px;" alt="Shelf">
+                                <img src="../HTML/foto/Photo11.jpg" class="card-img-top" style="height: 250px;" alt="Shelf" data-toggle="modal" data-target="#productModal11">
                                 <div class="card-body">
                                     <h5 class="card-title">Shelf</h5>
 
@@ -210,7 +210,7 @@ if (isset($_POST['add_to_cart'])) {
                         </div>
                         <div id="Vertical Gardening" class="col-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;" alt="Vertical Gardening">
+                                <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;" alt="Vertical Gardening" data-toggle="modal" data-target="#productModal12">
                                 <div class="card-body">
                                     <h5 class="card-title">Vertical Gardening</h5>
                                     <button type="submit" name="add_to_cart" value="Vertical Gardening">Buy</button>
@@ -221,64 +221,74 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
 
 
-         <div class="container">
+         <v class="container">
         <div class="row">
-            <?php
-               $products = array(
-                $gloves = new Product("Gloves", 10, 50, "A pair of gardening gloves for protection."),
-                $pruningShears = new Product("Pruning Shears", 15, 30, "Pruning shears for cutting stems and small branches."),
-                $loppers = new Product("Loppers", 20, 25, "Loppers for cutting thick branches."),
-                $gardenFork = new Product("Garden Fork", 18, 35, "A garden fork for loosening soil."),
-                
-                $snakePlant = new Product("Snake Plant", 25, 20, "The snake plant is a popular indoor plant known for its ability to thrive with little maintenance."),
-                $pothos = new Product("Pothos", 12, 40, "Pothos is a popular houseplant and known for its easy care and variegated foliage."),
-                $zzPlant = new Product("ZZ Plant", 30, 0, "The ZZ plant is a low-maintenance houseplant that can survive in low light conditions."),
-                $peaceLily = new Product("Peace Lily", 22, 10, "The peace lily is an easy-to-care-for indoor plant that produces striking white flowers."),
-                
-                $lighting = new Product("Lighting", 50, 8, "Various lighting options for your garden or indoor space."),
-                $garments = new Product("Garments", 8, 60, "Garden garments for protection and comfort."),
-                $shelf = new Product("Shelf", 40, 0, "Decorative shelves for displaying plants and decorations."),
-                $verticalGardening = new Product("Vertical Gardening", 50, 8, "Vertical gardening solutions for maximizing space."),
-                
-            );
+        <div class="container">
+    <div class="row">
+    <div class="container">
+    <div class="row">
 
-            foreach ($products as $key => $product) {
+   <?php
+    class Product {
+    public $name;
+    public $price;
+    public $description;
+    public $availability;
+
+    public function __construct($name, $price, $description, $availability) {
+        $this->name = $name;
+        $this->price = $price;
+        $this->description = $description;
+        $this->availability = $availability;
+    }
+
+    public function isAvailable() {
+        return $this->availability > 0;
+    }
+}
+?>
+        <?php
+       $products = array(
+        new Product("Gloves", 10, "A pair of gardening gloves designed to provide protection and comfort during gardening activities. These gloves are made from durable materials and are suitable for various gardening tasks.", 50),
+        new Product("Pruning Shears", 15, "Pruning shears designed for precise cutting of stems and small branches in your garden. These shears feature sharp blades and ergonomic handles for ease of use.", 30),
+        new Product("Loppers", 20, "Loppers are essential tools for cutting thick branches and stems with ease. These loppers are built with high-quality materials and provide excellent leverage for efficient cutting.", 25),
+        new Product("Garden Fork", 18, "A garden fork designed to loosen soil and aerate the ground in your garden. This sturdy fork features sharp tines and a comfortable handle for effortless gardening.", 35),
+        
+        new Product("Snake Plant", 25, "The snake plant, also known as Sansevieria, is a popular indoor plant prized for its striking appearance and low maintenance requirements. It features tall, upright leaves with a variegated pattern.", 20),
+        new Product("Pothos", 12, "Pothos, also known as Devil's Ivy, is a versatile houseplant loved for its lush foliage and air-purifying qualities. This easy-to-care-for plant thrives in various lighting conditions and adds a touch of green to any indoor space.", 40),
+        new Product("ZZ Plant", 30, "The ZZ plant is a resilient houseplant known for its ability to thrive in low light conditions and tolerate neglect. With its glossy, dark green leaves, the ZZ plant adds a touch of elegance to any room.", 0),
+        new Product("Peace Lily", 22, "The peace lily, or Spathiphyllum, is a popular indoor plant admired for its elegant white flowers and air-purifying properties. This low-maintenance plant thrives in low to medium light conditions and requires minimal care.", 10),
+        
+        new Product("Lighting", 50, "Enhance the ambiance of your garden or indoor space with our selection of lighting solutions. From string lights to solar-powered lanterns, we offer a variety of options to illuminate your surroundings and create a cozy atmosphere.", 8),
+        new Product("Garments", 8, "Stay comfortable and protected during your gardening tasks with our range of garden garments. From sturdy gloves to lightweight aprons, we have the apparel you need to enjoy your time in the garden.", 60),
+        new Product("Shelf", 40, "Add style and functionality to your indoor space with our decorative shelves. Perfect for displaying plants, decorations, or books, these shelves are both practical and aesthetically pleasing.", 0),
+        new Product("Vertical Gardening", 50, "Maximize space in your garden with our vertical gardening solutions. From wall-mounted planters to vertical garden towers, we offer innovative products to help you create a lush and thriving vertical garden.", 8)
+       );
+        foreach ($products as $key => $product) {
             ?>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="../HTML/foto/<?= strtolower(str_replace(' ', '', $product->name)) ?>.jpg" class="card-img-top" style="height: 250px;" alt="<?= $product->name ?>" data-toggle="modal" data-target="#productModal<?= $key ?>">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $product->name ?></h5>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="productModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= $key ?>" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="productModalLabel<?= $key ?>"><?= $product->name ?></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p><?= $product->description ?></p>
-                                <p>Price: $<?= $product->price ?></p>
-                                <?php if ($product->isAvailable()): ?>
-                                    <p>In stock</p>
-                                <?php else: ?>
-                                    <p>Out of stock</p>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
+         
+<div class="modal fade" id="productModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= $key ?>" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel<?= $key ?>"><?= $product->name ?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><?= $product->description ?></p>
+                <p>Price: $<?= $product->price ?></p>
+                <?php if ($product->isAvailable()): ?>
+                    <p>In stock</p>
+                <?php else: ?>
+                    <p>Out of stock. It will be back soon</p>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
-        
+</div>
+                
 
         // Add hidden fields for previously added items
         foreach ($_SESSION['cart'] as $item => $quantity) {
