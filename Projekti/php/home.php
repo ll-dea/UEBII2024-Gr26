@@ -264,6 +264,8 @@ if (isset($_POST['add_to_cart'])) {
         new Product("Shelf", 40, "Add style and functionality to your indoor space with our decorative shelves. Perfect for displaying plants, decorations, or books, these shelves are both practical and aesthetically pleasing.", 0),
         new Product("Vertical Gardening", 50, "Maximize space in your garden with our vertical gardening solutions. From wall-mounted planters to vertical garden towers, we offer innovative products to help you create a lush and thriving vertical garden.", 8)
        );
+      
+       
         foreach ($products as $key => $product) {
             ?>
          
@@ -288,8 +290,9 @@ if (isset($_POST['add_to_cart'])) {
         </div>
     </div>
 </div>
-                
+<?php }?>
 
+           
         // Add hidden fields for previously added items
         foreach ($_SESSION['cart'] as $item => $quantity) {
             echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
