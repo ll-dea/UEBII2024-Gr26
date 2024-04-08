@@ -290,7 +290,7 @@ if (isset($_POST['add_to_cart'])) {
         </div>
     </div>
 </div>
-<?php }?>
+<?php }
 
            
         // Add hidden fields for previously added items
