@@ -37,7 +37,7 @@ footer {
   text-align: center;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  
 }
 #kontenti {
     display: flex ;
@@ -99,6 +99,7 @@ user-select: none;
 cursor: grab;
 transition: all 0.3s;
 z-index: 4; 
+width: auto;
 }
 
 #backToTopButton:hover span {
