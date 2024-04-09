@@ -164,20 +164,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="mb-3">
                 <label for="contactType" class="form-label">Zgjidh llojin e kontaktit:</label>
-                <select class="form-select" id="contactType" name="contactType">
+                <select class="form-select" id="contactType" name="contactType" required>
+                    <option value="">Zgjidhni një lloj kontakti</option>
                     <option value="email">Email</option>
                     <option value="phone">Numër telefoni</option>
                 </select>
             </div>
-            <div class="mb-3" id="emailField">
+            <div class="mb-3" id="emailField" style="display: none;">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@example.com"
-                    required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@example.com">
             </div>
             <div class="mb-3" id="phoneField" style="display: none;">
                 <label for="telefoni" class="form-label">Numri i Telefonit:</label>
                 <input type="tel" class="form-control" id="telefoni" name="telefoni" pattern="[0-9]{9,15}"
-                    placeholder="1234567890" required>
+                    placeholder="1234567890">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Fjalëkalimi:</label>
