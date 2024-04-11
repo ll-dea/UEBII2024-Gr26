@@ -145,29 +145,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <h1 style="padding-right: 5px;">Gardening Shop</h1>
         <nav style="padding-right: 5px;">
-            <a href="index.html">Home</a>
+            <a href="home.php">Home</a>
             <a href="Login.html">Login</a>
             <a href="about.php">About</a>
-            <a href="signup.html">Signup</a>
         </nav>
     </header>
 
     <div class="container">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="signupForm">
             <div class="mb-3">
-                <label for="emri" class="form-label">Emri:</label>
+                <label for="emri" class="form-label">Name:</label>
                 <input type="text" class="form-control" id="emri" name="emri" placeholder="John" required>
             </div>
             <div class="mb-3">
-                <label for="mbiemri" class="form-label">Mbiemri:</label>
+                <label for="mbiemri" class="form-label">Surname:</label>
                 <input type="text" class="form-control" id="mbiemri" name="mbiemri" placeholder="Doe" required>
             </div>
             <div class="mb-3">
-                <label for="contactType" class="form-label">Zgjidh llojin e kontaktit:</label>
+                <label for="contactType" class="form-label">Choose contact form:</label>
                 <select class="form-select" id="contactType" name="contactType" required>
-                    <option value="">Zgjidhni një lloj kontakti</option>
+                    <option value="" disabled selected></option>
                     <option value="email">Email</option>
-                    <option value="phone">Numër telefoni</option>
+                    <option value="phone">Phone Number</option>
                 </select>
             </div>
             <div class="mb-3" id="emailField" style="display: none;">
@@ -175,12 +174,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@example.com">
             </div>
             <div class="mb-3" id="phoneField" style="display: none;">
-                <label for="telefoni" class="form-label">Numri i Telefonit:</label>
+                <label for="telefoni" class="form-label">Phone Number:</label>
                 <input type="tel" class="form-control" id="telefoni" name="telefoni" pattern="[0-9]{9,15}"
                     placeholder="1234567890">
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Fjalëkalimi:</label>
+                <label for="password" class="form-label">Password:</label>
                 <input type="password" class="form-control" id="password" name="password"
                     placeholder="Shkruani fjalëkalimin tuaj" required>
             </div>
