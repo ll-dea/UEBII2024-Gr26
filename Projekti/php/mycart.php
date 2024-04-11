@@ -195,23 +195,23 @@ function getPriceByItem($item)
         case 'Loppers':
             return 20;
         case 'Garden Fork':
-            return 25;
+            return 18;
         case 'Snake Plant':
-            return 30;
+            return 25;
         case 'ZZ Plant':
-            return 35;
+            return 30;
         case 'Peace Lily':
-            return 40;
+            return 22;
         case 'Pothos':
-            return 65;
+            return 12;
         case 'Lighting':
-            return 45;
-        case 'Garmets':
             return 50;
+        case 'Garmets':
+            return 8;
         case 'Shelf':
-            return 55;
+            return 40;
         case 'Vertical Gardening':
-            return 60;
+            return 50;
         default:
             return 0;
     }
