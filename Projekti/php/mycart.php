@@ -53,7 +53,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
-    <title>My Cart</title>
+    <title>Garden Shop</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
