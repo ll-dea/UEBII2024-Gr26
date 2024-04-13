@@ -72,6 +72,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<?php
+// Function to save user credentials to a text file
+function saveCredentials($name, $surname, $email, $password) {
+    $data = "$name,$surname,$email,$password\n";
+    file_put_contents('../credentials/users.txt', $data, FILE_APPEND | LOCK_EX);
+}
+
+// Check if the form is submitted for signup
+if (isset($_POST['signup'])) {
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    // Save user credentials
+    saveCredentials($name, $surname, $email, $password);
+    echo "Signup successful!";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
