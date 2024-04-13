@@ -60,7 +60,7 @@ if (isset($_POST['add_to_cart'])) {
     <div id="kontenti">
         <div style="background-color: #8efc8c;">
 
-             <img id="slideshow" src="../HTML/foto/Photo13.jpg">
+            <img id="slideshow" src="../HTML/foto/Photo13.jpg">
             <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
 
         </div>
@@ -303,12 +303,11 @@ if (isset($_POST['add_to_cart'])) {
 
     </form>
 
-   
-  <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true"
-    style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c; width:45px">
-    <span>&#9733; </span>
-  </button>
 
+    <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c; width:45px">
+        <span>&#9733; </span>
+    </button>
+    <br><br><br><br><br>
     <br><br>
     <div class="row" style="align-items: center;">
         <img src="../HTML/foto/Photo18.png" alt="Promo">
@@ -320,24 +319,26 @@ if (isset($_POST['add_to_cart'])) {
             <div style="padding-left: 100px;"><img src="../HTML/foto/Photo16.png" style="width: 550px;" alt="Garden"></div>
 
         </div>
+        <br><br><br><br>
         <div class="col-6">
             <br><br>
-            <h class="display-5"> Ready, Set, Grow!</h>
+            <h class="display-5" > Ready, Set, Grow!</h>
             <br><br>
-            <p>Many herbs are easy to grow from seed. Here we'll focus on the direct-sow method, which works well for growing
+            <p style="font-size: 1rem;">Many herbs are easy to grow from seed. Here we'll focus on the direct-sow method, which works well for growing
                 herbs throughout the season.</p>
         </div>
 
     </div>
+    <br><br><br><br><br>
 
     <div class="row" style="height: 400px;">
 
         <div class="col-6">
             <br><br>
             <div style="padding-left: 100px;padding-right: 20px;">
-                <h class="display-5"> Raised Bed Buying Guide</h>
+                <h class="display-5" > Raised Bed Buying Guide</h>
                 <br><br>
-                <p>There are tons of good reasons to garden in raised beds: bigger harvests and more control, fewer weeds and
+                <p style="font-size: 1rem;">There are tons of good reasons to garden in raised beds: bigger harvests and more control, fewer weeds and
                     less
                     bending. We offer one of the largest assortments of raised beds available — dozens of sizes, colors, and
                     materials; self-watering options; accessories to increase growing space and functionality — and the friendly
@@ -389,34 +390,35 @@ if (isset($_POST['add_to_cart'])) {
 </body>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var backToTopButton = document.getElementById('backToTopButton');
+    document.addEventListener("DOMContentLoaded", function() {
+        var backToTopButton = document.getElementById('backToTopButton');
 
-    function toggleBackToTopButton() {
-      backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
-    }
+        function toggleBackToTopButton() {
+            backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
+        }
 
-    // Scroll to Top 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        // Scroll to Top 
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
-    function animateBackToTopButton() {
-      $('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce');
-    }
+        function animateBackToTopButton() {
+            $('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce');
+        }
 
-    window.addEventListener('scroll', function () {
-      toggleBackToTopButton();
+        window.addEventListener('scroll', function() {
+            toggleBackToTopButton();
 
-      if (window.scrollY > 300) {
-        animateBackToTopButton();
-      }
+            if (window.scrollY > 300) {
+                animateBackToTopButton();
+            }
+        });
+
+        backToTopButton.addEventListener('click', scrollToTop);
     });
-
-    backToTopButton.addEventListener('click', scrollToTop);
-  });
-
-
 </script>
 <script>
     function addToCart() {

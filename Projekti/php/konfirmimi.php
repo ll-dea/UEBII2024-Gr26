@@ -18,10 +18,8 @@ if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['
     }
 
     // Shfaq një mesazh për regjistrimin e suksesshëm dhe të dhënat e përdoruesit
-    echo "<h2>Regjistrimi është kryer me sukses!</h2>";
-    echo "<p>Emri: $emri</p>";
-    echo "<p>Mbiemri: $mbiemri</p>";
-
+    echo "<script>alert('You have been succesfully logged in');</script>";
+   
     // Pastro sesionin pasi t'ju tregohen të dhënat
     session_unset();
     session_destroy();

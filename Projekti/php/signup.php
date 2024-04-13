@@ -184,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     placeholder="Shkruani fjalëkalimin tuaj" required>
             </div>
             <input type="submit" value="Sign Up">
-            <a href="Login.html" style="font-size:small;">Do you have an account? Click here!</a>
+            <a href="../HTML/Login.html" style="font-size:small;">Do you have an account? Click here!</a>
         </form>
     </div>
     <br><br><br><br><br>
