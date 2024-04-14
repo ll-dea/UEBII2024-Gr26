@@ -11,7 +11,9 @@ body {
     text-align: center;
   
   }
+
   
+
   header a {
     color: #fff;
     text-decoration: none;
@@ -24,9 +26,9 @@ body {
   }
   
   .container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 0 20px;
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 0 10px;
   
   }
   
@@ -35,6 +37,8 @@ body {
     padding: 20px;
     border-radius: 5px;
   }
+
+ 
   
   input[type="text"],
   input[type="password"],
