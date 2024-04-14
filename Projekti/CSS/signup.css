@@ -1,3 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body, html {
+  height: 100%; /* Vendosni lartësinë e trupit dhe HTML-it në 100% */
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Qendron përmbajtjen horizontalisht */
+  align-items: center; /* Qendron përmbajtjen vertikalisht */
+  overflow-x: hidden;
+  font-family: "Truculenta";
+}
+
+
+  .container {
+    width: 100%; /* Përshtatet me gjerësinë e ekranit, por me një limit të arsyeshëm */
+    max-width: 600px; /* Mund ta rregullosh këtë vlerë bazuar në dizajnin tënd të përgjithshëm */
+    margin: auto; /* Qendron kontejnerin horizontalisht */
+    padding: 20px; /* Balanci i mirë i padding për të mos u bërë shumë ngushtë */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+
 body {
   font-family: "Truculenta";
   margin: 0;
@@ -11,6 +39,16 @@ header {
   text-align: center;
 
 }
+.error {
+  color: #D8000C; /* Ngjyrë e kuqe e errët për të treguar urgjencën */
+  background-color: #FFD2D2; /* Ngjyrë e lehtë rozë për sfond për të ndihmuar në theksimin e tekst-it */
+  padding: 10px 20px; /* Shtimi i padding për të bërë mesazhin më të lexueshëm */
+  margin: 20px 0; /* Sigurimi i hapësirës rreth kutisë së mesazhit */
+  border: 1px solid #D8000C; /* Kufizim i kuq për të rrethuar dhe tërhequr vëmendje */
+  border-radius: 5px; /* Bordura e rrumbullakosur për estetikë më të butë */
+  font-family: Arial, sans-serif; /* Përdorimi i një fonti të qartë dhe të lexueshëm */
+  text-align: center; /* Qendrimi i tekstit brenda mesazhit të gabimit */
+}
 
 header a {
   color: #fff;
@@ -23,12 +61,7 @@ header a:hover {
   color: white;
 }
 
-.container {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 0 20px;
 
-}
 
 form {
   background-color: #f2f2f2;
@@ -66,6 +99,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  left: 0;
 }
 
 .sticky-header {

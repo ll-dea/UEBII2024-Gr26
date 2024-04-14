@@ -1,34 +1,39 @@
 <?php
 session_start();
 error_reporting(E_ALL);
+
 // Kontrollo nëse ka të dhëna të regjistrimit në sesion
-if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['email']) && isset($_SESSION['telefoni']) && isset($_SESSION['contactType'])) {
-    // Merrni të dhënat nga sesioni
-    $emri = preg_replace('/ë/', 'e', $_SESSION['emri']);
-    $mbiemri = preg_replace('/ë/', 'e', $_SESSION['mbiemri']);
-    $contactType = $_SESSION['contactType'];
-
-    if ($contactType === 'email') {
-        $email = $_SESSION['email'];
-        echo "<p>Email: $email</p>";
-    } elseif ($contactType === 'phone') {
-        $telefoni = $_SESSION['telefoni'];
-        $telefoni_formatuar = preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1-$2-$3', $telefoni);
-        echo "<p>Numri i telefonit: $telefoni_formatuar</p>";
-    }
-
-    // Shfaq një mesazh për regjistrimin e suksesshëm dhe të dhënat e përdoruesit
-    echo "<h2>Regjistrimi është kryer me sukses!</h2>";
-    echo "<p>Emri: $emri</p>";
-    echo "<p>Mbiemri: $mbiemri</p>";
-
-    // Pastro sesionin pasi t'ju tregohen të dhënat
+if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['email']) && isset($_SESSION['telefoni'])) {
+    $emri = preg_replace('/e/', 'ë', $_SESSION['emri']);
+    $mbiemri = preg_replace('/e/', 'ë', $_SESSION['mbiemri']);
+    $email = $_SESSION['email'];
+    $telefoni = $_SESSION['telefoni'];
+    $telefoni_formatuar = preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1-$2-$3', $telefoni);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regjistrimi u Krye me Sukses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/konfirmimi.css">
+</head>
+<body>
+<div class="container"> <!-- Shtoni një kontejner që përmban të gjitha elementet -->
+    <h2>Regjistrimi është kryer me sukses!</h2><br>
+    <p>Emri: <?= $emri ?></p>
+    <p>Mbiemri: <?= $mbiemri ?></p>
+    <p>Email: <?= $email ?></p>
+    <p>Numri i telefonit: <?= $telefoni_formatuar ?></p>
+    <a href="home.php" class="button">Vazhdoni në faqen kryesore</a>
+</div>
+</body>
+</html>
+<?php
     session_unset();
     session_destroy();
-    header('Location: home.php');
-    exit();
 } else {
-    // Nëse nuk ka të dhëna të regjistrimit në sesion, shfaq një mesazh për gabim
     echo "<p>Të dhënat e regjistrimit nuk janë gjetur. Ju lutem kryeni regjistrimin.</p>";
 }
 ?>

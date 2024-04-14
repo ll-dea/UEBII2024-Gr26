@@ -1,235 +1,122 @@
 <?php
 session_start();
 
-// Ruan mesazhet e gabimeve nëse ndodhin
 $errors = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Kontrollo nëse ka emrin e përdoruesit të dorëzuar
-    if (isset($_POST['emri'])) {
-        $emri = $_POST['emri'];
-        $emri = preg_replace('/ë/', 'e', $emri);
-        
-        // Kontrolloni nëse emri përmban vetëm shkronja dhe hapësira
-        if (!preg_match("/^[A-Za-z-' ]*$/", $emri)) {
-            $errors['error_emri'] = "Emri i përdoruesit mund të përmbajë vetëm shkronja, viza, dhe hapësira.";
-        }
+    $emri = trim($_POST['emri'] ?? '');
+    $mbiemri = trim($_POST['mbiemri'] ?? '');
+    $email = $_POST['email'] ?? '';
+    $telefoni = $_POST['telefoni'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if (empty($emri)) {
+        $errors['error_emri'] = "Ju lutemi shkruani emrin.";
+    } elseif (!preg_match("/^[A-Za-z-' ]*$/", $emri)) {
+        $errors['error_emri'] = "Emri i përdoruesit mund të përmbajë vetëm shkronja, viza, dhe hapësira.";
     }
 
-    // Kontrollo nëse ka mbiemrin e përdoruesit të dorëzuar
-    if (isset($_POST['mbiemri'])) {
-        $mbiemri = $_POST['mbiemri'];
-        $mbiemri = preg_replace('/ë/', 'e', $mbiemri);
-        if (!preg_match('/^[A-Za-z\s]+$/', $mbiemri)) {
-            $errors['error_mbiemri'] = "Mbiemri duhet të përmbajë vetëm shkronja dhe hapsira.";
-        }
+    if (empty($mbiemri)) {
+        $errors['error_mbiemri'] = "Ju lutemi shkruani mbiemrin.";
+    } elseif (!preg_match('/^[A-Za-z\s]+$/', $mbiemri)) {
+        $errors['error_mbiemri'] = "Mbiemri duhet të përmbajë vetëm shkronja dhe hapsira.";
     }
 
-    // Kontrollo nëse ka emailin ose numrin e telefonit të përdoruesit të dorëzuar
-    if (isset($_POST['contactType'])) {
-        $contactType = $_POST['contactType'];
-
-        if ($contactType === 'email') {
-            if (isset($_POST['email'])) {
-                $email = $_POST['email'];
-
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $errors['error_email'] = "Adresa e emailit nuk është e vlefshme.";
-                }
-            }
-        } elseif ($contactType === 'phone') {
-            if (isset($_POST['telefoni'])) {
-                $telefoni = $_POST['telefoni'];
-
-                if (!preg_match('/^[0-9]{9,15}$/', $telefoni)) {
-                    $errors['error_telefoni'] = "Numri i telefonit duhet të përmbajë vetëm shifra dhe të jetë në mes 9 dhe 15 karaktere në gjatësi.";
-                }
-            }
-        }
+    if (empty($email)) {
+        $errors['error_email'] = "Ju lutemi vendosni adresën e emailit.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['error_email'] = "Adresa e emailit nuk është e vlefshme.";
     }
 
-    if (isset($_POST['password'])) {
-        $password = $_POST['password'];
-
-        // Kontrolloni se fjalëkalimi ka të paktën një shkronjë të madhe, një shkronjë të vogël dhe një numër
-        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/', $password)) {
-            $errors['error_password'] = "Fjalëkalimi duhet të përmbajë të paktën një shkronjë të madhe, një shkronjë të vogël dhe një numër, dhe të jetë më i gjatë se 8 karaktere.";
-        }
+    if (empty($password)) {
+        $errors['error_password'] = "Ju lutemi vendosni fjalëkalimin.";
+    } elseif (!preg_match('/^.*(?=.{8,})(?=.*[!@#$%^&*()\-_=+{};:,<.>]).*$/', $password)) {
+        $errors['error_password'] = "Fjalëkalimi duhet të jetë të paktën 8 karaktere dhe të përmbajë së paku një karakter special.";
     }
 
-    // Nëse nuk ka asnjë gabim, ruaj të dhënat dhe kthehu në faqen e konfirmimit
     if (empty($errors)) {
-        $_SESSION['emri'] = $_POST['emri'];
-        $_SESSION['mbiemri'] = $_POST['mbiemri'];
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['telefoni'] = $_POST['telefoni'];
+        $_SESSION['emri'] = $emri;
+        $_SESSION['mbiemri'] = $mbiemri;
+        $_SESSION['email'] = $email;
+        $_SESSION['telefoni'] = $telefoni;
+        $_SESSION['password'] = $password; // Consider hashing the password before storing it for security reasons
 
         session_write_close();
-
         header('Location: konfirmimi.php');
         exit();
     }
 }
 ?>
 
-<?php
-// Function to save user credentials to a text file
-function saveCredentials($name, $surname, $email, $password) {
-    $data = "$name,$surname,$email,$password\n";
-    file_put_contents('../credentials/users.txt', $data, FILE_APPEND | LOCK_EX);
-}
 
-// Check if the form is submitted for signup
-if (isset($_POST['signup'])) {
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    
-    // Save user credentials
-    saveCredentials($name, $surname, $email, $password);
-    echo "Signup successful!";
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garden Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/signup.css">
-    <style>
-        body {
-            background-image: url(./foto/Photo19.jpg);
-            font-family: 'Truculenta', sans-serif;
-            /* Use the custom font */
-            margin: 0;
-            /* Remove default margin */
-            padding: 0;
-            /* Remove default padding */
-        }
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garden Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link rel="stylesheet" href="../CSS/signup.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
 
-        header {
-            background-color: #8efc8c;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            /* Ensure header is on top */
-        }
 
-        header a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        header a:hover {
-            text-decoration: underline;
-            color: white;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 150px auto 20px;
-            /* Adjust margin-top to move form below header */
-            padding: 0 20px;
-        }
-
-        footer {
-            background-color: #8efc8c;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            margin-top: 20px;
-            /* Adjust margin-top to match the margin-bottom of the form */
-        }
-    </style>
+    
 </head>
-
 <body>
+<body class="truculenta">
+<header class="sticky-header">
+    <h1 style="padding-right: 5px;" >Gardening Shop</h1>
+    <nav style="padding-right: 5px;">
+      <a href="index.html">Home</a>
+      <a href="Login.html">Login</a>
+      <a href="About.html">About</a>
+     
 
-    <header>
-        <h1 style="padding-right: 5px;">Gardening Shop</h1>
-        <nav style="padding-right: 5px;">
-            <a href="home.php">Home</a>
-            <a href="Login.html">Login</a>
-            <a href="about.php">About</a>
-        </nav>
-    </header>
+    </nav>
+  </header>
+  <br><br><br><br><br><br>
+<div class="row">
+  <div class="col-4"></div>
 
     <div class="container">
+        
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="signupForm">
-            <div class="mb-3">
-                <label for="emri" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="emri" name="emri" placeholder="John" required>
+            <div class="form-group">
+                <label for="emri">Name:</label>
+                <input type="text" class="form-control" id="emri" name="emri" required placeholder="Shkruaj emrin tënd këtu">
+                <?php if (isset($errors['error_emri'])) echo '<div class="error">' . $errors['error_emri'] . '</div>'; ?>
             </div>
-            <div class="mb-3">
-                <label for="mbiemri" class="form-label">Surname:</label>
-                <input type="text" class="form-control" id="mbiemri" name="mbiemri" placeholder="Doe" required>
+            <div class="form-group">
+                <label for="mbiemri">Surname:</label>
+                <input type="text" class="form-control" id="mbiemri" name="mbiemri" required  placeholder="Shkruaj mbiemrin tënd këtu">
+                <?php if (isset($errors['error_mbiemri'])) echo '<div class="error">' . $errors['error_mbiemri'] . '</div>'; ?>
             </div>
-            <div class="mb-3">
-                <label for="contactType" class="form-label">Choose contact form:</label>
-                <select class="form-select" id="contactType" name="contactType" required>
-                    <option value="" disabled selected></option>
-                    <option value="email">Email</option>
-                    <option value="phone">Phone Number</option>
-                </select>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="example@example.com">
+                <?php if (isset($errors['error_email'])) echo '<div class="error">' . $errors['error_email'] . '</div>'; ?>
             </div>
-            <div class="mb-3" id="emailField" style="display: none;">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@example.com">
+            <div class="form-group">
+                <label for="telefoni">Phone Number:</label>
+                <input type="tel" class="form-control" id="telefoni" name="telefoni" pattern="[0-9]{9,15}" required placeholder="04xxxxxxx">
+                <?php if (isset($errors['error_telefoni'])) echo '<div class="error">' . $errors['error_telefoni'] . '</div>'; ?>
             </div>
-            <div class="mb-3" id="phoneField" style="display: none;">
-                <label for="telefoni" class="form-label">Phone Number:</label>
-                <input type="tel" class="form-control" id="telefoni" name="telefoni" pattern="[0-9]{9,15}"
-                    placeholder="1234567890">
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required placeholder="Shkruaj një fjalëkalim të sigurt">
+                <?php if (isset($errors['error_password'])) echo '<div class="error">' . $errors['error_password'] . '</div>'; ?>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="password" name="password"
-                    placeholder="Shkruani fjalëkalimin tuaj" required>
-            </div>
-            <input type="submit" value="Sign Up">
-            <a href="../HTML/Login.html" style="font-size:small;">Do you have an account? Click here!</a>
+            <button type="submit" name="signup"  class="btn btn-primary">Register</button>
         </form>
     </div>
-    <br><br><br><br><br>
+
     <footer>
         &copy; 2024 Signup Form. All rights reserved.
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var contactTypeField = document.getElementById('contactType');
-            var emailField = document.getElementById('emailField');
-            var phoneField = document.getElementById('phoneField');
-
-            contactTypeField.addEventListener('change', function () {
-                if (contactTypeField.value === 'email') {
-                    emailField.style.display = 'block';
-                    phoneField.style.display = 'none';
-                } else if (contactTypeField.value === 'phone') {
-                    emailField.style.display = 'none';
-                    phoneField.style.display = 'block';
-                }
-            });
-        });
-    </script>
-
 </body>
-
 </html>
