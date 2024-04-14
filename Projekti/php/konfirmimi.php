@@ -8,7 +8,7 @@ if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['
     $mbiemri = preg_replace('/e/', 'ë', $_SESSION['mbiemri']);
     $email = $_SESSION['email'];
     $telefoni = $_SESSION['telefoni'];
-    $telefoni_formatuar = preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1-$2-$3', $telefoni);
+    $telefoni_formatuar = preg_replace('/(\d{3})(\d{3})(\d{3})/', '$1-$2-$3', $telefoni);
 ?>
 <!DOCTYPE html>
 <html lang="en">
