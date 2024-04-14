@@ -24,7 +24,6 @@
 </head>
 
 <body>
-  <!-- HEADER -->
 
   <header class="sticky-header">
     <h1>Gardening Shop</h1>
