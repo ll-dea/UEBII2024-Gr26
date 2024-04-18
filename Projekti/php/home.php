@@ -254,12 +254,24 @@ if (isset($_POST['add_to_cart'])) {
                                                     {
                                                         return $this->availability;
                                                     }
+
+                                                    public function getAvailabilityText() {
+                                                        if ($this->availability > 0) {
+                                                            return 'In stock';
+                                                        } else {
+                                                            return 'Out of stock. It will be back soon';
+                                                        }
+                                                    }
+
+                                                    public function setAvailability($availability) {
+                                                        $this->availability = $availability;
+                                                    }
                                                 }
 
                                                 ?>
                                                 <?php
                                                 $products = array(
-                                                    new ExtendedProduct("Gloves", 10, "A pair of gardening gloves designed to provide protection and comfort during gardening activities. These gloves are made from durable materials and are suitable for various gardening tasks.", 50),
+                                                    new ExtendedProduct("Gloves", 10, "A pair of gardening gloves designed to provide protection and comfort during gardening activities. These gloves are made from durable materials and are suitable for various gardening tasks.", 1),
                                                     new ExtendedProduct("Pruning Shears", 15, "Pruning shears designed for precise cutting of stems and small branches in your garden. These shears feature sharp blades and ergonomic handles for ease of use.", 30),
                                                     new ExtendedProduct("Loppers", 20, "Loppers are essential tools for cutting thick branches and stems with ease. These loppers are built with high-quality materials and provide excellent leverage for efficient cutting.", 25),
                                                     new ExtendedProduct("Garden Fork", 18, "A garden fork designed to loosen soil and aerate the ground in your garden. This sturdy fork features sharp tines and a comfortable handle for effortless gardening.", 35),
@@ -274,7 +286,7 @@ if (isset($_POST['add_to_cart'])) {
                                                     new ExtendedProduct("Shelf", 40, "Add style and functionality to your indoor space with our decorative shelves. Perfect for displaying plants, decorations, or books, these shelves are both practical and aesthetically pleasing.", 0),
                                                     new ExtendedProduct("Vertical Gardening", 50, "Maximize space in your garden with our vertical gardening solutions. From wall-mounted planters to vertical garden towers, we offer innovative products to help you create a lush and thriving vertical garden.", 8)
                                                 );
-
+                                                $products[0]->setAvailability(1);
 
                                                 foreach ($products as $key => $product) {
                                                 ?>
@@ -291,11 +303,7 @@ if (isset($_POST['add_to_cart'])) {
                                                                 <div class="modal-body">
                                                                     <p><?= $product->description ?></p>
                                                                     <p>Price: $<?= $product->price ?></p>
-                                                                    <?php if ($product->getAvailability()) : ?>
-                                                                        <p>In stock</p>
-                                                                    <?php else : ?>
-                                                                        <p>Out of stock. It will be back soon</p>
-                                                                    <?php endif; ?>
+                                                                    <p><?= $product->getAvailabilityText() ?></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -384,6 +392,7 @@ if (isset($_POST['add_to_cart'])) {
 
                 </div>
             </form>
+            </center>
 
 
 
