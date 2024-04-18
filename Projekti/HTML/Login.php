@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="col-4"></div>
 
   <div class="container col-4">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return validateForm()">
+    <form action="../php/home.php" method="POST" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" placeholder="example@example.com" required>
