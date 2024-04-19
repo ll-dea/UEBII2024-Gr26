@@ -114,9 +114,9 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
 
 <body style="background-color: white; margin:0; padding:0;" class="truculenta">
 
-    <header style="padding: 0; background-color:#ff7f49" class="sticky-header" >
-        <h1>Gardening Shop</h1>
-        <nav>
+    <header style="padding:0; background-color:#ff7f49" class="sticky-header" >
+        <h1 style="margin-right:10px" >Gardening Shop</h1>
+        <nav style="margin-right:10px"> 
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
