@@ -41,7 +41,6 @@ if (isset($_POST['add_to_cart'])) {
 
 
 
-    <script src="../Javascript/index.js"></script>
 </head>
 
 <body class="truculenta" style="padding: 0px;margin-right:0px">
@@ -61,10 +60,10 @@ if (isset($_POST['add_to_cart'])) {
             <source src="../HTML/foto/Video1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <p style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: #fff;font-size: 70px;text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        <!-- <p style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: #fff;font-size: 70px;text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     letter-spacing: 2px;
     max-width: 80%;
-    line-height: 1.5;filter:blur(100%)">Find Your Style</p>
+    line-height: 1.5;filter:blur(100%)">Find Your Style</p> -->
     </div>
 
 
@@ -337,8 +336,8 @@ if (isset($_POST['add_to_cart'])) {
     <div id="kontenti">
         <div style="background-color: #8efc8c;">
 
-            <img id="slideshow" src="../HTML/foto/Photo13.jpg">
-            <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
+            <img src="../HTML/foto/Photo13.jpg">
+            
 
         </div>
     </div>
@@ -358,7 +357,7 @@ if (isset($_POST['add_to_cart'])) {
         </div>
 
     </div>
-
+   
     <div class="row" style="height: 400px;">
 
         <div class="col-6">
@@ -376,40 +375,11 @@ if (isset($_POST['add_to_cart'])) {
             <img src="../HTML/foto/Photo17.png" style="width: 500px;" alt="Garden">
         </div>
 
+
     </div>
-    <br><br><br> <br><br><br><br>
-    <div id="kontakt" class="row" style="padding: 50px; background-color: #8efc8c ">
-        <div class="middle col-6 ">
-            <div class="info">
-                <h2>Meet Us</h2>
-                <p>Rruga B, Prishtina 10000</p>
-                <p>Phone : +383111000</p>
-                <p>Office Hours : 8:00am - 17:00pm</p>
-            </div>
-
-        </div>
-
-        <div class="form col-6 " style="align-items: center;">
-            <h2 style="margin-left: 15px;">Contact Us</h2>
-            <form id="contactForm" onsubmit="return validateForm()">
-                <div class="inputs">
-                    <input style="height: 50px; width: 500px;" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name.surname@gmail.com">
-                    <textarea style="height: 100px ; width: 500px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-                    <button type="submit" class="btn btn-light mx-auto ">Send</button>
-
-                </div>
-            </form>
-            </center>
-
-
-
-
-        </div>
-    </div>
-
-
-
+   
+  <footer>    &copy; 2024 Login Page. All rights reserved.
+</footer>
 </body>
 
 <script>
@@ -493,5 +463,23 @@ if (isset($_POST['add_to_cart'])) {
         return true;
     }
 </script>
+<script>
+    let i = 0;
+let imgArray = [ '../HTML/foto/Photo14.jpg', '../HTML/foto/Photo15.jpg', '../HTML/foto/Photo13.jpg'];
 
+function changeImg() {
+    document.getElementById('slideshow').src = imgArray[i];
+
+    if (i < imgArray.length - 1) {
+        i++;
+    }
+    else {
+        i = 0;
+    }
+    //setTimeout("changeImg()", 2600);
+}
+document.addEventListener(onload, changeImg());
+
+
+</script>
 </html>
