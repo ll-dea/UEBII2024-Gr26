@@ -30,7 +30,7 @@
             text-align: center; /* Center content */
         }
         h1 {
-            color: #8efc8c; /* Set heading color */
+            color: #ff7f49; /* Set heading color */
             margin-bottom: 20px; /* Add space below heading */
         }
         p {
@@ -60,13 +60,13 @@ define('BASE_URL', 'home.php');
         // Use session to store the visit count value
         $_SESSION['visit_count'] = $visit_count;
         ?>
-<body  style="<?php if($visit_count % 2 == 0) { echo 'background-color: #8efc8c;'; } else { echo 'background-color:rgb(251, 242, 111) ;'; } ?>">
+<body  style="<?php if($visit_count % 2 == 0) { echo 'background-color: #ff7f49;'; } else { echo 'background-color:#ffb617 ;'; } ?>">
     <div class="container">
       
         
         <h1>Welcome to our website!</h1>
         <p>This is your visit number <?php echo $_SESSION['visit_count']; ?>.</p>
-        <a href="<?php echo BASE_URL; ?>" style="color: #8efc8c;">Go Home</a>
+        <a href="<?php echo BASE_URL; ?>" style="color: #ff7f49;">Go Home</a>
     </div>
 </body>
 </html>

@@ -33,7 +33,7 @@
       <a href="about.php">About</a>
 
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary0" style=" background-color : #8efc8c">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary0" style=" background-color : #ff7900">
       <div class="container-fluid">
         <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@
 <br><br><br><br>
 
   <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true"
-    style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c;">
+    style="background-color:white; color: #ff7900; border: 1px solid #8efc8c;">
     <span>&#9733; </span>
   </button>
 
@@ -99,7 +99,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="single">
-            <h2 style="color: #8efc8c;">Subscribe to our Newsletter</h2>
+            <h2 style="color: #ff7900;">Subscribe to our Newsletter</h2>
             <p>Subcribe so you can be notified for future events or sales!</p>
             <div class="input-group">
               <input type="email" class="form-control" placeholder="Enter your email">
@@ -253,7 +253,7 @@
 
 
 
-  <div id="kontakt" class="row" style="padding: 50px; background-color: #8efc8c ">
+  <div id="kontakt" class="row" style="padding: 50px; background-color: #ff7900 ">
     <div class="middle col-6 ">
       <div class="info">
         <h2>Meet Us</h2>

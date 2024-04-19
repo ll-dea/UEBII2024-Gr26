@@ -33,7 +33,7 @@ body {
   overflow-x: hidden;
 }
 header {
-  background-color: #8efc8c;
+  background-color: #ff7f49;
   color: #fff;
   padding: 10px 20px;
   text-align: center;
@@ -82,17 +82,17 @@ input[type="tel"] {
 }
 
 input[type="submit"] {
-  background-color: #8efc8c;
+  background-color: #ff7f49;
   color: #fff;
   cursor: pointer;
 }
 
 input[type="submit"]:hover {
-  background-color: #8efc8c;
+  background-color: #ff7f49;
 }
 
 footer {
-  background-color: #8efc8c;
+  background-color: #ff7f49;
   color: #fff;
   padding: 10px 20px;
   text-align: center;
@@ -107,7 +107,7 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #8efc8c;
+  background-color: #ff7f49;
   padding: 10px 0;
  
   text-align: center;

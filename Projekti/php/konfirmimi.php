@@ -20,7 +20,7 @@ if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['
     <link rel="stylesheet" href="../CSS/konfirmimi.css">
 </head>
 <body>
-<div class="container"> <!-- Shtoni një kontejner që përmban të gjitha elementet -->
+<div class="container" style="background-color: #ff7f49;"> <!-- Shtoni një kontejner që përmban të gjitha elementet -->
     <h2>Regjistrimi është kryer me sukses!</h2><br>
     <p>Emri: <?= $emri ?></p>
     <p>Mbiemri: <?= $mbiemri ?></p>
