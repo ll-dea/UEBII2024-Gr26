@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <body class="truculenta">
-<header class="sticky-header">
+<header class="sticky-header" style="background-color: ff7f49;">
     <h1 style="padding-right: 5px;" >Gardening Shop</h1>
     <nav style="padding-right: 5px;">
       <a href="index.html">Home</a>
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-    <footer>
+    <footer style="background-color: ff7f49;">
         &copy; 2024 Signup Form. All rights reserved.
     </footer>
 

@@ -45,7 +45,7 @@ if (isset($_POST['add_to_cart'])) {
 
 <body class="truculenta" style="padding: 0px;margin-right:0px">
 
-    <header class="sticky-header">
+    <header class="sticky-header" style="background-color: #ff7f49;">
         <h1>Gardening Shop</h1>
         <nav>
             <a href="home.php">Home</a>
@@ -327,14 +327,14 @@ if (isset($_POST['add_to_cart'])) {
     </form>
 
 
-    <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c; width:45px">
+    <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #ff7900; border: 1px solid #ff7900; width:45px">
         <span>&#9733; </span>
     </button>
     <br><br><br><br><br>
     <br><br>
 
     <div id="kontenti">
-        <div style="background-color: #8efc8c;">
+        <div style="background-color: #ff7f49;">
 
             <img src="../HTML/foto/Photo13.jpg">
             
@@ -377,8 +377,9 @@ if (isset($_POST['add_to_cart'])) {
 
 
     </div>
+    
    
-  <footer>    &copy; 2024 Login Page. All rights reserved.
+  <footer style="font-size: 1rem;background-color:#ff7f49">    &copy; 2024 Login Page. All rights reserved.
 </footer>
 </body>
 
