@@ -44,7 +44,7 @@ if (isset($_POST['add_to_cart'])) {
     <script src="../Javascript/index.js"></script>
 </head>
 
-<body class="truculenta">
+<body class="truculenta" style="padding: 0px;margin-right:0px">
 
     <header class="sticky-header">
         <h1>Gardening Shop</h1>
@@ -55,16 +55,19 @@ if (isset($_POST['add_to_cart'])) {
 
         </nav>
     </header>
-    <br><br><br><br><br>
-
-    <div id="kontenti">
-        <div style="background-color: #8efc8c;">
-
-            <img id="slideshow" src="../HTML/foto/Photo13.jpg">
-            <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
-
-        </div>
+    <br><br><br>
+    <div>
+        <video autoplay muted loop playsinline style="width: 100vw; height: 90vh; object-fit: cover; position:relative">
+            <source src="../HTML/foto/Video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: #fff;font-size: 70px;text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    max-width: 80%;
+    line-height: 1.5;filter:blur(100%)">Find Your Style</p>
     </div>
+
+
     <br><br>
     <form action="mycart.php" method="post">
         <div style="padding: 20px;">
@@ -218,7 +221,7 @@ if (isset($_POST['add_to_cart'])) {
                             </div>
                         </div>
 
-
+                        <br><br><br>
                         <v class="container">
                             <div class="row">
                                 <div class="container">
@@ -240,7 +243,8 @@ if (isset($_POST['add_to_cart'])) {
                                                         $this->description = $description;
                                                     }
                                                 }
-                                                class ExtendedProduct extends Product{
+                                                class ExtendedProduct extends Product
+                                                {
                                                     protected $availability;
 
                                                     public function __construct($name, $price, $description, $availability)
@@ -255,7 +259,8 @@ if (isset($_POST['add_to_cart'])) {
                                                         return $this->availability;
                                                     }
 
-                                                    public function getAvailabilityText() {
+                                                    public function getAvailabilityText()
+                                                    {
                                                         if ($this->availability > 0) {
                                                             return 'In stock';
                                                         } else {
@@ -263,7 +268,8 @@ if (isset($_POST['add_to_cart'])) {
                                                         }
                                                     }
 
-                                                    public function setAvailability($availability) {
+                                                    public function setAvailability($availability)
+                                                    {
                                                         $this->availability = $availability;
                                                     }
                                                 }
@@ -326,41 +332,42 @@ if (isset($_POST['add_to_cart'])) {
     </button>
     <br><br><br><br><br>
     <br><br>
-    <div class="row" style="align-items: center;">
-        <img src="../HTML/foto/Photo18.png" alt="Promo">
+
+    <div id="kontenti">
+        <div style="background-color: #8efc8c;">
+
+            <img id="slideshow" src="../HTML/foto/Photo13.jpg">
+            <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
+
+        </div>
     </div>
-    <br><br>
+    <br><br><br><br><br> <br><br><br><br><br><br><br><br><br>
     <div class="row" style="height: 400px;">
 
         <div class="col-6">
             <div style="padding-left: 100px;"><img src="../HTML/foto/Photo16.png" style="width: 550px;" alt="Garden"></div>
 
         </div>
-        <br><br><br><br>
         <div class="col-6">
             <br><br>
-            <h class="display-5" > Ready, Set, Grow!</h>
+            <h class="display-5"> Ready, Set, Grow!</h>
             <br><br>
-            <p style="font-size: 1rem;">Many herbs are easy to grow from seed. Here we'll focus on the direct-sow method, which works well for growing
+            <p>Many herbs are easy to grow from seed. Here we'll focus on the direct-sow method, which works well for growing
                 herbs throughout the season.</p>
         </div>
 
     </div>
-    <br><br><br><br><br>
 
     <div class="row" style="height: 400px;">
 
         <div class="col-6">
             <br><br>
             <div style="padding-left: 100px;padding-right: 20px;">
-                <h class="display-5" > Raised Bed Buying Guide</h>
+                <h class="display-5"> Raised Bed Buying Guide</h>
                 <br><br>
-                <p style="font-size: 1rem;">There are tons of good reasons to garden in raised beds: bigger harvests and more control, fewer weeds and
+                <p style="font-size: 1.75rem;">There are tons of good reasons to garden in raised beds: bigger harvests and more control, fewer weeds and
                     less
-                    bending. We offer one of the largest assortments of raised beds available — dozens of sizes, colors, and
-                    materials; self-watering options; accessories to increase growing space and functionality — and the friendly
-                    and
-                    knowledgeable support to guide you to the raised bed garden of your dreams!</p>
+                    bending.</p>
             </div>
         </div>
         <div class="col-6">
@@ -369,7 +376,7 @@ if (isset($_POST['add_to_cart'])) {
         </div>
 
     </div>
-    <br><br><br>
+    <br><br><br> <br><br><br><br>
     <div id="kontakt" class="row" style="padding: 50px; background-color: #8efc8c ">
         <div class="middle col-6 ">
             <div class="info">
@@ -400,9 +407,7 @@ if (isset($_POST['add_to_cart'])) {
         </div>
     </div>
 
-    <footer style="font-size: 1rem;">
-        &copy; 2024 Gardening Shop. All rights reserved.
-    </footer>
+
 
 </body>
 
