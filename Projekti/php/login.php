@@ -42,9 +42,7 @@
 <?php
 define('BASE_URL', 'home.php');
 ?>
-  <?php
-        $name = $_POST["emri"];
-        ?>
+  
 
         <?php
         // Start or resume session
@@ -66,7 +64,7 @@ define('BASE_URL', 'home.php');
     <div class="container">
       
         
-        <h1>Welcome to our website <?php echo strtoupper($name); ?>!</h1>
+        <h1>Welcome to our website!</h1>
         <p>This is your visit number <?php echo $_SESSION['visit_count']; ?>.</p>
         <a href="<?php echo BASE_URL; ?>" style="color: #8efc8c;">Go Home</a>
     </div>
