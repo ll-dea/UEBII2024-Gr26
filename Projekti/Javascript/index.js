@@ -1,5 +1,5 @@
 let i = 0;
-let imgArray = ['../HTML/foto/Photo13.jpg', '../HTML/foto/Photo14.jpg', '../HTML/foto/Photo15.jpg'];
+let imgArray = [ '../HTML/foto/Photo14.jpg', '../HTML/foto/Photo15.jpg', '../HTML/foto/Photo13.jpg'];
 
 function changeImg() {
     document.getElementById('slideshow').src = imgArray[i];

@@ -30,11 +30,16 @@
   </header>
   <br><br><br>
 
-  <video autoplay muted loop playsinline style="width: 100vw; height: 90vh; object-fit: cover;">
-    <source filter:blur(100%) src="./foto/Video1.mp4" type="video/mp4">
-    <!-- Add additional source elements for other video formats (e.g., WebM, OGG) -->
-    Your browser does not support the video tag.
-  </video>
+  <div>
+    <video autoplay muted loop playsinline style="width: 100vw; height: 90vh; object-fit: cover; position:relative">
+        <source src="../HTML/foto/Video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: #fff;font-size: 70px;text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+letter-spacing: 2px;
+max-width: 80%;
+line-height: 1.5;filter:blur(100%)">Find Your Style</p>
+</div>
   
 
   <br><br>
