@@ -309,6 +309,7 @@ if (isset($_POST['add_to_cart'])) {
                                                                     <p><?= $product->description ?></p>
                                                                     <p>Price: $<?= $product->price ?></p>
                                                                     <p><?= $product->getAvailabilityText() ?></p>
+                                                                    <p>Hope you found this helpful!</p>
                                                                 </div>
                                                             </div>
                                                         </div>
