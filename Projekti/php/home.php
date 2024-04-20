@@ -21,16 +21,17 @@ if (isset($_POST['add_to_cart'])) {
 
 ?>
 <?php
-function setRating($value) {
+function setRating($value)
+{
     setcookie('rating', $value, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 
 // Function to get the current rating
-function getRating() {
-    if(isset($_COOKIE['rating'])) {
+function getRating()
+{
+    if (isset($_COOKIE['rating'])) {
         return $_COOKIE['rating'];
-    }
-    else {
+    } else {
         // If no rating is set, set it to 0
         setRating(0);
         return 0;
@@ -38,21 +39,22 @@ function getRating() {
 }
 
 // Function to delete the rating
-function deleteRating() {
-    if(isset($_COOKIE['rating'])) {
+function deleteRating()
+{
+    if (isset($_COOKIE['rating'])) {
         unset($_COOKIE['rating']);
         setcookie('rating', null, -1, '/');
     }
 }
 
 // Check if the rating form is submitted
-if(isset($_POST['rating'])) {
+if (isset($_POST['rating'])) {
     $rating = $_POST['rating'];
     setRating($rating);
 }
 
 // Check if the delete button is clicked
-if(isset($_POST['delete_rating'])) {
+if (isset($_POST['delete_rating'])) {
     deleteRating();
 }
 
@@ -77,13 +79,14 @@ $currentRating = getRating();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<style>
-     .rating {
+    <style>
+        .rating {
             unicode-bidi: bidi-override;
             direction: rtl;
             text-align: center;
         }
-        .rating > label {
+
+        .rating>label {
             display: inline-block;
             position: relative;
             width: 1.1em;
@@ -91,16 +94,18 @@ $currentRating = getRating();
             color: #ccc;
             cursor: pointer;
         }
-        .rating > label:hover,
-        .rating > label:hover ~ label,
-        .rating > input:focus ~ label {
+
+        .rating>label:hover,
+        .rating>label:hover~label,
+        .rating>input:focus~label {
             color: #ffcc00;
         }
-         .rating > input:checked ~ label,
-        .rating:not(:checked) > label:hover ~ input:checked ~ label {
+
+        .rating>input:checked~label,
+        .rating:not(:checked)>label:hover~input:checked~label {
             color: #ffcc00;
         }
-        
+
         /*.rating > label:hover,
         .rating > input:focus ~ label,
         .rating > label:hover ~ input:focus ~ label,
@@ -116,15 +121,13 @@ $currentRating = getRating();
             position: absolute; 
         }
         */
-        
-</style>
+    </style>
 
 </head>
 
-<body class="truculenta" style="padding: 0px;margin-right:0px">
-
-    <header class="sticky-header" style="background-color: #ff7f49;">
-        <h1 style="margin-top:10px">Gardening Shop</h1>
+<body class="truculenta" style="margin-right:0px">
+    <header class="sticky-header" style="background-color: #ff7f49; padding-left:27px">
+        <h1 style="margin-top:10px; ">Gardening Shop</h1>
         <nav>
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
@@ -132,6 +135,7 @@ $currentRating = getRating();
 
         </nav>
     </header>
+
     <br><br><br>
     <div>
         <video autoplay muted loop playsinline style=" height: 620px;width:100%; object-fit: cover; position:relative;margin-top:20px">
@@ -173,7 +177,7 @@ $currentRating = getRating();
                             <div class="card-body">
                                 <h5 class="card-title">Pruning Shears</h5>
 
-                                <button type="submit" name="add_to_cart"style=" background-color : #ff7f49 ; font-size:1rem;width:auto" value="Pruning Shears">Add to Cart</button>
+                                <button type="submit" name="add_to_cart" style=" background-color : #ff7f49 ; font-size:1rem;width:auto" value="Pruning Shears">Add to Cart</button>
 
                             </div>
                         </div>
@@ -415,7 +419,7 @@ $currentRating = getRating();
         <div style="background-color: #ff7f49;">
 
             <img src="../HTML/foto/Photo13.jpg">
-            
+
 
         </div>
     </div>
@@ -435,7 +439,7 @@ $currentRating = getRating();
         </div>
 
     </div>
-   
+
     <div class="row" style="height: 400px;">
 
         <div class="col-6">
@@ -455,27 +459,32 @@ $currentRating = getRating();
 
 
     </div>
-    
+
     <h2>Your Rating</h2>
 
-<form method="post">
-    <fieldset class="rating">
-        <input type="radio" id="star5" name="rating" value="5" <?php if($currentRating == 5) echo "checked"; ?> /><label for="star5" title="5 stars">&#9733;</label>
-        <input type="radio" id="star4" name="rating" value="4" <?php if($currentRating == 4) echo "checked"; ?> /><label for="star4" title="4 stars">&#9733;</label>
-        <input type="radio" id="star3" name="rating" value="3" <?php if($currentRating == 3) echo "checked"; ?> /><label for="star3" title="3 stars">&#9733;</label>
-        <input type="radio" id="star2" name="rating" value="2" <?php if($currentRating == 2) echo "checked"; ?> /><label for="star2" title="2 stars">&#9733;</label>
-        <input type="radio" id="star1" name="rating" value="1" <?php if($currentRating == 1) echo "checked"; ?> /><label for="star1" title="1 star">&#9733;</label>
-    </fieldset>
-    <br/>
-    <input type="submit" value="Submit Rating">
-</form>
+    <form method="post">
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5" <?php if ($currentRating == 5) echo "checked"; ?> /><label for="star5" title="5 stars">&#9733;</label>
+            <input type="radio" id="star4" name="rating" value="4" <?php if ($currentRating == 4) echo "checked"; ?> /><label for="star4" title="4 stars">&#9733;</label>
+            <input type="radio" id="star3" name="rating" value="3" <?php if ($currentRating == 3) echo "checked"; ?> /><label for="star3" title="3 stars">&#9733;</label>
+            <input type="radio" id="star2" name="rating" value="2" <?php if ($currentRating == 2) echo "checked"; ?> /><label for="star2" title="2 stars">&#9733;</label>
+            <input type="radio" id="star1" name="rating" value="1" <?php if ($currentRating == 1) echo "checked"; ?> /><label for="star1" title="1 star">&#9733;</label>
+        </fieldset>
+        <br />
 
-<form method="post">
-    <input type="submit" name="delete_rating" value="Delete Rating">
-</form>
-   
-  <footer style="font-size: 1rem;background-color:#ff7f49">    &copy; 2024 Login Page. All rights reserved.
-</footer>
+        <div class="">
+            <input type="submit" value="Submit Rating" style="background-color: #28a745;">
+        </div>
+    </form>
+
+    <form method="post">
+        <div>
+            <input type="submit" name="delete_rating" value="Delete Rating" style="background-color: #dc3545;">
+        </div>
+
+    </form>
+    <footer style="font-size: 1rem;background-color:#ff7f49"> &copy; 2024 Login Page. All rights reserved.
+    </footer>
 </body>
 
 <script>
@@ -561,21 +570,19 @@ $currentRating = getRating();
 </script>
 <script>
     let i = 0;
-let imgArray = [ '../HTML/foto/Photo14.jpg', '../HTML/foto/Photo15.jpg', '../HTML/foto/Photo13.jpg'];
+    let imgArray = ['../HTML/foto/Photo14.jpg', '../HTML/foto/Photo15.jpg', '../HTML/foto/Photo13.jpg'];
 
-function changeImg() {
-    document.getElementById('slideshow').src = imgArray[i];
+    function changeImg() {
+        document.getElementById('slideshow').src = imgArray[i];
 
-    if (i < imgArray.length - 1) {
-        i++;
+        if (i < imgArray.length - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+        //setTimeout("changeImg()", 2600);
     }
-    else {
-        i = 0;
-    }
-    //setTimeout("changeImg()", 2600);
-}
-document.addEventListener(onload, changeImg());
-
-
+    document.addEventListener(onload, changeImg());
 </script>
+
 </html>
