@@ -20,6 +20,44 @@ if (isset($_POST['add_to_cart'])) {
 
 
 ?>
+<?php
+function setRating($value) {
+    setcookie('rating', $value, time() + (86400 * 30), "/"); // 86400 = 1 day
+}
+
+// Function to get the current rating
+function getRating() {
+    if(isset($_COOKIE['rating'])) {
+        return $_COOKIE['rating'];
+    }
+    else {
+        // If no rating is set, set it to 0
+        setRating(0);
+        return 0;
+    }
+}
+
+// Function to delete the rating
+function deleteRating() {
+    if(isset($_COOKIE['rating'])) {
+        unset($_COOKIE['rating']);
+        setcookie('rating', null, -1, '/');
+    }
+}
+
+// Check if the rating form is submitted
+if(isset($_POST['rating'])) {
+    $rating = $_POST['rating'];
+    setRating($rating);
+}
+
+// Check if the delete button is clicked
+if(isset($_POST['delete_rating'])) {
+    deleteRating();
+}
+
+$currentRating = getRating();
+?>
 
 
 
@@ -39,7 +77,47 @@ if (isset($_POST['add_to_cart'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
+<style>
+     .rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+        }
+        .rating > label {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+            font-size: 2em;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .rating > label:hover,
+        .rating > label:hover ~ label,
+        .rating > input:focus ~ label {
+            color: #ffcc00;
+        }
+         .rating > input:checked ~ label,
+        .rating:not(:checked) > label:hover ~ input:checked ~ label {
+            color: #ffcc00;
+        }
+        
+        /*.rating > label:hover,
+        .rating > input:focus ~ label,
+        .rating > label:hover ~ input:focus ~ label,
+        .rating > input:checked ~ label:hover,
+        .rating > input:checked ~ label:hover ~ label,
+        .rating > label:hover ~ input:checked ~ label {
+            color: #ffcc00;
+        }
+        .rating > input:checked ~ label:hover:after,
+        .rating > input:checked ~ label:hover ~ label:after,
+        .rating > label:hover ~ input:checked ~ label:after {
+            content: "\2605";
+            position: absolute; 
+        }
+        */
+        
+</style>
 
 </head>
 
@@ -378,6 +456,23 @@ if (isset($_POST['add_to_cart'])) {
 
     </div>
     
+    <h2>Your Rating</h2>
+
+<form method="post">
+    <fieldset class="rating">
+        <input type="radio" id="star5" name="rating" value="5" <?php if($currentRating == 5) echo "checked"; ?> /><label for="star5" title="5 stars">&#9733;</label>
+        <input type="radio" id="star4" name="rating" value="4" <?php if($currentRating == 4) echo "checked"; ?> /><label for="star4" title="4 stars">&#9733;</label>
+        <input type="radio" id="star3" name="rating" value="3" <?php if($currentRating == 3) echo "checked"; ?> /><label for="star3" title="3 stars">&#9733;</label>
+        <input type="radio" id="star2" name="rating" value="2" <?php if($currentRating == 2) echo "checked"; ?> /><label for="star2" title="2 stars">&#9733;</label>
+        <input type="radio" id="star1" name="rating" value="1" <?php if($currentRating == 1) echo "checked"; ?> /><label for="star1" title="1 star">&#9733;</label>
+    </fieldset>
+    <br/>
+    <input type="submit" value="Submit Rating">
+</form>
+
+<form method="post">
+    <input type="submit" name="delete_rating" value="Delete Rating">
+</form>
    
   <footer style="font-size: 1rem;background-color:#ff7f49">    &copy; 2024 Login Page. All rights reserved.
 </footer>
