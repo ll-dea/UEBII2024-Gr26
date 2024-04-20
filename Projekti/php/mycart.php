@@ -112,15 +112,14 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             outline: none;
             border-color: #8e0000;
         }
-  
     </style>
 </head>
 
 <body style="background-color: white; margin:0; padding:0;" class="truculenta">
 
-    <header style="padding:0; background-color:#ff7f49" class="sticky-header" >
-        <h1 style="margin-right:10px" >Gardening Shop</h1>
-        <nav style="margin-right:10px"> 
+    <header style="padding:0; background-color:#ff7f49" class="sticky-header">
+        <h1 style="margin-right:10px">Gardening Shop</h1>
+        <nav style="margin-right:10px">
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
@@ -157,41 +156,42 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <th>Action</th>
         </tr>
         <?php
-    
-    
-    $totalPrice = 0;
-    
-    foreach ($_SESSION['cart'] as $item => $quantity) {
-        // Assign price based on item name
-        $price = 0;
-    
-        if (isset($_SESSION['cart'][$item])) {
-            // Check if the item has a price greater than 0
-            if ($regularPrice = getPriceByItem($item)) {
-                $price += $regularPrice;
+
+
+        $totalPrice = 0;
+
+        foreach ($_SESSION['cart'] as $item => $quantity) {
+            // Assign price based on item name
+            $price = 0;
+
+            if (isset($_SESSION['cart'][$item])) {
+                // Check if the item has a price greater than 0
+                if ($regularPrice = getPriceByItem($item)) {
+                    $price += $regularPrice;
+                }
+                
+                // if ($discountedPrice = getPriceByItem2($item)) {
+                //     $price += $discountedPrice;
+                // }
+
+                $totalPrice += $price * $quantity;
+                echo "<tr>";
+                echo "<td>$item</td>";
+                echo "<td>$quantity</td>";
+                echo "<td>$price</td>";
+                echo "<td><a href='mycart.php?remove=$item'>Remove</a></td>";
+                echo "</tr>";
             }
-            if ($discountedPrice = getPriceByItem2($item)) {
-                $price += $discountedPrice;
-            }
-    
-            $totalPrice += $price * $quantity;
-            echo "<tr>";
-            echo "<td>$item</td>";
-            echo "<td>$quantity</td>";
-            echo "<td>$price</td>";
-            echo "<td><a href='mycart.php?remove=$item'>Remove</a></td>";
-            echo "</tr>";
         }
-    }
-    ?>
-    
-        
+        ?>
+
+
         <tr>
             <td colspan="2" style="color: #8e0000;"><strong>Total</strong></td>
             <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
         </tr>
     </table>
-<button style="margin-left:1320px ; font-size:1rem;  background-color: #ff7f49; border-color: #ff7f49;color: white;" class="btn " onclick="purchase()">Buy All</button>
+    <button style="margin-left:1320px ; font-size:1rem;  background-color: #ff7f49; border-color: #ff7f49;color: white;" class="btn " onclick="purchase()">Buy All</button>
 
 
 
@@ -205,9 +205,9 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             window.location.href = "mycart.php?sort=" + sortOption;
         }
     </script>
-     <footer>
-    &copy; 2024 Gardening Shop. All rights reserved.
-  </footer>
+    <footer>
+        &copy; 2024 Gardening Shop. All rights reserved.
+    </footer>
 
 </body>
 
@@ -247,14 +247,12 @@ function getPriceByItem($item)
 }
 ?>
 <script>
-   
-        function purchase() {
-            if (confirm('Do you confirm purchasing?')) {
-                alert('Items purchased!');
-                <?php  ?>
-            } else {
-                alert('Purchase canceled!');
-            }
+    function purchase() {
+        if (confirm('Do you confirm purchasing?')) {
+            alert('Items purchased!');
+            <?php  ?>
+        } else {
+            alert('Purchase canceled!');
         }
-   
+    }
 </script>
