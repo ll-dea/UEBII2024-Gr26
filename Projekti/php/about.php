@@ -31,6 +31,8 @@
       <a href="home.php">Home</a>
       <a href="mycart.php">My Cart</a>
       <a href="about.php">About</a>
+      <a href="discount.php">Discount Offer</a>
+
 
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary0" style=" background-color : #ff7f49">

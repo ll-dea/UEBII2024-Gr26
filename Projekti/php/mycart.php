@@ -120,6 +120,8 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
+            <a href="discount.php">Discount Offer</a>
+
 
         </nav>
         <div class="row">

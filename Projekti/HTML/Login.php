@@ -58,8 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1 style="padding-right: 5px;" >Gardening Shop</h1>
     <nav style="padding-right: 5px;">
       <a href="index.html">Home</a>
-      <a href="Login.html">Login</a>
+      <a href="Login.php">Login</a>
       <a href="About.html">About</a>
+      <a href="../php/discount.php">Discount Offer</a>
+
     </nav>
   </header>
 <br><br><br><br><br><br>
