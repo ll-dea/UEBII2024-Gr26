@@ -40,6 +40,8 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             break;
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -109,6 +111,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             outline: none;
             border-color: #8e0000;
         }
+  
     </style>
 </head>
 
@@ -124,7 +127,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
 
 
         </nav>
-        <div class="row">
+        <div class="row" style="margin-right: 100px;">
             <div class="col-6">
                 <h1 style="float: right;">My Cart</h1>
             </div>
@@ -170,6 +173,12 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
         </tr>
     </table>
+<button style="margin-left:1320px ; font-size:1rem;  background-color: #ff7f49; border-color: #ff7f49;color: white;" class="btn " onclick="purchase()">Buy All</button>
+
+
+
+
+
 
     <script>
         // JavaScript function to redirect with sort option
@@ -219,3 +228,15 @@ function getPriceByItem($item)
     }
 }
 ?>
+<script>
+   
+        function purchase() {
+            if (confirm('Do you confirm purchasing?')) {
+                alert('Items purchased!');
+                <?php  ?>
+            } else {
+                alert('Purchase canceled!');
+            }
+        }
+   
+</script>
