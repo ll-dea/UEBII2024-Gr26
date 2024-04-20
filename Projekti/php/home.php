@@ -471,19 +471,19 @@ $currentRating = getRating();
             <input type="radio" id="star1" name="rating" value="1" <?php if ($currentRating == 1) echo "checked"; ?> /><label for="star1" title="1 star">&#9733;</label>
         </fieldset>
         <br />
-
-        <div class="">
+<center>
+        <div class="row" style="width: 200px;">
             <input type="submit" value="Submit Rating" style="background-color: #28a745;">
         </div>
     </form>
 
     <form method="post">
-        <div>
+        <div class="row" style="width: 200px">
             <input type="submit" name="delete_rating" value="Delete Rating" style="background-color: #dc3545;">
         </div>
-
+        </center>
     </form>
-    <footer style="font-size: 1rem;background-color:#ff7f49"> &copy; 2024 Login Page. All rights reserved.
+    <footer style="font-size: 1rem;background-color:#ff7f49;margin-left:-8px"> &copy; 2024 Login Page. All rights reserved.
     </footer>
 </body>
 
