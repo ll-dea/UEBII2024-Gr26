@@ -170,9 +170,9 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
                     $price += $regularPrice;
                 }
                 
-                // if ($discountedPrice = getPriceByItem2($item)) {
-                //     $price += $discountedPrice;
-                // }
+                if ($discountedPrice = getPriceByItem2($item)) {
+                    $price += $discountedPrice;
+                }
 
                 $totalPrice += $price * $quantity;
                 echo "<tr>";

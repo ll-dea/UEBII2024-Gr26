@@ -259,21 +259,21 @@ if (isset($_POST['add_to_cart'])) {
                 ?>
                 <?php
                 $products = array(
-                  new ExtendedProduct("Digging set ", 100, "A pair of gardening gloves designed to provide protection and comfort during gardening activities. These gloves are made from durable materials and are suitable for various gardening tasks.", 1),
-                  new ExtendedProduct("Ornamental Plant", 30, "Pruning shears designed for precise cutting of stems and small branches in your garden. These shears feature sharp blades and ergonomic handles for ease of use.", 30),
-                  new ExtendedProduct("Flower Light", 50, "Loppers are essential tools for cutting thick branches and stems with ease. These loppers are built with high-quality materials and provide excellent leverage for efficient cutting.", 25),
-                  new ExtendedProduct("Flower Vase", 40, "A garden fork designed to loosen soil and aerate the ground in your garden. This sturdy fork features sharp tines and a comfortable handle for effortless gardening.", 35),
+                  new ExtendedProduct("Digging set ", 100, "Each tool in our Garden Digging Tool Set is constructed from high-quality materials, such as stainless steel, carbon steel, or forged aluminum, ensuring durability, strength, and longevity.", 5),
+                  new ExtendedProduct("Ornamental Plant", 30, "The Ornamental Plant, a delightful addition to any indoor or outdoor space, brings a touch of natural beauty and elegance to your home or garden.", 30),
+                  new ExtendedProduct("Flower Light", 50, "The Flower Light is a charming and versatile lighting accessory that adds a touch of elegance and ambiance to any indoor or outdoor space.", 25),
+                  new ExtendedProduct("Flower Vase", 40, "Crafted from high-quality materials such as glass, ceramic, or porcelain, our Flower Vase ensures durability and longevity.", 35),
 
-                  new ExtendedProduct(" Watering Can ", 20, "The snake plant, also known as Sansevieria, is a popular indoor plant prized for its striking appearance and low maintenance requirements. It features tall, upright leaves with a variegated pattern.", 20),
-                  new ExtendedProduct("Wheelbarrow", 120, "Pothos, also known as Devil's Ivy, is a versatile houseplant loved for its lush foliage and air-purifying qualities. This easy-to-care-for plant thrives in various lighting conditions and adds a touch of green to any indoor space.", 40),
-                  new ExtendedProduct("Garden Boots", 70, "The ZZ plant is a resilient houseplant known for its ability to thrive in low light conditions and tolerate neglect. With its glossy, dark green leaves, the ZZ plant adds a touch of elegance to any room.", 0),
-                  new ExtendedProduct(" Pink Flamingo", 90, "The peace lily, or Spathiphyllum, is a popular indoor plant admired for its elegant white flowers and air-purifying properties. This low-maintenance plant thrives in low to medium light conditions and requires minimal care.", 10),
+                  new ExtendedProduct(" Watering Can ", 20, "Crafted from high-quality materials such as durable plastic, galvanized metal, or corrosion-resistant stainless steel, our watering can is built to withstand regular use and outdoor elements.", 20),
+                  new ExtendedProduct("Wheelbarrow", 120, "Designed for user comfort and convenience, the ergonomic handles feature a comfortable grip and optimal leverage, allowing for easy pushing, pulling, and dumping of loads.", 40),
+                  new ExtendedProduct("Garden Boots", 70, "Constructed from waterproof materials such as rubber, neoprene, or PVC, our garden boots provide reliable protection against moisture, mud, and debris. Keep your feet dry and comfortable even when working in wet or muddy conditions", 0),
+                  new ExtendedProduct(" Pink Flamingo", 90, "Crafted from durable materials such as resin or metal, our Pink Flamingo Garden Decor features vivid pink hues and lifelike details that capture the graceful beauty of these iconic birds.", 10),
 
-                  new ExtendedProduct("Rake", 60, "Enhance the ambiance of your garden or indoor space with our selection of lighting solutions. From string lights to solar-powered lanterns, we offer a variety of options to illuminate your surroundings and create a cozy atmosphere.", 8),
-                  new ExtendedProduct("Cactus Plant", 20, "Stay comfortable and protected during your gardening tasks with our range of garden garments. From sturdy gloves to lightweight aprons, we have the apparel you need to enjoy your time in the garden.", 60),
-                  new ExtendedProduct("Electric Chainsaw", 180, "Add style and functionality to your indoor space with our decorative shelves. Perfect for displaying plants, decorations, or books, these shelves are both practical and aesthetically pleasing.", 0),
-                  new ExtendedProduct("Fidle Leaf", 40, "Maximize space in your garden with our vertical gardening solutions. From wall-mounted planters to vertical garden towers, we offer innovative products to help you create a lush and thriving vertical garden.", 8)
-                );
+                  new ExtendedProduct("Rake", 60, "Our rake features an adjustable head or handle, allowing you to customize the tool's width and angle to suit different gardening needs.", 8),
+                  new ExtendedProduct("Cactus Plant", 20, " Our Cactus Plant boasts a captivating and exotic beauty that instantly adds visual interest and charm to any environment.", 60),
+                  new ExtendedProduct("Electric Chainsaw", 180, "Equipped with a high-performance electric motor, our chainsaw delivers ample cutting power to tackle a wide range of cutting tasks with ease. ", 9),
+                  new ExtendedProduct("Fidle Leaf", 40, " Fiddle Leaf Fig is a favorite among plant enthusiasts and interior decorators alike, adding a touch of tropical sophistication to any space.", 8)
+              );
                 $products[0]->setAvailability(1);
 
                 foreach ($products as $key => $product) {

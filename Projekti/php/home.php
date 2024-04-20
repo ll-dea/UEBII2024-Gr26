@@ -1,4 +1,61 @@
 <?php
+function getPriceByItem2($item)
+{
+   
+    $originalPrice = 0;
+
+    
+    switch ($item) {
+    case 'Digging Set':
+     $originalPrice = 100;
+      break;
+    case 'Ornamental Plant':
+      $originalPrice = 30;
+       break;
+    case 'Flower Light':
+      $originalPrice = 50;
+       break;
+    case 'Flower Vase':
+       $originalPrice = 40;
+         break;
+    case 'Watering Can ':
+       $originalPrice = 20;
+        break;
+     case 'Wheelbarrow':
+      $originalPrice = 120;
+        break;
+        case'Garden Boots':
+            $originalPrice = 70;
+            break;   
+     case 'Pink Flamingo':
+       $originalPrice = 90;
+         break;
+     case 'Rake':
+        $originalPrice = 60;
+         break;
+     case 'Cactus Plant':
+      $originalPrice = 20;
+        break;
+      case 'Electric ':
+        $originalPrice = 180;
+         break;
+      case 'Fidle Leaf':
+         $originalPrice = 40;
+           break;
+        default:
+            $originalPrice = 0;
+            break;
+    }
+
+    
+    $discountedPrice = $originalPrice * 0.8; // 20% discount
+
+    
+    return $discountedPrice;
+}
+?>
+
+<?php
 session_start();
 
 
