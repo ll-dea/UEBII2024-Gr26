@@ -50,6 +50,21 @@ body {
     text-align: center; 
     z-index: 1000; 
   }
+  
+  
+
+button{
+  border-radius: 100%;
+  border-style: inherit;
+  width: 50px;
+  height: 40px;
+  font: 15pt;
+  color: white;
+  background-color: #ff7f49;
+}
+button:hover{
+  background-color: #ff7f49;
+}
 
   footer {
     background-color: #ff7f49;

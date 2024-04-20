@@ -18,3 +18,5 @@ if(isset($_POST['category']) && isset($_POST['item'])) {
     echo json_encode(['success' => false, 'error' => 'Category or item not provided']);
 }
 ?>
+
+

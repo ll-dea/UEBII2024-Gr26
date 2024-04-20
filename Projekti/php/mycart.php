@@ -6,6 +6,7 @@ if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
+
 // Add item to cart
 if (isset($_POST['add_to_cart'])) {
     $item = $_POST['add_to_cart'];
@@ -155,10 +156,23 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <th>Action</th>
         </tr>
         <?php
-        $totalPrice = 0;
-        foreach ($_SESSION['cart'] as $item => $quantity) {
-            // Assign price based on item name
-            $price = getPriceByItem($item);
+    
+    
+    $totalPrice = 0;
+    
+    foreach ($_SESSION['cart'] as $item => $quantity) {
+        // Assign price based on item name
+        $price = 0;
+    
+        if (isset($_SESSION['cart'][$item])) {
+            // Check if the item has a price greater than 0
+            if ($regularPrice = getPriceByItem($item)) {
+                $price += $regularPrice;
+            }
+            if ($discountedPrice = getPriceByItem2($item)) {
+                $price += $discountedPrice;
+            }
+    
             $totalPrice += $price * $quantity;
             echo "<tr>";
             echo "<td>$item</td>";
@@ -167,7 +181,10 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             echo "<td><a href='mycart.php?remove=$item'>Remove</a></td>";
             echo "</tr>";
         }
-        ?>
+    }
+    ?>
+    
+        
         <tr>
             <td colspan="2" style="color: #8e0000;"><strong>Total</strong></td>
             <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
@@ -228,6 +245,7 @@ function getPriceByItem($item)
     }
 }
 ?>
+<<<<<<< HEAD
 <script>
    
         function purchase() {
@@ -240,3 +258,62 @@ function getPriceByItem($item)
         }
    
 </script>
+=======
+
+<?php
+function getPriceByItem2($item)
+{
+   
+    $originalPrice = 0;
+
+    
+    switch ($item) {
+    case 'Digging Set':
+     $originalPrice = 100;
+      break;
+    case 'Ornamental Plant':
+      $originalPrice = 30;
+       break;
+    case 'Flower Light':
+      $originalPrice = 50;
+       break;
+    case 'Flower Vase':
+       $originalPrice = 40;
+         break;
+    case 'Watering Can ':
+       $originalPrice = 20;
+        break;
+     case 'Wheelbarrow':
+      $originalPrice = 120;
+        break;
+        case'Garden Boots':
+            $originalPrice = 70;
+            break;   
+     case 'Pink Flamingo':
+       $originalPrice = 90;
+         break;
+     case 'Rake':
+        $originalPrice = 60;
+         break;
+     case 'Cactus Plant':
+      $originalPrice = 20;
+        break;
+      case 'Electric ':
+        $originalPrice = 180;
+         break;
+      case 'Fidle Leaf':
+         $originalPrice = 40;
+           break;
+        default:
+            $originalPrice = 0;
+            break;
+    }
+
+    
+    $discountedPrice = $originalPrice * 0.8; // 20% discount
+
+    
+    return $discountedPrice;
+}
+?>
+>>>>>>> 1bebbde9978e93c3deb69107da13617ad26a383b
