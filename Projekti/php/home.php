@@ -132,6 +132,8 @@ $currentRating = getRating();
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
+            <a href="discount.php">Offers</a>
+            <a href="../HTML/index.html">Sign Out</a>
 
         </nav>
     </header>
@@ -460,29 +462,32 @@ $currentRating = getRating();
 
     </div>
 
-    <h2>Your Rating</h2>
+    <div style="border:1px solid black;padding:30px 30px;margin-bottom:0px">
+        <center>
+            <h2>Your Rating</h2>
 
-    <form method="post">
-        <fieldset class="rating">
-            <input type="radio" id="star5" name="rating" value="5" <?php if ($currentRating == 5) echo "checked"; ?> /><label for="star5" title="5 stars">&#9733;</label>
-            <input type="radio" id="star4" name="rating" value="4" <?php if ($currentRating == 4) echo "checked"; ?> /><label for="star4" title="4 stars">&#9733;</label>
-            <input type="radio" id="star3" name="rating" value="3" <?php if ($currentRating == 3) echo "checked"; ?> /><label for="star3" title="3 stars">&#9733;</label>
-            <input type="radio" id="star2" name="rating" value="2" <?php if ($currentRating == 2) echo "checked"; ?> /><label for="star2" title="2 stars">&#9733;</label>
-            <input type="radio" id="star1" name="rating" value="1" <?php if ($currentRating == 1) echo "checked"; ?> /><label for="star1" title="1 star">&#9733;</label>
-        </fieldset>
-        <br />
-<center>
-        <div class="row" style="width: 200px;">
-            <input type="submit" value="Submit Rating" style="background-color: #28a745;">
-        </div>
-    </form>
+            <form method="post">
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" <?php if ($currentRating == 5) echo "checked"; ?> /><label for="star5" title="5 stars">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4" <?php if ($currentRating == 4) echo "checked"; ?> /><label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3" <?php if ($currentRating == 3) echo "checked"; ?> /><label for="star3" title="3 stars">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2" <?php if ($currentRating == 2) echo "checked"; ?> /><label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1" <?php if ($currentRating == 1) echo "checked"; ?> /><label for="star1" title="1 star">&#9733;</label>
+                </fieldset>
+                <br />
 
-    <form method="post">
-        <div class="row" style="width: 200px">
-            <input type="submit" name="delete_rating" value="Delete Rating" style="background-color: #dc3545;">
-        </div>
+                <div class="row" style="width: 200px;">
+                    <input type="submit" value="Submit Rating" style="background-color: #ff7f49;">
+                </div>
+            </form>
+
+            <form method="post">
+                <div class="row" style="width: 200px">
+                    <input type="submit" name="delete_rating" value="Delete Rating" style="background-color: #ff8f20">
+                </div>
         </center>
-    </form>
+        </form>
+    </div>
     <footer style="font-size: 1rem;background-color:#ff7f49;margin-left:-8px"> &copy; 2024 Login Page. All rights reserved.
     </footer>
 </body>

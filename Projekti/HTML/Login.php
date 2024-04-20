@@ -60,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <a href="index.html">Home</a>
       <a href="Login.php">Login</a>
       <a href="About.html">About</a>
-      <a href="../php/discount.php">Discount Offer</a>
 
     </nav>
   </header>
