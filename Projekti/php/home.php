@@ -46,18 +46,17 @@ if (isset($_POST['add_to_cart'])) {
 <body class="truculenta" style="padding: 0px;margin-right:0px">
 
     <header class="sticky-header" style="background-color: #ff7f49;">
-        <h1>Gardening Shop</h1>
+        <h1 style="margin-top:10px">Gardening Shop</h1>
         <nav>
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
-            <a href="discount.php">Discount Offer</a>
 
         </nav>
     </header>
     <br><br><br>
     <div>
-        <video autoplay muted loop playsinline style="width: 100vw; height: 90vh; object-fit: cover; position:relative">
+        <video autoplay muted loop playsinline style=" height: 620px;width:100%; object-fit: cover; position:relative;margin-top:20px">
             <source src="../HTML/foto/Video1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -86,7 +85,7 @@ if (isset($_POST['add_to_cart'])) {
                             <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Gloves" data-toggle="modal" data-target="#productModal0">
                             <div class="card-body">
                                 <h5 class="card-title">Gloves</h5>
-                                <button type="submit" name="add_to_cart" value="Gloves">Buy</button>
+                                <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Gloves">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -96,7 +95,7 @@ if (isset($_POST['add_to_cart'])) {
                             <div class="card-body">
                                 <h5 class="card-title">Pruning Shears</h5>
 
-                                <button type="submit" name="add_to_cart" value="Pruning Shears">Buy</button>
+                                <button type="submit" name="add_to_cart"style=" background-color : #ff7f49 ; font-size:1rem;width:auto" value="Pruning Shears">Add to Cart</button>
 
                             </div>
                         </div>
@@ -107,7 +106,7 @@ if (isset($_POST['add_to_cart'])) {
                             <div class="card-body">
                                 <h5 class="card-title">Loppers</h5>
 
-                                <button type="submit" name="add_to_cart" value="Loppers">Buy</button>
+                                <button type="submit" name="add_to_cart" style=" background-color : #ff7f49 ; font-size:1rem;width:auto" value="Loppers">Add to Cart</button>
 
                             </div>
                         </div>
@@ -118,7 +117,7 @@ if (isset($_POST['add_to_cart'])) {
                             <div class="card-body">
                                 <h5 class="card-title">Garden Fork</h5>
 
-                                <button type="submit" name="add_to_cart" value="Garden Fork">Buy</button>
+                                <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Garden Fork">Add to Cart</button>
 
                             </div>
                         </div>
@@ -134,7 +133,7 @@ if (isset($_POST['add_to_cart'])) {
                                 <div class="card-body">
                                     <h5 class="card-title">Snake Plant</h5>
 
-                                    <button type="submit" name="add_to_cart" value="Snake Plant">Buy</button>
+                                    <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Snake Plant">Add to Cart</button>
 
                                 </div>
                             </div>
@@ -145,7 +144,7 @@ if (isset($_POST['add_to_cart'])) {
                                 <div class="card-body">
                                     <h5 class="card-title">Pothos</h5>
 
-                                    <button type="submit" name="add_to_cart" value="Pothos">Buy</button>
+                                    <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Pothos">Add to Cart</button>
 
                                 </div>
                             </div>
@@ -156,7 +155,7 @@ if (isset($_POST['add_to_cart'])) {
                                 <div class="card-body">
                                     <h5 class="card-title">ZZ Plant</h5>
 
-                                    <button type="submit" name="add_to_cart" value="ZZ Plant">Buy</button>
+                                    <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="ZZ Plant">Add to Cart</button>
 
                                 </div>
                             </div>
@@ -167,7 +166,7 @@ if (isset($_POST['add_to_cart'])) {
                                 <div class="card-body">
                                     <h5 class="card-title">Peace Lily</h5>
 
-                                    <button type="submit" name="add_to_cart" value="Peace Lily">Buy</button>
+                                    <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Peace Lily">Add to Cart</button>
 
                                 </div>
                             </div>
@@ -182,7 +181,7 @@ if (isset($_POST['add_to_cart'])) {
                                     <div class="card-body">
                                         <h5 class="card-title">Lighting</h5>
 
-                                        <button type="submit" name="add_to_cart" value="Lighting">Buy</button>
+                                        <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Lighting">Add to Cart</button>
 
                                     </div>
                                 </div>
@@ -193,7 +192,7 @@ if (isset($_POST['add_to_cart'])) {
                                     <div class="card-body">
                                         <h5 class="card-title">Garmets</h5>
 
-                                        <button type="submit" name="add_to_cart" value="Garmets">Buy</button>
+                                        <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Garmets">Add to Cart</button>
 
                                     </div>
                                 </div>
@@ -204,7 +203,7 @@ if (isset($_POST['add_to_cart'])) {
                                     <div class="card-body">
                                         <h5 class="card-title">Shelf</h5>
 
-                                        <button type="submit" name="add_to_cart" value="Shelf">Buy</button>
+                                        <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Shelf">Add to Cart</button>
 
                                     </div>
                                 </div>
@@ -214,7 +213,7 @@ if (isset($_POST['add_to_cart'])) {
                                     <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Vertical Gardening" data-toggle="modal" data-target="#productModal11">
                                     <div class="card-body">
                                         <h5 class="card-title">Vertical Gardening</h5>
-                                        <button type="submit" name="add_to_cart" value="Vertical Gardening">Buy</button>
+                                        <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem; width:auto" value="Vertical Gardening">Add to Cart</button>
 
                                     </div>
                                 </div>

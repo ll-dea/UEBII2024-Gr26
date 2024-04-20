@@ -51,7 +51,7 @@ if (isset($_POST['add_to_cart'])) {
 <body>
   <!-- HEADER -->
 
-  <header class="sticky-header">
+  <header class="sticky-header" style="background-color: #ff7f49; padding-right:16px">
     <h1>Gardening Shop</h1>
     <nav>
       <a href="../HTML/index.html">Home</a>
