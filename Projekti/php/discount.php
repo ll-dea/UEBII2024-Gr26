@@ -38,17 +38,67 @@
    
   
 <!-- Discount Offer Content -->
-<div class="discount-container row" style="margin-top:200px">
-  <div class="discount-text col-6">
-    <h2>Special Discount Offer</h2>
-    <p>Get 20% off on all gardening tools this weekend!</p>
-    <p>Hurry up! Limited time offer.</p>
-    <button class="btn">Shop Now</button>
+<div class="discount-container row" style="margin-top:60px; ">
+  <div class="discount-text col-md-6" >
+    <h2 style="font-size: 3rem;">Special Discount Offer</h2>
+    <p style="font-size: 1.5rem;">Get 20% off on all gardening tools this weekend!</p>
+    <p style="font-size: 1.5rem;">Hurry up! Limited time offer.</p>
+    <button class="btn btn-primary btn-lg">Shop Now</button>
   </div>
-  <div class="discount-image col-6">
-    <img src="../HTML/foto/Photo30.jpg" alt="Discount Image">
+  <div class="discount-image col-md-6">
+    <img src="../HTML/foto/Photo30.jpg" alt="Discount Image" style="max-width: 300px; height: auto; ">
   </div>
 </div>
+
+
+
+<div id="item1" class="row" style="padding-left: 5%; margin-top:70px; margin-bottom:100px;">
+        
+        <div id="item1emri1" class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="../HTML/foto/Photo31.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Digging Set">
+            <div class="card-body">
+              <h5 class="card-title">Digging Set</h5>
+              <a href="Login.php" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+        <div id="item1emri2" class="col-3 ">
+          <div class="card" style="width: 18rem;">
+            <img src="../HTML/foto/Photo32.jpg" class="card-img-top" style="height:270px; width:287px; margin-left: 0px;" alt="Ornamental Plant">
+            <div class="card-body">
+              <h5 class="card-title">Ornamental Plant</h5>
+              <a href="Login.php" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+        <div id="item1emri3" class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="../HTML/foto/Photo33.jpg" class="card-img-top" style="height:270px; margin-left: 0px;" alt="Flower Light">
+            <div class="card-body">
+              <h5 class="card-title">Flower Light</h5>
+
+              <a href="Login.php" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+        <div id="item1emri4" class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="../HTML/foto/Photo34.jpg" class="card-img-top" style="height: 270px; margin-left: 0px;" alt="Flower Vase">
+            <div class="card-body">
+              <h5 class="card-title">Flower Vase</h5>
+
+              <a href="Login.php" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <footer style="width: 100%;">
+  &copy; 2024 Gardening Shop. All rights reserved.
+
+</footer>
 
 
 </body>

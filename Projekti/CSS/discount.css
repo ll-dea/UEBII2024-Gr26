@@ -17,7 +17,7 @@ body {
   
   /* HEADER SECTION */
   header {
-    background-color: #8efc8c;
+    background-color:#ff7f49;
     color: #fff;
     padding: 10px 20px;
     text-align: center;
@@ -44,27 +44,46 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #8efc8c; 
+    background-color:#ff7f49; 
     padding: 10px 0; 
     
     text-align: center; 
     z-index: 1000; 
   }
-  .discount-container {
-    text-align: center;
-    margin-top: 200px;
-    padding-left: 300px;
-  
-}
 
-  
-  .discount-container h2 {
-    font-size: 28px;
+  footer {
+    background-color: #ff7f49;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .discount-container {
+    padding: 20px;
   }
   
-  .discount-container p {
-    font-size: 18px;
-    margin-bottom: 20px;
+  .discount-text {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .discount-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .discount-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  .discount-image img {
+    max-width: 100%;
+    height: auto;
+    background-color: transparent; /* Set background color to transparent */
   }
   
   .btn {
