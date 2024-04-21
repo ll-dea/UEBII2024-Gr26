@@ -13,21 +13,21 @@
     <link rel="stylesheet" href="../CSS/loginphp.css">
     <style>
         body {
-            font-family: 'Truculenta', sans-serif; /* Use the custom font */
-            background-color: #f8f9fa; /* Set background color */
+            font-family: 'Truculenta', sans-serif; 
+            background-color: #f8f9fa;
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: 100vh; /* Full viewport height */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            padding: 0; 
         }
         .container {
-            background-color: #ffffff; /* White background */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add shadow */
+            background-color: #ffffff; 
+            border-radius: 10px; 
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); 
             padding: 20px;
-            text-align: center; /* Center content */
+            text-align: center; 
         }
         h1 {
             color: #ff7f49; /* Set heading color */
@@ -45,16 +45,16 @@ define('BASE_URL', 'home.php');
   
 
         <?php
-        // Start or resume session
+      
         session_start();
 
-        // Check if a cookie exists for the visit count
+      
         if(isset($_COOKIE['visit_count'])) {
-            $visit_count = $_COOKIE['visit_count'] + 1; // Increment the visit count
-            setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); // Refresh the cookie with the new value
+            $visit_count = $_COOKIE['visit_count'] + 1; 
+            setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); 
         } else {
-            $visit_count = 1; // If cookie doesn't exist, set the visit count to 1
-            setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); // Create a new cookie
+            $visit_count = 1;
+            setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); 
         }
 
         // Use session to store the visit count value

@@ -20,10 +20,10 @@ if (isset($_SESSION['emri']) && isset($_SESSION['mbiemri']) && isset($_SESSION['
     <link rel="stylesheet" href="../CSS/konfirmimi.css">
 </head>
 <body>
-<div class="container" style="background-color: #ff7f49;"> <!-- Shtoni një kontejner që përmban të gjitha elementet -->
+<div class="container" style="background-color: #ff7f49;"> 
     <h2>Regjistrimi është kryer me sukses!</h2><br>
-    <p>Emri: <?= $emri ?></p>
-    <p>Mbiemri: <?= $mbiemri ?></p>
+    <p>Emri: <?= ucfirst(strtolower($emri)) ?></p>
+    <p>Mbiemri: <?= ucfirst(strtolower($mbiemri)) ?></p>
     <p>Email: <?= $email ?></p>
     <p>Numri i telefonit: <?= $telefoni_formatuar ?></p>
     <a href="home.php" class="button">Vazhdoni në faqen kryesore</a>

@@ -1,4 +1,60 @@
 <?php
+function getPriceByItem2($item)
+{
+
+    $originalPrice = 0;
+
+
+    switch ($item) {
+    case 'Digging Set':
+     $originalPrice = 100;
+      break;
+    case 'Ornamental Plant':
+      $originalPrice = 30;
+       break;
+    case 'Flower Light':
+      $originalPrice = 50;
+       break;
+    case 'Flower Vase':
+       $originalPrice = 40;
+         break;
+    case 'Watering Can ':
+       $originalPrice = 20;
+        break;
+     case 'Wheelbarrow':
+      $originalPrice = 120;
+        break;
+        case'Garden Boots':
+            $originalPrice = 70;
+            break;   
+     case 'Pink Flamingo':
+       $originalPrice = 90;
+         break;
+     case 'Rake':
+        $originalPrice = 60;
+         break;
+     case 'Cactus Plant':
+      $originalPrice = 20;
+        break;
+      case 'Electric ':
+        $originalPrice = 180;
+         break;
+      case 'Fidle Leaf':
+         $originalPrice = 40;
+           break;
+        default:
+            $originalPrice = 0;
+            break;
+    }
+
+
+    $discountedPrice = $originalPrice * 0.8; // 20% discount
+
+
+    return $discountedPrice;
+}
+?>
+<?php
 session_start();
 
 // Initialize cart if not set
@@ -7,7 +63,7 @@ if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
 }
 
 
-// Add item to cart
+
 if (isset($_POST['add_to_cart'])) {
     $item = $_POST['add_to_cart'];
     if (array_key_exists($item, $_SESSION['cart'])) {
@@ -17,27 +73,27 @@ if (isset($_POST['add_to_cart'])) {
     }
 }
 
-// Remove item from cart
+
 if (isset($_GET['remove'])) {
     $itemToRemove = $_GET['remove'];
     unset($_SESSION['cart'][$itemToRemove]);
 }
 
-// Sort cart items based on selected option
+
 if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     $sortOption = $_GET['sort'];
     switch ($sortOption) {
         case 'name-asc':
-            ksort($_SESSION['cart']); // Sort by item name (A-Z)
+            ksort($_SESSION['cart']); 
             break;
         case 'name-desc':
-            krsort($_SESSION['cart']); // Sort by item name (Z-A)
+            krsort($_SESSION['cart']); 
             break;
         case 'price-asc':
-            asort($_SESSION['cart']); // Sort by item price (Low to High)
+            asort($_SESSION['cart']); 
             break;
         case 'price-desc':
-            arsort($_SESSION['cart']); // Sort by item price (High to Low)
+            arsort($_SESSION['cart']); 
             break;
     }
 }

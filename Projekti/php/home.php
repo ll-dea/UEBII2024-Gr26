@@ -1,56 +1,56 @@
 <?php
 function getPriceByItem2($item)
 {
-   
+
     $originalPrice = 0;
 
-    
+
     switch ($item) {
-    case 'Digging Set':
-     $originalPrice = 100;
-      break;
-    case 'Ornamental Plant':
-      $originalPrice = 30;
-       break;
-    case 'Flower Light':
-      $originalPrice = 50;
-       break;
-    case 'Flower Vase':
-       $originalPrice = 40;
-         break;
-    case 'Watering Can ':
-       $originalPrice = 20;
-        break;
-     case 'Wheelbarrow':
-      $originalPrice = 120;
-        break;
-        case'Garden Boots':
+        case 'Digging Set':
+            $originalPrice = 100;
+            break;
+        case 'Ornamental Plant':
+            $originalPrice = 30;
+            break;
+        case 'Flower Light':
+            $originalPrice = 50;
+            break;
+        case 'Flower Vase':
+            $originalPrice = 40;
+            break;
+        case 'Watering Can ':
+            $originalPrice = 20;
+            break;
+        case 'Wheelbarrow':
+            $originalPrice = 120;
+            break;
+        case 'Garden Boots':
             $originalPrice = 70;
-            break;   
-     case 'Pink Flamingo':
-       $originalPrice = 90;
-         break;
-     case 'Rake':
-        $originalPrice = 60;
-         break;
-     case 'Cactus Plant':
-      $originalPrice = 20;
-        break;
-      case 'Electric ':
-        $originalPrice = 180;
-         break;
-      case 'Fidle Leaf':
-         $originalPrice = 40;
-           break;
+            break;
+        case 'Pink Flamingo':
+            $originalPrice = 90;
+            break;
+        case 'Rake':
+            $originalPrice = 60;
+            break;
+        case 'Cactus Plant':
+            $originalPrice = 20;
+            break;
+        case 'Electric ':
+            $originalPrice = 180;
+            break;
+        case 'Fidle Leaf':
+            $originalPrice = 40;
+            break;
         default:
             $originalPrice = 0;
             break;
     }
 
-    
+
     $discountedPrice = $originalPrice * 0.8; // 20% discount
 
-    
+
     return $discountedPrice;
 }
 ?>
@@ -80,10 +80,10 @@ if (isset($_POST['add_to_cart'])) {
 <?php
 function setRating($value)
 {
-    setcookie('rating', $value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    setcookie('rating', $value, time() + (86400 * 30), "/");
 }
 
-// Function to get the current rating
+
 function getRating()
 {
     if (isset($_COOKIE['rating'])) {
@@ -162,22 +162,6 @@ $currentRating = getRating();
         .rating:not(:checked)>label:hover~input:checked~label {
             color: #ffcc00;
         }
-
-        /*.rating > label:hover,
-        .rating > input:focus ~ label,
-        .rating > label:hover ~ input:focus ~ label,
-        .rating > input:checked ~ label:hover,
-        .rating > input:checked ~ label:hover ~ label,
-        .rating > label:hover ~ input:checked ~ label {
-            color: #ffcc00;
-        }
-        .rating > input:checked ~ label:hover:after,
-        .rating > input:checked ~ label:hover ~ label:after,
-        .rating > label:hover ~ input:checked ~ label:after {
-            content: "\2605";
-            position: absolute; 
-        }
-        */
     </style>
 
 </head>
@@ -375,12 +359,17 @@ $currentRating = getRating();
                                                     public $name;
                                                     public $price;
                                                     public $description;
-
+                                                    //konstruktori
                                                     public function __construct($name, $price, $description)
                                                     {
                                                         $this->name = $name;
                                                         $this->price = $price;
                                                         $this->description = $description;
+                                                    }
+                                                    //dekonstruktori
+                                                    public function __destruct()
+                                                    {
+                                                        echo "Produkti '{$this->name}' është fshirë nga memoria.<br>";
                                                     }
                                                 }
                                                 class ExtendedProduct extends Product
@@ -393,7 +382,6 @@ $currentRating = getRating();
                                                         $this->availability = $availability;
                                                     }
 
-                                                    // Shto metoda të tjera nëse është e nevojshme
                                                     public function getAvailability()
                                                     {
                                                         return $this->availability;
@@ -458,7 +446,6 @@ $currentRating = getRating();
                                                 <?php }
 
 
-                                                // Add hidden fields for previously added items
                                                 foreach ($_SESSION['cart'] as $item => $quantity) {
                                                     echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
                                                     echo "<input type='hidden' name='cart[$item][price]' value='$quantity'>";
