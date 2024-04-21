@@ -366,11 +366,8 @@ $currentRating = getRating();
                                                         $this->price = $price;
                                                         $this->description = $description;
                                                     }
-                                                    //dekonstruktori
-                                                    public function __destruct()
-                                                    {
-                                                        echo "Produkti '{$this->name}' është fshirë nga memoria.<br>";
-                                                    }
+                                                    
+                                                  
                                                 }
                                                 class ExtendedProduct extends Product
                                                 {
