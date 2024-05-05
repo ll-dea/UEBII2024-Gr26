@@ -1,5 +1,12 @@
 <?php
 session_start();
+if(isset($_SESSION["user"])){
+    header("Location: ../index.php");
+}
+?>
+
+
+<!-- session_start();
 
 $errors = array();
 
@@ -45,8 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: konfirmimi.php');
         exit();
     }
-}
-?>
+} -->
 
 
 
@@ -58,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>Garden Shop</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- <link rel="stylesheet" href="../CSS/signup.css">
+ <link rel="stylesheet" href="../CSS/login.css">
  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
@@ -71,48 +77,89 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <header class="sticky-header" style="background-color: ff7f49;">
     <h1 style="padding-right: 5px;" >Gardening Shop</h1>
     <nav style="padding-right: 5px;">
-      <a href="index.html">Home</a>
-      <a href="Login.html">Login</a>
-      <a href="About.html">About</a>
-      <a href="discount.php">Discount Offer</a>
+     
+      
+      <a href="../HTML/About.html">About Us</a>
 
      
 
     </nav>
   </header>
   <br><br><br><br><br><br>
-<div class="row">
-  <div class="col-4"></div>
+
+  
 
     <div class="container">
+    <?php
+    if(isset($_POST["Submit"])){
+        $emri = $_POST["emri"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $rpassword = $_POST["rpassword"];
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+        $errors = array();
+
+        if(empty($emri) or empty($email) or empty($password) OR empty($rpassword) ){
+            array_push($errors, "Please fill out all the blank spaces!");
+        }
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            array_push($errors, "Email is not valid");
+        }         
+        if(strlen($password)<8){
+            array_push($errors,"Password must be at least 8 characters long");
+
+        }
+        if($password !== $rpassword){
+            array_push($errors, "The passwords do not match");
+        }
+        require_once "database.php";
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn , $sql);
+        $rowCount = mysqli_num_rows($result);
+        if ($rowCount>0){
+            array_push($errors,"Email already exist!");
+        }
+
+        if(count($errors)>0){
+            foreach($errors as $error){
+                echo "<div class = 'alert alert-danger'>$error</div>";
+            }
+        } else{
+            
+            $sql = "INSERT INTO users (emri, email, password) VALUES (?,?,?)";
+           $stmt =  mysqli_stmt_init($conn);
+           $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+           if($prepareStmt){
+            mysqli_Stmt_bind_param($stmt,"sss",$emri,$email,$password_hash);
+            mysqli_stmt_execute($stmt);
+            echo "<div class = 'alert alert-success'>You are registered successfully</div>";
+
+           }
+           else{
+            die("Something went wrong");
+           }
+        }
+
+    }
+    ?>
         
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="signupForm">
+        <form action="signup.php" method="post" id="signupForm" >
             <div class="form-group">
-                <label for="emri">Name:</label>
-                <input type="text" class="form-control" id="emri" name="emri" required placeholder="Shkruaj emrin tënd këtu">
-                <?php if (isset($errors['error_emri'])) echo '<div class="error">' . $errors['error_emri'] . '</div>'; ?>
+                <input  type="text" class="form-control" id="emri" name="emri" required placeholder="Full Name">
             </div>
             <div class="form-group">
-                <label for="mbiemri">Surname:</label>
-                <input type="text" class="form-control" id="mbiemri" name="mbiemri" required  placeholder="Shkruaj mbiemrin tënd këtu">
-                <?php if (isset($errors['error_mbiemri'])) echo '<div class="error">' . $errors['error_mbiemri'] . '</div>'; ?>
+                <input  type="email" class="form-control" id="email" name="email" required placeholder="Email">
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required placeholder="example@example.com">
-                <?php if (isset($errors['error_email'])) echo '<div class="error">' . $errors['error_email'] . '</div>'; ?>
+                <input  type="password" class="form-control" id="password" name="password" required placeholder="Password">
             </div>
             <div class="form-group">
-                <label for="telefoni">Phone Number:</label>
-                <input type="tel" class="form-control" id="telefoni" name="telefoni" pattern="[0-9]{9,15}" required placeholder="04xxxxxxx">
-                <?php if (isset($errors['error_telefoni'])) echo '<div class="error">' . $errors['error_telefoni'] . '</div>'; ?>
+                <input type="password" class="form-control" id="rpassword" name="rpassword" required placeholder="Repeat Password">
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required placeholder="Shkruaj një fjalëkalim të sigurt">
-                <?php if (isset($errors['error_password'])) echo '<div class="error">' . $errors['error_password'] . '</div>'; ?>
-            </div>
-            <button type="submit" name="signup"  class="btn btn-primary">Register</button>
+            <button type="submit" name="Submit"  class="btn form-control " style="background-color: #ff7f49;color:white">Sign Up</button>
+            <br>
+            <a href="../index.php">Do you have an account? Login in!</a>
         </form>
     </div>
 

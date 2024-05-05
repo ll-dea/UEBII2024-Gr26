@@ -11,7 +11,9 @@ body {
     text-align: center;
   
   }
-
+.container{
+  max-width: 600px;
+}
   
 
   header a {
@@ -42,11 +44,12 @@ body {
   
   input[type="text"],
   input[type="password"],
+  input[type="rpassword"],
   input[type="submit"],
-  input[type="tel"] {
-    width: 100%;
+  input[type="email"] {
+    
     padding: 10px;
-    margin: 5px 0;
+    margin: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
