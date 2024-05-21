@@ -1,75 +1,4 @@
-<?php
-define('BASE_URL', 'home.php');
 
-// Start or resume session
-session_start();
-
-// Check if a cookie exists for the visit count
-if(isset($_COOKIE['visit_count'])) {
-    $visit_count = $_COOKIE['visit_count'] + 1; // Increment the visit count
-    setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); // Refresh the cookie with the new value
-} else {
-    $visit_count = 1; // If cookie doesn't exist, set the visit count to 1
-    setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); // Create a new cookie
-}
-
-// Use session to store the visit count value
-$_SESSION['visit_count'] = $visit_count;
-
-// Database configuration
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "database";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$name = ""; // Inicializimi i variablës $name
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the username from the form
-    $name = $_POST["emri"];
-    
-}
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the username from the form
-    $name = $_POST["emri"];
-
-    // Prepare a SQL statement with a parameter placeholder
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
-    
-    // Bind the parameter to the statement
-    $stmt->bind_param("s", $name);
-
-    // Execute the statement
-    $stmt->execute();
-
-    // Get the result
-    $result = $stmt->get_result();
-
-    // Check if there is at least one row returned
-    if ($result->num_rows > 0) {
-        // Output data of each row
-        while($row = $result->fetch_assoc()) {
-            echo "<h1>Welcome to our website " . strtoupper($row["username"]) . "!</h1>";
-        }
-    } else {
-        echo "<h1>Welcome to our website Guest!</h1>";
-    }
-
-    // Close the statement
-    $stmt->close();
-}
-
-// Close the connection
-$conn->close();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,3 +52,21 @@ $conn->close();
     </div>
 </body>
 </html>
+<?php
+define('BASE_URL', 'home.php');
+
+// Start or resume session
+session_start();
+
+// Check if a cookie exists for the visit count
+if(isset($_COOKIE['visit_count'])) {
+    $visit_count = $_COOKIE['visit_count'] + 1; // Increment the visit count
+    setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); // Refresh the cookie with the new value
+} else {
+    $visit_count = 1; // If cookie doesn't exist, set the visit count to 1
+    setcookie('visit_count', $visit_count, time() + (86400 * 30), "/"); // Create a new cookie
+}
+
+// Use session to store the visit count value
+$_SESSION['visit_count'] = $visit_count;
+
