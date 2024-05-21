@@ -310,7 +310,7 @@ if (isset($_POST['add_to_cart'])) {
                                                                     <p><?= $product->description ?></p>
                                                                     <p>Price: $<?= $product->price ?></p>
                                                                     <p><?= $product->getAvailabilityText() ?></p>
-                                                                    <p>Hope you found this helpful!</p>
+                                                                    <p>Hope you found this helpful</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -406,11 +406,67 @@ if (isset($_POST['add_to_cart'])) {
 
 
         </div>
+    </div><!-- Modal for Thank You Message -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="thankYouModalLabel">Thank You!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="thankYouMessage">
+                <!-- Thank You message will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="rateAgain()">Rate Again</button>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Rating Form -->
+<div class="rating-form">
+    <h2>Rate Us!</h2>
+    <form id="ratingForm" action="process_rating.php" method="post">
+        <div class="rating-stars">
+            <input type="radio" name="rating" value="5" id="star5"><label for="star5"></label>
+            <input type="radio" name="rating" value="4" id="star4"><label for="star4"></label>
+            <input type="radio" name="rating" value="3" id="star3"><label for="star3"></label>
+            <input type="radio" name="rating" value="2" id="star2"><label for="star2"></label>
+            <input type="radio" name="rating" value="1" id="star1"><label for="star1"></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include custom JavaScript -->
+<script src="script.js"></script>
 
 
 
 </body>
+<?php
+session_start();
+
+if (isset($_POST['rating'])) {
+    $rating = $_POST['rating'];
+
+    // Save rating to session
+    $_SESSION['user_rating'] = $rating;
+
+    // Save rating to cookie for 30 days
+    setcookie('user_rating', $rating, time() + (30 * 24 * 60 * 60), '/');
+
+    // Return thank you message
+    echo $rating;
+}
+?>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
