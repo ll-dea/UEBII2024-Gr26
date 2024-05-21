@@ -107,6 +107,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -217,6 +218,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <th>Price</th>
             <th>Action</th>
         </tr>
+       
         <?php
 
 
@@ -253,12 +255,59 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
         </tr>
     </table>
+<<<<<<< HEAD
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"> <form method="post" action="konfirmo_porosine.php">
+
+        <button style="float: right; margin-right: 20px; padding-left:30px;padding-right:30px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmOrderModal">Buy</button>
+    </form></div>
+    <div class="col-1"></div>
+   </div>
+
+   <div class="modal fade" id="confirmOrderModal" tabindex="-1" aria-labelledby="confirmOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmOrderModalLabel">Konfirmo Porosinë</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Jeni të sigurtë që dëshironi të konfirmoni porosinë tuaj?</p>
+                <div id="checkMark" style="display: none;">
+                    <img src="checkmark.png" alt="Check Mark" id="checkImage" style="width: 100px; height: 100px;">
+                    <p style="font-weight: bold; text-align: center; margin-top: 10px;">Porosia është konfirmuar me sukses!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <form id="confirmForm" method="post" action="konfirmo_porosine.php">
+                    <button type="submit" class="btn btn-primary" id="confirmBtn">Yes</button>
+                </form>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#confirmBtn').click(function() {
+            $('#checkMark').show();
+            $('#confirmOrderModalLabel').text('Porosia është konfirmuar me sukses!');
+            $('#confirmOrderModal .modal-footer').html('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>');
+        });
+    });
+</script>
+    
+=======
     <button style="margin-left:1320px ; font-size:1rem;  background-color: #ff7f49; border-color: #ff7f49;color: white;" class="btn " onclick="purchase()">Buy All</button>
 
 
 
 
 
+>>>>>>> 8ad992a447d9a29727deabe1c7f5b3de58123121
 
     <script>
         // JavaScript function to redirect with sort option
