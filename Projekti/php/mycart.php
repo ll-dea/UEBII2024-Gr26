@@ -1,4 +1,60 @@
 <?php
+function getPriceByItem2($item)
+{
+
+    $originalPrice = 0;
+
+
+    switch ($item) {
+    case 'Digging Set':
+     $originalPrice = 100;
+      break;
+    case 'Ornamental Plant':
+      $originalPrice = 30;
+       break;
+    case 'Flower Light':
+      $originalPrice = 50;
+       break;
+    case 'Flower Vase':
+       $originalPrice = 40;
+         break;
+    case 'Watering Can ':
+       $originalPrice = 20;
+        break;
+     case 'Wheelbarrow':
+      $originalPrice = 120;
+        break;
+        case'Garden Boots':
+            $originalPrice = 70;
+            break;   
+     case 'Pink Flamingo':
+       $originalPrice = 90;
+         break;
+     case 'Rake':
+        $originalPrice = 60;
+         break;
+     case 'Cactus Plant':
+      $originalPrice = 20;
+        break;
+      case 'Electric ':
+        $originalPrice = 180;
+         break;
+      case 'Fidle Leaf':
+         $originalPrice = 40;
+           break;
+        default:
+            $originalPrice = 0;
+            break;
+    }
+
+
+    $discountedPrice = $originalPrice * 0.8; // 20% discount
+
+
+    return $discountedPrice;
+}
+?>
+<?php
 session_start();
 
 // Initialize cart if not set
@@ -6,7 +62,8 @@ if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Add item to cart
+
+
 if (isset($_POST['add_to_cart'])) {
     $item = $_POST['add_to_cart'];
     if (array_key_exists($item, $_SESSION['cart'])) {
@@ -16,30 +73,32 @@ if (isset($_POST['add_to_cart'])) {
     }
 }
 
-// Remove item from cart
+
 if (isset($_GET['remove'])) {
     $itemToRemove = $_GET['remove'];
     unset($_SESSION['cart'][$itemToRemove]);
 }
 
-// Sort cart items based on selected option
+
 if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     $sortOption = $_GET['sort'];
     switch ($sortOption) {
         case 'name-asc':
-            ksort($_SESSION['cart']); // Sort by item name (A-Z)
+            ksort($_SESSION['cart']); 
             break;
         case 'name-desc':
-            krsort($_SESSION['cart']); // Sort by item name (Z-A)
+            krsort($_SESSION['cart']); 
             break;
         case 'price-asc':
-            asort($_SESSION['cart']); // Sort by item price (Low to High)
+            asort($_SESSION['cart']); 
             break;
         case 'price-desc':
-            arsort($_SESSION['cart']); // Sort by item price (High to Low)
+            arsort($_SESSION['cart']); 
             break;
     }
 }
+
+
 ?>
 
 
@@ -115,15 +174,18 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
 
 <body style="background-color: white; margin:0; padding:0;" class="truculenta">
 
-    <header style="padding: 0;" class="sticky-header">
-        <h1>Gardening Shop</h1>
-        <nav>
+    <header style="padding:0; background-color:#ff7f49" class="sticky-header">
+        <h1 style="margin-right:10px">Gardening Shop</h1>
+        <nav style="margin-right:10px">
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
+            <a href="discount.php">Offers</a>
+            <a href="../HTML/index.html">Sign Out</a>
+
 
         </nav>
-        <div class="row">
+        <div class="row" style="margin-right: 100px;">
             <div class="col-6">
                 <h1 style="float: right;">My Cart</h1>
             </div>
@@ -152,24 +214,42 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
         </tr>
        
         <?php
+
+
         $totalPrice = 0;
+
         foreach ($_SESSION['cart'] as $item => $quantity) {
             // Assign price based on item name
-            $price = getPriceByItem($item);
-            $totalPrice += $price * $quantity;
-            echo "<tr>";
-            echo "<td>$item</td>";
-            echo "<td>$quantity</td>";
-            echo "<td>$price</td>";
-            echo "<td><a href='mycart.php?remove=$item'>Remove</a></td>";
-            echo "</tr>";
+            $price = 0;
+
+            if (isset($_SESSION['cart'][$item])) {
+                // Check if the item has a price greater than 0
+                if ($regularPrice = getPriceByItem($item)) {
+                    $price += $regularPrice;
+                }
+                
+                if ($discountedPrice = getPriceByItem2($item)) {
+                    $price += $discountedPrice;
+                }
+
+                $totalPrice += $price * $quantity;
+                echo "<tr>";
+                echo "<td>$item</td>";
+                echo "<td>$quantity</td>";
+                echo "<td>$price</td>";
+                echo "<td><a href='mycart.php?remove=$item'>Remove</a></td>";
+                echo "</tr>";
+            }
         }
         ?>
+
+
         <tr>
             <td colspan="2" style="color: #8e0000;"><strong>Total</strong></td>
             <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
         </tr>
     </table>
+<<<<<<< HEAD
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10"> <form method="post" action="konfirmo_porosine.php">
@@ -214,6 +294,14 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     });
 </script>
     
+=======
+    <button style="margin-left:1320px ; font-size:1rem;  background-color: #ff7f49; border-color: #ff7f49;color: white;" class="btn " onclick="purchase()">Buy All</button>
+
+
+
+
+
+>>>>>>> 8ad992a447d9a29727deabe1c7f5b3de58123121
 
     <script>
         // JavaScript function to redirect with sort option
@@ -222,9 +310,9 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             window.location.href = "mycart.php?sort=" + sortOption;
         }
     </script>
-     <footer>
-    &copy; 2024 Gardening Shop. All rights reserved.
-  </footer>
+    <footer>
+        &copy; 2024 Gardening Shop. All rights reserved.
+    </footer>
 
 </body>
 
@@ -263,3 +351,13 @@ function getPriceByItem($item)
     }
 }
 ?>
+<script>
+    function purchase() {
+        if (confirm('Do you confirm purchasing?')) {
+            alert('Items purchased!');
+            <?php  ?>
+        } else {
+            alert('Purchase canceled!');
+        }
+    }
+</script>

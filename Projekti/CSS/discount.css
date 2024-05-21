@@ -1,0 +1,132 @@
+/* Basic styles for discount page */
+
+body {
+    font-family: "Truculenta";
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  .truculenta {
+    font-family: "Truculenta", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+  
+  /* HEADER SECTION */
+  header {
+    background-color:#ff7f49;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: "Truculenta";
+    
+    
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  header a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+  
+  header.sticky-header{
+    padding-left: 6px;
+  }
+  .sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color:#ff7f49; 
+    padding: 10px 0; 
+    
+    text-align: center; 
+    z-index: 1000; 
+  }
+  
+  
+
+button{
+  border-radius: 100%;
+  border-style: inherit;
+  width: 50px;
+  height: 40px;
+  font: 15pt;
+  color: white;
+  background-color: #ff7f49;
+}
+button:hover{
+  background-color: #ff7f49;
+}
+
+  footer {
+    background-color: #ff7f49;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .discount-container {
+    padding: 20px;
+  }
+  
+  .discount-text {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .discount-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .discount-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  .discount-image img {
+    max-width: 100%;
+    height: auto;
+    background-color: transparent; /* Set background color to transparent */
+  }
+  
+  .btn {
+    background-color: #78c350;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background-color: #6da943;
+  }
+  
+
+  .discount-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .discount-text {
+    flex: 1; /* Take up remaining space */
+  }
+  
+  img {
+    margin-left:5px;
+    width: 450px;
+  }
+  
