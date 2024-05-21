@@ -186,7 +186,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
             <a href="discount.php">Offers</a>
-            <a href="../HTML/index.html">Sign Out</a>
+            <a href="signout.php">Sign Out</a>
 
 
         </nav>
