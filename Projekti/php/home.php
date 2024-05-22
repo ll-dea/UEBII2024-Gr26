@@ -38,7 +38,7 @@ if (isset($_POST['add_to_cart'])) {
     <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    
 
 
     <script src="../Javascript/index.js"></script>
@@ -387,35 +387,31 @@ if (isset($_POST['add_to_cart'])) {
         </div>
 
     </div>
-    <br><br><br> <br><br><br><br>
-    <div id="kontakt" class="row" style="padding: 50px; background-color: #8efc8c ">
-        <div class="middle col-6 ">
-            <div class="info">
-                <h2>Meet Us</h2>
-                <p>Rruga B, Prishtina 10000</p>
-                <p>Phone : +383111000</p>
-                <p>Office Hours : 8:00am - 17:00pm</p>
+    <br><br>
+    
+
+    <div class="container mt-5">
+        <h2>Submit a Review</h2>
+        <form action="submit_review.php" method="post">
+           
+            <div class="mb-3">
+                <label for="user_name" class="form-label">Name:</label>
+                <input type="text" id="user_name" name="user_name" class="form-control" required>
             </div>
-
-        </div>
-
-        <div class="form col-6 " style="align-items: center;">
-            <h2 style="margin-left: 15px;">Contact Us</h2>
-            <form id="contactForm" onsubmit="return validateForm()">
-                <div class="inputs">
-                    <input style="height: 50px; width: 500px;" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name.surname@gmail.com">
-                    <textarea style="height: 100px ; width: 500px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-                    <button type="submit" class="btn btn-light mx-auto ">Send</button>
-
-                </div>
-            </form>
-            </center>
-
-
-
-
-        </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">Rating (1-5):</label>
+                <input type="number" id="rating" name="rating" class="form-control" min="1" max="5" required>
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comment:</label>
+                <textarea id="comment" name="comment" class="form-control" required></textarea>
+            </div>
+            <button type="submit" name="subimt_reviews" value="Submit">Submit</button>
+        </form>
     </div>
 
 
@@ -503,5 +499,10 @@ if (isset($_POST['add_to_cart'])) {
         return true;
     }
 </script>
+
+<head>
+    <title>Submit a Review</title>
+</head>
+
 
 </html>
