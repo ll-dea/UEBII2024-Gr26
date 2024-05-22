@@ -62,10 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $errors = [];
 
 if(isset($_POST["Submit"])){
-    $emri = mysqli_real_escape_string($conn, $_POST["emri"]);
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $password = mysqli_real_escape_string($conn, $_POST["password"]);
-    $rpassword = mysqli_real_escape_string($conn, $_POST["rpassword"]);
+    $emri =($_POST["emri"]);
+    $email =($_POST["email"]);
+    $password =($_POST["password"]);
+    $rpassword =($_POST["rpassword"]);
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         $errors = array();
