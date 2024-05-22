@@ -124,6 +124,10 @@ if (isset($_POST['add_to_cart'])) {
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+            </v>
+        </div>
+=======
                 <br>
                 <h3>Plants:</h3>
                    <br><br>
@@ -325,6 +329,7 @@ if (isset($_POST['add_to_cart'])) {
                                                 }
                                                 ?>
 
+>>>>>>> c3dd881bd7d345b89535cbb4eb8c6cb9c87400d5
     </form>
 
 
