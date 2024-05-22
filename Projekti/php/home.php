@@ -8,14 +8,18 @@ if (!isset($_SESSION['cart'])) {
 }
 
 // Add item to cart
-if (isset($_POST['add_to_cart'])) {
-    $item = $_POST['add_to_cart'];
-    if (array_key_exists($item, $_SESSION['cart'])) {
-        $_SESSION['cart'][$item]++;
-    } else {
-        $_SESSION['cart'][$item] = 1;
-    }
-}
+try{
+    if (isset($_POST['add_to_cart'])) {
+       $item = $_POST['add_to_cart'];
+        if (array_key_exists($item, $_SESSION['cart'])) {
+          $_SESSION['cart'][$item]++;
+        } else {
+          $_SESSION['cart'][$item] = 1;
+        }
+      }
+  }catch(Exception $e){
+      echo 'Error'.$e->getMessage();
+  }
 
 
 
