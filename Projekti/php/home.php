@@ -1,69 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION["user"])) {
-    header("Location: ../index.php");
-}
-?>
-
-<?php
-function getPriceByItem2($item)
-{
-
-    $originalPrice = 0;
-
-
-    switch ($item) {
-        case 'Digging Set':
-            $originalPrice = 100;
-            break;
-        case 'Ornamental Plant':
-            $originalPrice = 30;
-            break;
-        case 'Flower Light':
-            $originalPrice = 50;
-            break;
-        case 'Flower Vase':
-            $originalPrice = 40;
-            break;
-        case 'Watering Can ':
-            $originalPrice = 20;
-            break;
-        case 'Wheelbarrow':
-            $originalPrice = 120;
-            break;
-        case 'Garden Boots':
-            $originalPrice = 70;
-            break;
-        case 'Pink Flamingo':
-            $originalPrice = 90;
-            break;
-        case 'Rake':
-            $originalPrice = 60;
-            break;
-        case 'Cactus Plant':
-            $originalPrice = 20;
-            break;
-        case 'Electric ':
-            $originalPrice = 180;
-            break;
-        case 'Fidle Leaf':
-            $originalPrice = 40;
-            break;
-        default:
-            $originalPrice = 0;
-            break;
-    }
-
-
-    $discountedPrice = $originalPrice * 0.8; // 20% discount
-
-
-    return $discountedPrice;
-}
-?>
-
-<?php
-
 
 
 // Initialize cart if not set
@@ -84,46 +20,6 @@ if (isset($_POST['add_to_cart'])) {
 
 
 ?>
-<?php
-function setRating($value)
-{
-    setcookie('rating', $value, time() + (86400 * 30), "/");
-}
-
-
-function getRating()
-{
-    if (isset($_COOKIE['rating'])) {
-        return $_COOKIE['rating'];
-    } else {
-        // If no rating is set, set it to 0
-        setRating(0);
-        return 0;
-    }
-}
-
-// Function to delete the rating
-function deleteRating()
-{
-    if (isset($_COOKIE['rating'])) {
-        unset($_COOKIE['rating']);
-        setcookie('rating', null, -1, '/');
-    }
-}
-
-// Check if the rating form is submitted
-if (isset($_POST['rating'])) {
-    $rating = $_POST['rating'];
-    setRating($rating);
-}
-
-// Check if the delete button is clicked
-if (isset($_POST['delete_rating'])) {
-    deleteRating();
-}
-
-$currentRating = getRating();
-?>
 
 
 
@@ -143,56 +39,32 @@ $currentRating = getRating();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <style>
-        .rating {
-            unicode-bidi: bidi-override;
-            direction: rtl;
-            text-align: center;
-        }
 
-        .rating>label {
-            display: inline-block;
-            position: relative;
-            width: 1.1em;
-            font-size: 2em;
-            color: #ccc;
-            cursor: pointer;
-        }
 
-        .rating>label:hover,
-        .rating>label:hover~label,
-        .rating>input:focus~label {
-            color: #ffcc00;
-        }
-
-        .rating>input:checked~label,
-        .rating:not(:checked)>label:hover~input:checked~label {
-            color: #ffcc00;
-        }
-    </style>
-
+    <script src="../Javascript/index.js"></script>
 </head>
 
-<body class="truculenta" style="margin-right:0px">
-    <header class="sticky-header" style="background-color: #ff7f49; padding-left:27px">
-        <h1 style="margin-top:10px; ">Gardening Shop</h1>
+<body class="truculenta" style="padding: 0px;margin-right:0px">
+
+    <header class="sticky-header">
+        <h1>Gardening Shop</h1>
         <nav>
             <a href="home.php">Home</a>
             <a href="mycart.php">My Cart</a>
             <a href="about.php">About</a>
-            <a href="discount.php">Offers</a>
-            <a href="signout.php">Sign Out</a>
 
         </nav>
     </header>
-
     <br><br><br>
     <div>
-        <video autoplay muted loop playsinline style=" height: 620px;width:100%; object-fit: cover; position:relative;margin-top:20px">
+        <video autoplay muted loop playsinline style="width: 100vw; height: 90vh; object-fit: cover; position:relative">
             <source src="../HTML/foto/Video1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-
+        <p style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: #fff;font-size: 70px;text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    max-width: 80%;
+    line-height: 1.5;filter:blur(100%)">Find Your Style</p>
     </div>
 
 
@@ -204,289 +76,278 @@ $currentRating = getRating();
                 <h class="display-4 " style="text-align: center;">Best Selling</h>
             </div>
             <br>
-            <h3>Tools:</h3>
-            <br><br>
-            <div id="item1" class="row" style="padding-left: 5%; ">
+            <h3>Tools:</h>
+                <br><br>
+                <div id="item1" class="row" style="padding-left: 5%; ">
 
 
-                <div id="Gloves" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Gloves" data-toggle="modal" data-target="#productModal0">
-                        <div class="card-body">
-                            <h5 class="card-title">Gloves</h5>
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Gloves" class="btn btn-warning">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
+                    <div id="Gloves" class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="../HTML/foto/Photo1.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Gloves" data-toggle="modal" data-target="#productModal0">
+                            <div class="card-body">
+                                <h5 class="card-title">Gloves</h5>
+                                <button type="submit" name="add_to_cart" value="Gloves">Buy</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="Pruning Shears" class="col-3 ">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo2.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Pruning Shears" data-toggle="modal" data-target="#productModal1">
-                        <div class="card-body">
-                            <h5 class="card-title">Pruning Shears</h5>
+                    <div id="Pruning Shears" class="col-3 ">
+                        <div class="card" style="width: 18rem;">
+                            <img src="../HTML/foto/Photo2.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Pruning Shears" data-toggle="modal" data-target="#productModal1">
+                            <div class="card-body">
+                                <h5 class="card-title">Pruning Shears</h5>
 
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49 ; font-size:1rem;width:auto" value="Pruning Shears">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
+                                <button type="submit" name="add_to_cart" value="Pruning Shears">Buy</button>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="Loppers" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo3.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Loppers" data-toggle="modal" data-target="#productModal2">
-                        <div class="card-body">
-                            <h5 class="card-title">Loppers</h5>
+                    <div id="Loppers" class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="../HTML/foto/Photo3.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Loppers" data-toggle="modal" data-target="#productModal2">
+                            <div class="card-body">
+                                <h5 class="card-title">Loppers</h5>
 
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49 ; font-size:1rem;width:auto" value="Loppers">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
+                                <button type="submit" name="add_to_cart" value="Loppers">Buy</button>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="Garden Fork" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo4.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Garden Fork" data-toggle="modal" data-target="#productModal3">
-                        <div class="card-body">
-                            <h5 class="card-title">Garden Fork</h5>
+                    <div id="Garden Fork" class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="../HTML/foto/Photo4.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Garden Fork" data-toggle="modal" data-target="#productModal3">
+                            <div class="card-body">
+                                <h5 class="card-title">Garden Fork</h5>
 
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Garden Fork">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
+                                <button type="submit" name="add_to_cart" value="Garden Fork">Buy</button>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <h3>Plants:</h3>
-            <br> <br>
-            <div id="item2" class="row" style="padding-left: 5%;">
-                <div id="Snake Plant" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo5.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Snake Plant" data-toggle="modal" data-target="#productModal4">
-                        <div class="card-body">
-                            <h5 class="card-title">Snake Plant</h5>
-
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Snake Plant">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div id="Pothos" class="col-3 ">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo6.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Pothos " data-toggle="modal" data-target="#productModal5">
-                        <div class="card-body">
-                            <h5 class="card-title">Pothos</h5>
-
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Pothos">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div id="ZZ Plant" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo7.png" class="card-img-top" style="height: 250px;cursor:pointer" alt="ZZ Plant" data-toggle="modal" data-target="#productModal6">
-                        <div class="card-body">
-                            <h5 class="card-title">ZZ Plant</h5>
-
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="ZZ Plant">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div id="Peace Lily" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo8.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Peace Lily" data-toggle="modal" data-target="#productModal7">
-                        <div class="card-body">
-                            <h5 class="card-title">Peace Lily</h5>
-
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Peace Lily">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h3>Decorations:</h3>
-            <br><br>
-            <div id="item3" class="row" style="padding-left: 5%;">
-                <div id="Lighting" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo9.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Garmets" data-toggle="modal" data-target="#productModal8">
-                        <div class="card-body">
-                            <h5 class="card-title">Lighting</h5>
-
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Lighting">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div id="Garmets" class="col-3 ">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo10.jpeg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Garmets" data-toggle="modal" data-target="#productModal9">
-                        <div class="card-body">
-                            <h5 class="card-title">Garmets</h5>
-
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Garmets">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div id="Shelf" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo11.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Shelf" data-toggle="modal" data-target="#productModal10">
-                        <div class="card-body">
-                            <h5 class="card-title">Shelf</h5>
-
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem;width:auto" value="Shelf">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-                <div id="Vertical Gardening" class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Vertical Gardening" data-toggle="modal" data-target="#productModal11">
-                        <div class="card-body">
-                            <h5 class="card-title">Vertical Gardening</h5>
-                            <button type="submit" name="add_to_cart" style=" background-color : #ff7f49; font-size:1rem; width:auto" value="Vertical Gardening">Add to Cart</button>
-                            <button class="btn btn-warning">Info</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <v class="container">
-                <div class="row">
-                    <div class="container">
-                        <div class="row">
-                            <div class="container">
-                                <div class="row">
-
-                                    <?php
-                                    class Product
-                                    {
-                                        public $name;
-                                        public $price;
-                                        public $description;
-                                        //konstruktori
-                                        public function __construct($name, $price, $description)
-                                        {
-                                            $this->name = $name;
-                                            $this->price = $price;
-                                            $this->description = $description;
-                                        }
-                                    }
-                                    class ExtendedProduct extends Product
-                                    {
-                                        protected $availability;
-
-                                        public function __construct($name, $price, $description, $availability)
-                                        {
-                                            parent::__construct($name, $price, $description);
-                                            $this->availability = $availability;
-                                        }
-
-                                        public function getAvailability()
-                                        {
-                                            return $this->availability;
-                                        }
-
-                                        public function getAvailabilityText()
-                                        {
-                                            if ($this->availability > 0) {
-                                                return 'In stock';
-                                            } else {
-                                                return 'Out of stock. It will be back soon';
-                                            }
-                                        }
-
-                                        public function setAvailability($availability)
-                                        {
-                                            $this->availability = $availability;
-                                        }
-                                    }
-
-                                    ?>
-                                    <?php
-                                    $products = array(
-                                        new ExtendedProduct("Gloves", 10, "A pair of gardening gloves designed to provide protection and comfort during gardening activities. These gloves are made from durable materials and are suitable for various gardening tasks.", 1),
-                                        new ExtendedProduct("Pruning Shears", 15, "Pruning shears designed for precise cutting of stems and small branches in your garden. These shears feature sharp blades and ergonomic handles for ease of use.", 30),
-                                        new ExtendedProduct("Loppers", 20, "Loppers are essential tools for cutting thick branches and stems with ease. These loppers are built with high-quality materials and provide excellent leverage for efficient cutting.", 25),
-                                        new ExtendedProduct("Garden Fork", 18, "A garden fork designed to loosen soil and aerate the ground in your garden. This sturdy fork features sharp tines and a comfortable handle for effortless gardening.", 35),
-
-                                        new ExtendedProduct("Snake Plant", 25, "The snake plant, also known as Sansevieria, is a popular indoor plant prized for its striking appearance and low maintenance requirements. It features tall, upright leaves with a variegated pattern.", 20),
-                                        new ExtendedProduct("Pothos", 12, "Pothos, also known as Devil's Ivy, is a versatile houseplant loved for its lush foliage and air-purifying qualities. This easy-to-care-for plant thrives in various lighting conditions and adds a touch of green to any indoor space.", 40),
-                                        new ExtendedProduct("ZZ Plant", 30, "The ZZ plant is a resilient houseplant known for its ability to thrive in low light conditions and tolerate neglect. With its glossy, dark green leaves, the ZZ plant adds a touch of elegance to any room.", 0),
-                                        new ExtendedProduct("Peace Lily", 22, "The peace lily, or Spathiphyllum, is a popular indoor plant admired for its elegant white flowers and air-purifying properties. This low-maintenance plant thrives in low to medium light conditions and requires minimal care.", 10),
-
-                                        new ExtendedProduct("Lighting", 50, "Enhance the ambiance of your garden or indoor space with our selection of lighting solutions. From string lights to solar-powered lanterns, we offer a variety of options to illuminate your surroundings and create a cozy atmosphere.", 8),
-                                        new ExtendedProduct("Garments", 8, "Stay comfortable and protected during your gardening tasks with our range of garden garments. From sturdy gloves to lightweight aprons, we have the apparel you need to enjoy your time in the garden.", 60),
-                                        new ExtendedProduct("Shelf", 40, "Add style and functionality to your indoor space with our decorative shelves. Perfect for displaying plants, decorations, or books, these shelves are both practical and aesthetically pleasing.", 0),
-                                        new ExtendedProduct("Vertical Gardening", 50, "Maximize space in your garden with our vertical gardening solutions. From wall-mounted planters to vertical garden towers, we offer innovative products to help you create a lush and thriving vertical garden.", 8)
-                                    );
-                                    $products[0]->setAvailability(1);
-
-                                    foreach ($products as $key => $product) {
-                                    ?>
-
-                                        <div class="modal fade" id="productModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= $key ?>" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="productModalLabel<?= $key ?>"><?= $product->name ?></h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p><?= $product->description ?></p>
-                                                        <p>Price: $<?= $product->price ?></p>
-                                                        <p><?= $product->getAvailabilityText() ?></p>
-                                                        <p>Hope you found this helpful!</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php }
-
-
-                                    foreach ($_SESSION['cart'] as $item => $quantity) {
-                                        echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
-                                        echo "<input type='hidden' name='cart[$item][price]' value='$quantity'>";
-                                    }
-
-                                    ?>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
             </v>
         </div>
+=======
+                <br>
+                <h3>Plants:</h3>
+                   <br><br>
+                    <div id="item2" class="row" style="padding-left: 5%;">
+                        <div id="Snake Plant" class="col-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="../HTML/foto/Photo5.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Snake Plant" data-toggle="modal" data-target="#productModal4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Snake Plant</h5>
+
+                                    <button type="submit" name="add_to_cart" value="Snake Plant">Buy</button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Pothos" class="col-3 ">
+                            <div class="card" style="width: 18rem;">
+                                <img src="../HTML/foto/Photo6.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Pothos " data-toggle="modal" data-target="#productModal5">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pothos</h5>
+
+                                    <button type="submit" name="add_to_cart" value="Pothos">Buy</button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ZZ Plant" class="col-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="../HTML/foto/Photo7.png" class="card-img-top" style="height: 250px;cursor:pointer" alt="ZZ Plant" data-toggle="modal" data-target="#productModal6">
+                                <div class="card-body">
+                                    <h5 class="card-title">ZZ Plant</h5>
+
+                                    <button type="submit" name="add_to_cart" value="ZZ Plant">Buy</button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Peace Lily" class="col-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="../HTML/foto/Photo8.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Peace Lily" data-toggle="modal" data-target="#productModal7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Peace Lily</h5>
+
+                                    <button type="submit" name="add_to_cart" value="Peace Lily">Buy</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Decorations:</h>
+                        <br><br>
+                        <div id="item3" class="row" style="padding-left: 5%;">
+                            <div id="Lighting" class="col-3">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="../HTML/foto/Photo9.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Garmets" data-toggle="modal" data-target="#productModal8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Lighting</h5>
+
+                                        <button type="submit" name="add_to_cart" value="Lighting">Buy</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Garmets" class="col-3 ">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="../HTML/foto/Photo10.jpeg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Garmets" data-toggle="modal" data-target="#productModal9">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Garmets</h5>
+
+                                        <button type="submit" name="add_to_cart" value="Garmets">Buy</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Shelf" class="col-3">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="../HTML/foto/Photo11.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Shelf" data-toggle="modal" data-target="#productModal10">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Shelf</h5>
+
+                                        <button type="submit" name="add_to_cart" value="Shelf">Buy</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Vertical Gardening" class="col-3">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="../HTML/foto/Photo12.jpg" class="card-img-top" style="height: 250px;cursor:pointer" alt="Vertical Gardening" data-toggle="modal" data-target="#productModal11">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vertical Gardening</h5>
+                                        <button type="submit" name="add_to_cart" value="Vertical Gardening">Buy</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br><br><br>
+                        <v class="container">
+                            <div class="row">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="row">
+
+                                                <?php
+                                                class Product
+                                                {
+                                                    public $name;
+                                                    public $price;
+                                                    public $description;
+
+                                                    public function __construct($name, $price, $description)
+                                                    {
+                                                        $this->name = $name;
+                                                        $this->price = $price;
+                                                        $this->description = $description;
+                                                    }
+                                                }
+                                                class ExtendedProduct extends Product
+                                                {
+                                                    protected $availability;
+
+                                                    public function __construct($name, $price, $description, $availability)
+                                                    {
+                                                        parent::__construct($name, $price, $description);
+                                                        $this->availability = $availability;
+                                                    }
+
+                                                    // Shto metoda të tjera nëse është e nevojshme
+                                                    public function getAvailability()
+                                                    {
+                                                        return $this->availability;
+                                                    }
+
+                                                    public function getAvailabilityText()
+                                                    {
+                                                        if ($this->availability > 0) {
+                                                            return 'In stock';
+                                                        } else {
+                                                            return 'Out of stock. It will be back soon';
+                                                        }
+                                                    }
+
+                                                    public function setAvailability($availability)
+                                                    {
+                                                        $this->availability = $availability;
+                                                    }
+                                                }
+
+                                                ?>
+                                                <?php
+                                                $products = array(
+                                                    new ExtendedProduct("Gloves", 10, "A pair of gardening gloves designed to provide protection and comfort during gardening activities. These gloves are made from durable materials and are suitable for various gardening tasks.", 1),
+                                                    new ExtendedProduct("Pruning Shears", 15, "Pruning shears designed for precise cutting of stems and small branches in your garden. These shears feature sharp blades and ergonomic handles for ease of use.", 30),
+                                                    new ExtendedProduct("Loppers", 20, "Loppers are essential tools for cutting thick branches and stems with ease. These loppers are built with high-quality materials and provide excellent leverage for efficient cutting.", 25),
+                                                    new ExtendedProduct("Garden Fork", 18, "A garden fork designed to loosen soil and aerate the ground in your garden. This sturdy fork features sharp tines and a comfortable handle for effortless gardening.", 35),
+
+                                                    new ExtendedProduct("Snake Plant", 25, "The snake plant, also known as Sansevieria, is a popular indoor plant prized for its striking appearance and low maintenance requirements. It features tall, upright leaves with a variegated pattern.", 20),
+                                                    new ExtendedProduct("Pothos", 12, "Pothos, also known as Devil's Ivy, is a versatile houseplant loved for its lush foliage and air-purifying qualities. This easy-to-care-for plant thrives in various lighting conditions and adds a touch of green to any indoor space.", 40),
+                                                    new ExtendedProduct("ZZ Plant", 30, "The ZZ plant is a resilient houseplant known for its ability to thrive in low light conditions and tolerate neglect. With its glossy, dark green leaves, the ZZ plant adds a touch of elegance to any room.", 0),
+                                                    new ExtendedProduct("Peace Lily", 22, "The peace lily, or Spathiphyllum, is a popular indoor plant admired for its elegant white flowers and air-purifying properties. This low-maintenance plant thrives in low to medium light conditions and requires minimal care.", 10),
+
+                                                    new ExtendedProduct("Lighting", 50, "Enhance the ambiance of your garden or indoor space with our selection of lighting solutions. From string lights to solar-powered lanterns, we offer a variety of options to illuminate your surroundings and create a cozy atmosphere.", 8),
+                                                    new ExtendedProduct("Garments", 8, "Stay comfortable and protected during your gardening tasks with our range of garden garments. From sturdy gloves to lightweight aprons, we have the apparel you need to enjoy your time in the garden.", 60),
+                                                    new ExtendedProduct("Shelf", 40, "Add style and functionality to your indoor space with our decorative shelves. Perfect for displaying plants, decorations, or books, these shelves are both practical and aesthetically pleasing.", 0),
+                                                    new ExtendedProduct("Vertical Gardening", 50, "Maximize space in your garden with our vertical gardening solutions. From wall-mounted planters to vertical garden towers, we offer innovative products to help you create a lush and thriving vertical garden.", 8)
+                                                );
+                                                $products[0]->setAvailability(1);
+
+                                                foreach ($products as $key => $product) {
+                                                ?>
+
+                                                    <div class="modal fade" id="productModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= $key ?>" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="productModalLabel<?= $key ?>"><?= $product->name ?></h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p><?= $product->description ?></p>
+                                                                    <p>Price: $<?= $product->price ?></p>
+                                                                    <p><?= $product->getAvailabilityText() ?></p>
+                                                                    <p>Hope you found this helpful</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php }
+
+
+                                                // Add hidden fields for previously added items
+                                                foreach ($_SESSION['cart'] as $item => $quantity) {
+                                                    echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
+                                                    echo "<input type='hidden' name='cart[$item][price]' value='$quantity'>";
+                                                }
+                                                ?>
+
+>>>>>>> c3dd881bd7d345b89535cbb4eb8c6cb9c87400d5
     </form>
 
 
-    <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #ff7900; border: 1px solid #ff7900; width:45px">
+    <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #8efc8c; border: 1px solid #8efc8c; width:45px">
         <span>&#9733; </span>
     </button>
-    
+    <br><br><br><br><br>
+    <br><br>
 
     <div id="kontenti">
-        <div style="background-color: #ff7f49;">
+        <div style="background-color: #8efc8c;">
 
-            <img src="../HTML/foto/Photo13.jpg">
-
+            <img id="slideshow" src="../HTML/foto/Photo13.jpg">
+            <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
 
         </div>
     </div>
-    <br><br>
+    <br><br><br><br><br> <br><br><br><br><br><br><br><br><br>
     <div class="row" style="height: 400px;">
 
         <div class="col-6">
@@ -520,106 +381,41 @@ $currentRating = getRating();
             <img src="../HTML/foto/Photo17.png" style="width: 500px;" alt="Garden">
         </div>
 
-
     </div>
+    <br><br><br> <br><br><br><br>
+    <div id="kontakt" class="row" style="padding: 50px; background-color: #8efc8c ">
+        <div class="middle col-6 ">
+            <div class="info">
+                <h2>Meet Us</h2>
+                <p>Rruga B, Prishtina 10000</p>
+                <p>Phone : +383111000</p>
+                <p>Office Hours : 8:00am - 17:00pm</p>
+            </div>
 
-    <div style="border:1px solid black;padding:30px 30px;margin-bottom:0px">
-        <center>
-            <h2>Your Rating</h2>
+        </div>
 
-            <form method="post">
-                <fieldset class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" <?php if ($currentRating == 5) echo "checked"; ?> /><label for="star5" title="5 stars">&#9733;</label>
-                    <input type="radio" id="star4" name="rating" value="4" <?php if ($currentRating == 4) echo "checked"; ?> /><label for="star4" title="4 stars">&#9733;</label>
-                    <input type="radio" id="star3" name="rating" value="3" <?php if ($currentRating == 3) echo "checked"; ?> /><label for="star3" title="3 stars">&#9733;</label>
-                    <input type="radio" id="star2" name="rating" value="2" <?php if ($currentRating == 2) echo "checked"; ?> /><label for="star2" title="2 stars">&#9733;</label>
-                    <input type="radio" id="star1" name="rating" value="1" <?php if ($currentRating == 1) echo "checked"; ?> /><label for="star1" title="1 star">&#9733;</label>
-                </fieldset>
-                <br />
+        <div class="form col-6 " style="align-items: center;">
+            <h2 style="margin-left: 15px;">Contact Us</h2>
+            <form id="contactForm" onsubmit="return validateForm()">
+                <div class="inputs">
+                    <input style="height: 50px; width: 500px;" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name.surname@gmail.com">
+                    <textarea style="height: 100px ; width: 500px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 
-                <div class="row" style="width: 200px;">
-                    <input type="submit" value="Submit Rating" style="background-color: #ff7f49;">
+                    <button type="submit" class="btn btn-light mx-auto ">Send</button>
+
                 </div>
             </form>
-
-<<<<<<< HEAD
-
+            </center>
 
 
-        </div>
-    </div><!-- Modal for Thank You Message -->
-<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="thankYouModalLabel">Thank You!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="thankYouMessage">
-                <!-- Thank You message will be inserted here -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="rateAgain()">Rate Again</button>
-            </div>
+
+
         </div>
     </div>
-</div>
-
-<!-- Rating Form -->
-<div class="rating-form">
-    <h2>Rate Us!</h2>
-    <form id="ratingForm" action="process_rating.php" method="post">
-        <div class="rating-stars">
-            <input type="radio" name="rating" value="5" id="star5"><label for="star5"></label>
-            <input type="radio" name="rating" value="4" id="star4"><label for="star4"></label>
-            <input type="radio" name="rating" value="3" id="star3"><label for="star3"></label>
-            <input type="radio" name="rating" value="2" id="star2"><label for="star2"></label>
-            <input type="radio" name="rating" value="1" id="star1"><label for="star1"></label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
-
-<!-- Include jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Include custom JavaScript -->
-<script src="script.js"></script>
 
 
 
-=======
-            <form method="post">
-                <div class="row" style="width: 200px">
-                    <input type="submit" name="delete_rating" value="Delete Rating" style="background-color: #ff8f20">
-                </div>
-        </center>
-        </form>
-    </div>
-    
-    <footer style="font-size: 1rem;background-color:#ff7f49"> &copy; 2024 Login Page. All rights reserved.
-    </footer>
->>>>>>> 8ad992a447d9a29727deabe1c7f5b3de58123121
 </body>
-<?php
-session_start();
-
-if (isset($_POST['rating'])) {
-    $rating = $_POST['rating'];
-
-    // Save rating to session
-    $_SESSION['user_rating'] = $rating;
-
-    // Save rating to cookie for 30 days
-    setcookie('user_rating', $rating, time() + (30 * 24 * 60 * 60), '/');
-
-    // Return thank you message
-    echo $rating;
-}
-?>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -701,22 +497,6 @@ if (isset($_POST['rating'])) {
 
         return true;
     }
-</script>
-<script>
-    let i = 0;
-    let imgArray = ['../HTML/foto/Photo14.jpg', '../HTML/foto/Photo15.jpg', '../HTML/foto/Photo13.jpg'];
-
-    function changeImg() {
-        document.getElementById('slideshow').src = imgArray[i];
-
-        if (i < imgArray.length - 1) {
-            i++;
-        } else {
-            i = 0;
-        }
-        //setTimeout("changeImg()", 2600);
-    }
-    document.addEventListener(onload, changeImg());
 </script>
 
 </html>

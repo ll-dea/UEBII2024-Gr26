@@ -1,9 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION["user"])){
-    header("Location: ../index.php");
-}
-?>
 
 
 <!-- session_start();
@@ -55,48 +49,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } -->
 
 
+   
+   <?php
+     session_start();
+     require_once "database.php";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Garden Shop</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- <link rel="stylesheet" href="../CSS/login.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+    if(isset($_SESSION["user"])){
+    header("Location: ../index.php");
+    exit; 
+}
 
+$errors = [];
 
-    
-</head>
-<body>
-<body class="truculenta">
-<header class="sticky-header" style="background-color: ff7f49;">
-    <h1 style="padding-right: 5px;" >Gardening Shop</h1>
-    <nav style="padding-right: 5px;">
-     
-      
-      <a href="../HTML/About.html">About Us</a>
-
-     
-
-    </nav>
-  </header>
-  <br><br><br><br><br><br>
-
-  
-
-    <div class="container">
-    <?php
-    if(isset($_POST["Submit"])){
-        $emri = $_POST["emri"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $rpassword = $_POST["rpassword"];
-        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+if(isset($_POST["Submit"])){
+    $emri = mysqli_real_escape_string($conn, $_POST["emri"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    $rpassword = mysqli_real_escape_string($conn, $_POST["rpassword"]);
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         $errors = array();
 
@@ -143,7 +113,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
     ?>
-        
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garden Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link rel="stylesheet" href="../CSS/login.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+
+
+    
+</head>
+<body>
+<body class="truculenta">
+<header class="sticky-header" style="background-color: ff7f49;">
+    <h1 style="padding-right: 5px;" >Gardening Shop</h1>
+    <nav style="padding-right: 5px;">
+     
+      
+      <a href="../HTML/About.html">About Us</a>
+
+     
+
+    </nav>
+  </header>
+  <br><br><br><br><br><br>
+
+        <div class="container">
         <form action="signup.php" method="post" id="signupForm" >
             <div class="form-group">
                 <input  type="text" class="form-control" id="emri" name="emri" required placeholder="Full Name">
