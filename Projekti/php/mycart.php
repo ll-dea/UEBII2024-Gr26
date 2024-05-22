@@ -255,7 +255,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
         </tr>
     </table>
-<<<<<<< HEAD
+
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10"> <form method="post" action="konfirmo_porosine.php">
@@ -300,14 +300,13 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     });
 </script>
     
-=======
+
     <button style="margin-left:1320px ; font-size:1rem;  background-color: #ff7f49; border-color: #ff7f49;color: white;" class="btn " onclick="purchase()">Buy All</button>
 
 
 
 
 
->>>>>>> 8ad992a447d9a29727deabe1c7f5b3de58123121
 
     <script>
         // JavaScript function to redirect with sort option
