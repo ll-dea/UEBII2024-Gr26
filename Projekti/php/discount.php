@@ -12,16 +12,17 @@ if (!isset($_SESSION['cart'])) {
 }
 
 // Add item to cart
-if (isset($_POST['add_to_cart'])) {
-  $item = $_POST['add_to_cart'];
+function addItemToCart($item) {
+  if (!isset($item) || empty($item)) {
+      throw new Exception("Artikulli nuk është i vlefshëm.");
+  }
+
   if (array_key_exists($item, $_SESSION['cart'])) {
-    $_SESSION['cart'][$item]++;
+      $_SESSION['cart'][$item]++;
   } else {
-    $_SESSION['cart'][$item] = 1;
+      $_SESSION['cart'][$item] = 1;
   }
 }
-
-
 
 ?>
 
