@@ -55,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      session_start();
      require_once "database.php";
 
-    if(isset($_SESSION["user"])){
+    if(isset($_SESSION["users"])){
     header("Location: ../index.php");
     exit; 
-}
+    }
 
 $errors = [];
 
@@ -144,7 +144,6 @@ if(isset($_POST["Submit"])){
     </nav>
   </header>
   <br><br><br><br><br><br>
-
         <div class="container">
         <form action="signup.php" method="post" id="signupForm" >
             <div class="form-group">
