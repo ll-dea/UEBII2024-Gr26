@@ -42,10 +42,48 @@ try{
     <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
     
 
 
-    <script src="../Javascript/index.js"></script>
+    <style>
+    /* Stilizimi për modalin */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            background-color: #fefefe;
+            border: 1px solid #888;
+            width: 300px;
+            padding: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stilizimi për modalin */
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Stilizimi për butonin e mbylljes në modal */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="truculenta" style="padding: 0px;margin-right:0px">
@@ -395,7 +433,7 @@ try{
     
 
     <div class="container mt-5">
-        <h2>Submit a Review</h2>
+        <h2>Write a review</h2>
         <form action="submit_review.php" method="post">
            
             <div class="mb-3">
@@ -407,51 +445,91 @@ try{
                 <input type="email" id="email" name="email" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="rating" class="form-label">Rating (1-5):</label>
-                <input type="number" id="rating" name="rating" class="form-control" min="1" max="5" required>
-            </div>
+            <label for="rating" class="form-label">Rating:</label>
+            <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" required>
+            <label for="star5" title="5 stars">1 </label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4" title="4 stars">2 </label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3" title="3 stars">3</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2" title="2 stars">4</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1" title="1 star">5</label>
+    </div>
+</div>
             <div class="mb-3">
                 <label for="comment" class="form-label">Comment:</label>
                 <textarea id="comment" name="comment" class="form-control" required></textarea>
             </div>
-            <button type="submit" name="subimt_reviews" value="Submit">Submit</button>
+            <button type="submit" name="subimt_reviews" id="submitBtn" value="Submit">Submit</button>
         </form>
     </div>
 
+    <div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Review submitted successfully.</p>
+  </div>
+</div> 
+
+<script>
+$(document).ready(function() {
+    // Kur klikohet në butonin e Submit
+    $("#reviewForm").submit(function(event) {
+        // Parandalon formën e parazgjedhur
+        event.preventDefault();
+        
+        // Shfaq dritaren modale
+        $("#myModal").show();
+    });
+    
+    // Kur klikohet në ikonën e mbylljes
+    $(".close").click(function() {
+        // Mbyll dritaren modale
+        $("#myModal").hide();
+    });
+});
+</script>
 
 
 </body>
 
+
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var backToTopButton = document.getElementById('backToTopButton');
-
-        function toggleBackToTopButton() {
-            backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
-        }
-
-        // Scroll to Top 
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        function animateBackToTopButton() {
-            $('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce');
-        }
-
-        window.addEventListener('scroll', function() {
-            toggleBackToTopButton();
-
-            if (window.scrollY > 300) {
-                animateBackToTopButton();
+$(document).ready(function() {
+    // Kur klikohet në butonin e Submit
+    $("#submitBtn").click(function(event) {
+        // Parandalon veprimin e parazgjedhur të formës
+        event.preventDefault();
+        
+        // Shfaq dritaren modale
+        $("#myModal").show();
+        
+        // Dërgo formën nëpërmjet AJAX (nëse është e nevojshme)
+        $.ajax({
+            type: $("#reviewForm").attr("method"),
+            url: $("#reviewForm").attr("action"),
+            data: $("#reviewForm").serialize(),
+            success: function(response) {
+                // Reagon në rast të suksesit (nëse është e nevojshme)
+                console.log("Form submitted successfully!");
+            },
+            error: function(xhr, status, error) {
+                // Reagon në rast të gabimeve (nëse është e nevojshme)
+                console.error("Form submission failed:", error);
             }
         });
-
-        backToTopButton.addEventListener('click', scrollToTop);
     });
+    
+    // Kur klikohet në ikonën e mbylljes
+    $(".close").click(function() {
+        // Mbyll dritaren modale
+        $("#myModal").hide();
+    });
+});
+
 </script>
 <script>
     function addToCart() {
