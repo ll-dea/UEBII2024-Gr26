@@ -3,6 +3,23 @@ session_start();
 if (!isset($_SESSION["user"])) {
     header("Location: ../index.php");
 }
+
+function error_handler($errno, $errstr, $errfile, $errline, $errcontext) {
+ 
+  $errorMessage = "Error [$errno]: $errstr in $errfile on line $errline\n";
+  $errorMessage .= "Context: " . print_r($errcontext, true) . "\n";
+
+  
+  error_log($errorMessage, 3, 'errors.log');
+
+  
+  echo "<div style='color: red;'>Një gabim ndodhi. Ju lutem kontaktoni administratorin e faqes.</div>";
+}
+
+
+
+
+echo $undefined_variable;
 ?>
 <!DOCTYPE html>
 <html lang="en">
