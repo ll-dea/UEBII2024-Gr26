@@ -51,8 +51,8 @@ try{
         .modal {
             display: none;
             position: fixed;
-            top: 20%;
-            left: 50%;
+            top: 0;
+            left: 0;
             transform: translate(-50%, -50%);
             z-index: 1;
             background-color: #fefefe;
@@ -434,8 +434,7 @@ try{
 
     <div class="container mt-5">
         <h2>Write a review</h2>
-        <form action="submit_review.php" method="post">
-           
+        <form id="reviewForm" action="submit_review.php" method="post">
             <div class="mb-3">
                 <label for="user_name" class="form-label">Name:</label>
                 <input type="text" id="user_name" name="user_name" class="form-control" required>
@@ -445,92 +444,74 @@ try{
                 <input type="email" id="email" name="email" class="form-control" required>
             </div>
             <div class="mb-3">
-            <label for="rating" class="form-label">Rating:</label>
-            <div class="rating">
-            <input type="radio" id="star5" name="rating" value="5" required>
-            <label for="star5" title="5 stars">1 </label>
-            <input type="radio" id="star4" name="rating" value="4">
-            <label for="star4" title="4 stars">2 </label>
-            <input type="radio" id="star3" name="rating" value="3">
-            <label for="star3" title="3 stars">3</label>
-            <input type="radio" id="star2" name="rating" value="2">
-            <label for="star2" title="2 stars">4</label>
-            <input type="radio" id="star1" name="rating" value="1">
-            <label for="star1" title="1 star">5</label>
-    </div>
-</div>
+                <label for="rating" class="form-label">Rating:</label>
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" required>
+                    <label for="star5" title="5 stars">5</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4" title="4 stars">4</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3" title="3 stars">3</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2" title="2 stars">2</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1" title="1 star">1</label>
+                </div>
+            </div>
             <div class="mb-3">
                 <label for="comment" class="form-label">Comment:</label>
                 <textarea id="comment" name="comment" class="form-control" required></textarea>
             </div>
-            <button type="submit" name="subimt_reviews" id="submitBtn" value="Submit">Submit</button>
+            <button type="submit" name="submit_reviews" id="submitBtn" value="Submit">Submit</button>
         </form>
     </div>
 
     <div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Review submitted successfully.</p>
-  </div>
-</div> 
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Review submitted successfully.</p>
+        </div>
+    </div> 
 
-<script>
-$(document).ready(function() {
-    // Kur klikohet në butonin e Submit
-    $("#reviewForm").submit(function(event) {
-        // Parandalon formën e parazgjedhur
-        event.preventDefault();
-        
-        // Shfaq dritaren modale
-        $("#myModal").show();
-    });
-    
-    // Kur klikohet në ikonën e mbylljes
-    $(".close").click(function() {
-        // Mbyll dritaren modale
-        $("#myModal").hide();
-    });
-});
-</script>
+    <script>
+        $(document).ready(function() {
+            // Kur klikohet në butonin e Submit
+            $("#submitBtn").click(function(event) {
+                // Parandalon veprimin e parazgjedhur të formës
+                event.preventDefault();
+                
+                // Shfaq dritaren modale
+                $("#myModal").show();
+                
+                // Dërgo formën nëpërmjet AJAX (nëse është e nevojshme)
+                $.ajax({
+                    type: $("#reviewForm").attr("method"),
+                    url: $("#reviewForm").attr("action"),
+                    data: $("#reviewForm").serialize(),
+                    success: function(response) {
+                        // Reagon në rast të suksesit (nëse është e nevojshme)
+                        console.log("Form submitted successfully!");
+                    },
+                    error: function(xhr, status, error) {
+                        // Reagon në rast të gabimeve (nëse është e nevojshme)
+                        console.error("Form submission failed:", error);
+                    }
+                });
+            });
+            
+            // Kur klikohet në ikonën e mbylljes
+            $(".close").click(function() {
+                // Mbyll dritaren modale
+                $("#myModal").hide();
+            });
+        });
+    </script>
 
 
 </body>
 
 
-<script>
-$(document).ready(function() {
-    // Kur klikohet në butonin e Submit
-    $("#submitBtn").click(function(event) {
-        // Parandalon veprimin e parazgjedhur të formës
-        event.preventDefault();
-        
-        // Shfaq dritaren modale
-        $("#myModal").show();
-        
-        // Dërgo formën nëpërmjet AJAX (nëse është e nevojshme)
-        $.ajax({
-            type: $("#reviewForm").attr("method"),
-            url: $("#reviewForm").attr("action"),
-            data: $("#reviewForm").serialize(),
-            success: function(response) {
-                // Reagon në rast të suksesit (nëse është e nevojshme)
-                console.log("Form submitted successfully!");
-            },
-            error: function(xhr, status, error) {
-                // Reagon në rast të gabimeve (nëse është e nevojshme)
-                console.error("Form submission failed:", error);
-            }
-        });
-    });
-    
-    // Kur klikohet në ikonën e mbylljes
-    $(".close").click(function() {
-        // Mbyll dritaren modale
-        $("#myModal").hide();
-    });
-});
 
-</script>
 <script>
     function addToCart() {
         var formData = new FormData(document.getElementById("addToCartForm"));
