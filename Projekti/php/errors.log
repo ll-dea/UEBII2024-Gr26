@@ -1,0 +1,96 @@
+Error [8]: Undefined variable: undefined_variable in C:\xampp\htdocs\UEBII2024-Gr26\Projekti\php\about.php on line 20
+Context: Array
+(
+    [_GET] => Array
+        (
+        )
+
+    [_POST] => Array
+        (
+        )
+
+    [_COOKIE] => Array
+        (
+            [PHPSESSID] => 9ke1ed8v7neg6cqslpi9t41tnf
+        )
+
+    [_FILES] => Array
+        (
+        )
+
+    [_SESSION] => Array
+        (
+            [cart] => Array
+                (
+                    [Pothos] => 1
+                )
+
+            [user] => yes
+        )
+
+)
+
+Error [8]: Undefined variable: undefined_variable in C:\xampp\htdocs\UEBII2024-Gr26\Projekti\php\about.php on line 20
+Context: Array
+(
+    [_GET] => Array
+        (
+        )
+
+    [_POST] => Array
+        (
+        )
+
+    [_COOKIE] => Array
+        (
+            [PHPSESSID] => 9ke1ed8v7neg6cqslpi9t41tnf
+        )
+
+    [_FILES] => Array
+        (
+        )
+
+    [_SESSION] => Array
+        (
+            [cart] => Array
+                (
+                    [Pothos] => 1
+                )
+
+            [user] => yes
+        )
+
+)
+
+Error [8]: Undefined variable: undefined_variable in C:\xampp\htdocs\UEBII2024-Gr26\Projekti\php\about.php on line 20
+Context: Array
+(
+    [_GET] => Array
+        (
+        )
+
+    [_POST] => Array
+        (
+        )
+
+    [_COOKIE] => Array
+        (
+            [PHPSESSID] => 9ke1ed8v7neg6cqslpi9t41tnf
+        )
+
+    [_FILES] => Array
+        (
+        )
+
+    [_SESSION] => Array
+        (
+            [cart] => Array
+                (
+                    [Pothos] => 1
+                )
+
+            [user] => yes
+        )
+
+)
+
