@@ -43,29 +43,32 @@ try{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
 
-
-    <style>
-    /* Stilizimi për modalin */
-        .modal {
+<style>
+    .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
             z-index: 1;
-            background-color: #fefefe;
-            border: 1px solid #888;
-            width: 300px;
-            padding: 5px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
         }
 
-        /* Stilizimi për modalin */
+        /* Stilizimi për përmbajtjen e modalit */
         .modal-content {
             background-color: #fefefe;
+            margin: 5% auto;
             padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
             border-radius: 10px;
         }
 
@@ -83,9 +86,7 @@ try{
             text-decoration: none;
             cursor: pointer;
         }
-    </style>
-</head>
-
+        </style>
 <body class="truculenta" style="padding: 0px;margin-right:0px">
 
     <header class="sticky-header">
@@ -431,8 +432,8 @@ try{
     </div>
     <br><br>
     
-
-    <div class="container mt-5">
+//
+<div class="container mt-5">
         <h2>Write a review</h2>
         <form id="reviewForm" action="submit_review.php" method="post">
             <div class="mb-3">
@@ -462,51 +463,63 @@ try{
                 <label for="comment" class="form-label">Comment:</label>
                 <textarea id="comment" name="comment" class="form-control" required></textarea>
             </div>
-            <button type="submit" name="submit_reviews" id="submitBtn" value="Submit">Submit</button>
+            <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+           
 
-    <div id="myModal" class="modal">
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Review submitted successfully.</p>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Review submitted successfully.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
-    </div> 
+    </div>
+</div>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            // Kur klikohet në butonin e Submit
+            // When the submit button is clicked
             $("#submitBtn").click(function(event) {
-                // Parandalon veprimin e parazgjedhur të formës
+                // Prevent default form submission
                 event.preventDefault();
-                
-                // Shfaq dritaren modale
-                $("#myModal").show();
-                
-                // Dërgo formën nëpërmjet AJAX (nëse është e nevojshme)
+
+                // Send the form data using AJAX
                 $.ajax({
                     type: $("#reviewForm").attr("method"),
                     url: $("#reviewForm").attr("action"),
                     data: $("#reviewForm").serialize(),
                     success: function(response) {
-                        // Reagon në rast të suksesit (nëse është e nevojshme)
-                        console.log("Form submitted successfully!");
+                        // Show the success modal
+                        $("#successModal").modal('show');
                     },
                     error: function(xhr, status, error) {
-                        // Reagon në rast të gabimeve (nëse është e nevojshme)
+                        // Handle any errors here
                         console.error("Form submission failed:", error);
                     }
                 });
             });
-            
-            // Kur klikohet në ikonën e mbylljes
+
+            // When the close button is clicked in the modal
             $(".close").click(function() {
-                // Mbyll dritaren modale
-                $("#myModal").hide();
+                // Hide the modal
+                $("#successModal").modal('hide');
             });
         });
     </script>
-
+//
 
 </body>
 

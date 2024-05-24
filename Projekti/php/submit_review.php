@@ -16,10 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    if (!is_numeric($rating) || $rating < 1 || $rating > 5) {
-        echo "Rating must be a number between 1 and 5.";
-        exit;
-    }
+   
 
     // Database connection details
     $servername = "localhost";
