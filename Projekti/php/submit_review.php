@@ -26,15 +26,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-
+    
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO page_reviews (user_name, email, rating, comment) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssis", $user_name, $email, $rating, $comment);
+     // Prepare and bind
+     $stmt = $conn->prepare("INSERT INTO page_reviews (user_name, email, rating, comment) VALUES (?, ?, ?, ?)");
+     if ($stmt === false) {
+         die("Prepare failed: " . $conn->error);
+     }
+     $stmt->bind_param("ssis", $user_name, $email, $rating, $comment);
+
 
     // Execute the statement
     if ($stmt->execute()) {
