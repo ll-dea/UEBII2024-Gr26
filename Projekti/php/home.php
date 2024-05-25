@@ -437,90 +437,88 @@ try{
 
 
 <div class="container mt-5">
-        <h2>Write a review</h2>
-        <form id="reviewForm" action="submit_review.php" method="post">
-            <div class="mb-3">
-                <label for="user_name" class="form-label">Name:</label>
-                <input type="text" id="user_name" name="user_name" class="form-control" required>
+    <h2>Write a review</h2>
+    <form id="reviewForm" action="submit_review.php" method="post">
+        <div class="mb-3">
+            <label for="user_name" class="form-label">Name:</label>
+            <input type="text" id="user_name" name="user_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating:</label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" required>
+                <label for="star5" title="5 stars">5</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4" title="4 stars">4</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3" title="3 stars">3</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2" title="2 stars">2</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1" title="1 star">1</label>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="rating" class="form-label">Rating:</label>
-                <div class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" required>
-                    <label for="star5" title="5 stars">5</label>
-                    <input type="radio" id="star4" name="rating" value="4">
-                    <label for="star4" title="4 stars">4</label>
-                    <input type="radio" id="star3" name="rating" value="3">
-                    <label for="star3" title="3 stars">3</label>
-                    <input type="radio" id="star2" name="rating" value="2">
-                    <label for="star2" title="2 stars">2</label>
-                    <input type="radio" id="star1" name="rating" value="1">
-                    <label for="star1" title="1 star">1</label>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="comment" class="form-label">Comment:</label>
-                <textarea id="comment" name="comment" class="form-control" required></textarea>
-            </div>
-            <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-           
+        </div>
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment:</label>
+            <textarea id="comment" name="comment" class="form-control" required></textarea>
+        </div>
+        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 
-    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="successModalLabel">Success</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 Review submitted successfully.
             </div>
-           
         </div>
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // When the submit button is clicked
+        $("#submitBtn").click(function(event) {
+            // Prevent default form submission
+            event.preventDefault();
 
-    <script>
-        $(document).ready(function() {
-            // When the submit button is clicked
-            $("#submitBtn").click(function(event) {
-                // Prevent default form submission
-                event.preventDefault();
-
-                // Send the form data using AJAX
-                $.ajax({
-                    type: $("#reviewForm").attr("method"),
-                    url: $("#reviewForm").attr("action"),
-                    data: $("#reviewForm").serialize(),
-                    success: function(response) {
-                        // Show the success modal
-                        $("#successModal").modal('show');
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle any errors here
-                        console.error("Form submission failed:", error);
-                    }
-                });
-            });
-
-            // When the close button is clicked in the modal
-            $(".close").click(function() {
-                // Hide the modal
-                $("#successModal").modal('hide');
+            // Send the form data using AJAX
+            $.ajax({
+                type: $("#reviewForm").attr("method"),
+                url: $("#reviewForm").attr("action"),
+                data: $("#reviewForm").serialize(),
+                success: function(response) {
+                    // Show the success modal
+                    $("#successModal").modal('show');
+                },
+                error: function(xhr, status, error) {
+                    // Handle any errors here
+                    console.error("Form submission failed:", error);
+                }
             });
         });
-    </script>
+
+        // When the close button is clicked in the modal
+        $(".close").click(function() {
+            // Hide the modal
+            $("#successModal").modal('hide');
+        });
+    });
+</script>
 //
 
 </body>
