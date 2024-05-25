@@ -7,16 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Basic validation
     if (empty($user_name) || empty($email) || empty($rating) || empty($comment)) {
-        echo "All fields are required.";
-        exit;
+        echo json_encode(['status' => 'error', 'message' => 'All fields are required.']);
+        die();
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email format.";
-        exit;
+        echo json_encode(['status' => 'error', 'message' => 'Invalid email format.']);
+        die();
     }
-
-   
 
     // Database connection details
     $servername = "localhost";
@@ -26,31 +24,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-    
+
     // Check connection
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        echo json_encode(['status' => 'error', 'message' => 'Connection failed: ' . $conn->connect_error]);
+        die();
     }
 
-     // Prepare and bind
-     $stmt = $conn->prepare("INSERT INTO page_reviews (user_name, email, rating, comment) VALUES (?, ?, ?, ?)");
-     if ($stmt === false) {
-         die("Prepare failed: " . $conn->error);
-     }
-     $stmt->bind_param("ssis", $user_name, $email, $rating, $comment);
+    // Insert data into the database using prepared statements
+    $stmt = $conn->prepare("INSERT INTO page_reviews (user_name, email, rating, comment) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $user_name, $email, $rating, $comment);
 
-
-    // Execute the statement
     if ($stmt->execute()) {
-        echo "Review submitted successfully.";
+        echo json_encode(['status' => 'success']);
     } else {
-        echo "Error: " . $stmt->errno . " - " . $stmt->error;
+        echo json_encode(['status' => 'error', 'message' => $stmt->error]);
     }
 
-    // Close statement and connection
+    // Close the statement and the database connection
     $stmt->close();
     $conn->close();
 } else {
-    echo "Invalid request.";
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
 }
 ?>
