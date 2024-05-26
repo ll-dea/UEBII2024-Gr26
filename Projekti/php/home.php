@@ -45,45 +45,6 @@ try{
    
     
 
-<style>
-    .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            padding-top: 60px;
-        }
-
-        /* Stilizimi për përmbajtjen e modalit */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 300px;
-            border-radius: 10px;
-        }
-
-        /* Stilizimi për butonin e mbylljes në modal */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        </style>
 <body class="truculenta" style="padding: 0px;margin-right:0px">
 
     <header class="sticky-header">
@@ -448,15 +409,15 @@ try{
             <label for="rating" class="form-label">Rating:</label>
             <div class="rating">
                 <input type="radio" id="star5" name="rating" value="5" required>
-                <label for="star5" title="5 stars">1</label>
+                <label for="star5" title="5 stars">5</label>
                 <input type="radio" id="star4" name="rating" value="4">
-                <label for="star4" title="4 stars">2</label>
+                <label for="star4" title="4 stars">4</label>
                 <input type="radio" id="star3" name="rating" value="3">
                 <label for="star3" title="3 stars">3</label>
                 <input type="radio" id="star2" name="rating" value="2">
-                <label for="star2" title="2 stars">4</label>
+                <label for="star2" title="2 stars">2</label>
                 <input type="radio" id="star1" name="rating" value="1">
-                <label for="star1" title="1 star">5</label>
+                <label for="star1" title="1 star">1</label>
             </div>
         </div>
         <div class="mb-3">
@@ -471,9 +432,9 @@ try{
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="successModalLabel">Success</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <h5 class="modal-title" id="successModalLabel"> </h5>
+                <span class="close">&times;</span>
+               
                 </button>
             </div>
             <div class="modal-body">
