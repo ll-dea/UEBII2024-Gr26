@@ -533,9 +533,7 @@ try{
     }
 </script>
 
-<head>
-    <title>Submit a Review</title>
-</head>
+
 
 
 </html>
