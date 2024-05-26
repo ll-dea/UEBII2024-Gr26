@@ -42,8 +42,7 @@ try{
     <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   
     
 
 <style>
@@ -451,15 +450,15 @@ try{
             <label for="rating" class="form-label">Rating:</label>
             <div class="rating">
                 <input type="radio" id="star5" name="rating" value="5" required>
-                <label for="star5" title="5 stars">5</label>
+                <label for="star5" title="5 stars">1</label>
                 <input type="radio" id="star4" name="rating" value="4">
-                <label for="star4" title="4 stars">4</label>
+                <label for="star4" title="4 stars">2</label>
                 <input type="radio" id="star3" name="rating" value="3">
                 <label for="star3" title="3 stars">3</label>
                 <input type="radio" id="star2" name="rating" value="2">
-                <label for="star2" title="2 stars">2</label>
+                <label for="star2" title="2 stars">4</label>
                 <input type="radio" id="star1" name="rating" value="1">
-                <label for="star1" title="1 star">1</label>
+                <label for="star1" title="1 star">5</label>
             </div>
         </div>
         <div class="mb-3">
@@ -486,8 +485,7 @@ try{
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 
 <script>
     $(document).ready(function() {
