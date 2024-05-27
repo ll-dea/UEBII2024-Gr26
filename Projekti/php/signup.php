@@ -51,19 +51,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
    
+
+
    <?php
      session_start();
-     require_once "database.php";
-
     if(isset($_SESSION["users"])){
     header("Location: ../index.php");
-    exit; 
     }
+    
 
 $errors = [];
 
 if(isset($_POST["Submit"])){
-    $emri =($_POST["emri"]);
+    $fullName =($_POST["fullname"]);
     $email =($_POST["email"]);
     $password =($_POST["password"]);
     $rpassword =($_POST["rpassword"]);
@@ -71,7 +71,7 @@ if(isset($_POST["Submit"])){
 
         $errors = array();
 
-        if(empty($emri) or empty($email) or empty($password) OR empty($rpassword) ){
+        if(empty($fullName) or empty($email) or empty($password) OR empty($rpassword) ){
             array_push($errors, "Please fill out all the blank spaces!");
         }
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -97,12 +97,12 @@ if(isset($_POST["Submit"])){
                 echo "<div class = 'alert alert-danger'>$error</div>";
             }
         } else{
-            
-            $sql = "INSERT INTO users (emri, email, password) VALUES (?,?,?)";
+            // Funksioni për insertimin e përdoruesit
+            $sql = "INSERT INTO users (full_name, email, password) VALUES (?,?,?)";
            $stmt =  mysqli_stmt_init($conn);
            $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
            if($prepareStmt){
-            mysqli_Stmt_bind_param($stmt,"sss",$emri,$email,$password_hash);
+            mysqli_Stmt_bind_param($stmt,"sss",$fullName,$email,$password_hash);
             mysqli_stmt_execute($stmt);
             echo "<div class = 'alert alert-success'>You are registered successfully</div>";
 
@@ -147,7 +147,7 @@ if(isset($_POST["Submit"])){
         <div class="container">
         <form action="signup.php" method="post" id="signupForm" >
             <div class="form-group">
-                <input  type="text" class="form-control" id="emri" name="emri" required placeholder="Full Name">
+                <input  type="text" class="form-control" id="fullname" name="fullname" required placeholder="Full Name">
             </div>
             <div class="form-group">
                 <input  type="email" class="form-control" id="email" name="email" required placeholder="Email">
