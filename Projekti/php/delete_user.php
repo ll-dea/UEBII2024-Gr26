@@ -3,22 +3,21 @@ require 'database.php';
 
 // Funksioni për fshirjen e përdoruesit
 function deleteUser($conn, $userId) {
-    $sql = "DELETE FROM users WHERE id = ?";
-    $stmt = mysqli_prepare($conn, $sql);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
-    mysqli_stmt_bind_param($stmt, "i", $userId);
+    $sql = "DELETE FROM users WHERE id = $userId";
 
-    if (mysqli_stmt_execute($stmt)) {
-        echo mysqli_stmt_affected_rows($stmt) . " record(s) deleted successfully";
+    if (mysqli_query($conn, $sql)) {
+        echo "User with ID $userId deleted successfully";
     } else {
         echo "Error: " . mysqli_error($conn);
     }
 
-    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
 
-// Thirrja e funksionit për të fshirë përdoruesin me id 3
-deleteUser($conn, 3);
-
-mysqli_close($conn);
+// Thirrja e funksionit për të fshirë përdoruesin me ID 7
+//deleteUser($conn, 11);
 ?>
