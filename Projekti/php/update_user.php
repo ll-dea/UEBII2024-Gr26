@@ -17,7 +17,6 @@ function updateUser($conn, $newEmail, $userId) {
     mysqli_stmt_close($stmt);
 }
 
- //updateUser($conn, "elza@gmail.com" ,"2");
 
 mysqli_close($conn);
 ?>
