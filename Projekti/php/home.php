@@ -448,12 +448,9 @@ try{
 
 <script>
     $(document).ready(function() {
-        // When the submit button is clicked
         $("#submitBtn").click(function(event) {
-            // Prevent default form submission
             event.preventDefault();
 
-            // Send the form data using AJAX
             $.ajax({
                 type: $("#reviewForm").attr("method"),
                 url: $("#reviewForm").attr("action"),
