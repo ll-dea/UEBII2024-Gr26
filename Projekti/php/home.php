@@ -106,17 +106,8 @@ $products[0]->setAvailability(1);
     
 
 <body class="truculenta" style="padding: 0px;margin-right:0px">
-
-    <header class="sticky-header">
-        <h1>Gardening Shop</h1>
-        <nav>
-            <a href="home.php">Home</a>
-            <a href="mycart.php">My Cart</a>
-            <a href="about.php">About</a>
-            <a href="signout.php">Sign Out</a>
-
-        </nav>
-    </header>
+    <!-- include(), -->
+    <?php include 'header.php'; ?>
     <br><br><br>
     <div>
         <video autoplay muted loop playsinline style="width: 100vw; height: 90vh; object-fit: cover; position:relative">
