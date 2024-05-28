@@ -54,19 +54,8 @@ function addItemToCart($item) {
 
 <body>
   <!-- HEADER -->
-
-  <header class="sticky-header" style="background-color: #ff7f49; padding-right:16px">
-    <h1>Gardening Shop</h1>
-    <nav>
-      <a href="home.php">Home</a>
-      <a href="mycart.php">My Cart</a>
-      <a href="about.php">About</a>
-      <a href="discount.php">Offers</a>
-      <a href="signout.php">Sign Out</a>
-
-    </nav>
-  </header>
-
+  <!-- require()  -->
+  <?php require  'header.php'; ?>
 
   <!-- Discount Offer Content -->
   <div class="discount-container row" style="margin-top:60px; ">
