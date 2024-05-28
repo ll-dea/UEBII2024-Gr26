@@ -119,7 +119,7 @@ $products[0]->setAvailability(1);
     max-width: 80%;
     line-height: 1.5;filter:blur(100%)">Find Your Style</p>
     </div>
-
+ 
 
     <br><br>
     <form action="mycart.php" method="post">
@@ -180,6 +180,13 @@ $products[0]->setAvailability(1);
 
 
         </div> <br>
+        <div id="kontenti">
+        <div style="background-color: #8efc8c;">
+
+            <img id="slideshow" src="../HTML/foto/Photo13.jpg">
+
+        </div>
+    </div>
         <h3>Plants:</h3>
         <br><br>
         <div id="item2" class="row" style="padding-left: 5%;">
@@ -290,14 +297,7 @@ $products[0]->setAvailability(1);
     <br><br><br><br><br>
     <br><br>
 
-    <div id="kontenti">
-        <div style="background-color: #8efc8c;">
-
-            <img id="slideshow" src="../HTML/foto/Photo13.jpg">
-            <div class="row"><button style="align-items: center;" onclick="changeImg()">➤ </button></div>
-
-        </div>
-    </div>
+    
     <br><br><br><br><br> <br><br><br><br><br><br><br><br><br>
     <div class="row" style="height: 400px;">
 
@@ -337,9 +337,11 @@ $products[0]->setAvailability(1);
     
 
 
+<div>
+    <img src="../HTML/foto/Photo14.jpg" alt="">
+</div>
 
-
-<div class="container mt-5">
+<div  style="width: 500px; background-color:#f2f3f8; padding:100px; margin-left:35%">
     <h2>Write a review</h2>
     <form id="reviewForm" action="submit_review.php" method="post">
         <div class="mb-3">
@@ -369,7 +371,7 @@ $products[0]->setAvailability(1);
             <label for="comment" class="form-label">Comment:</label>
             <textarea id="comment" name="comment" class="form-control" required></textarea>
         </div>
-        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" >Submit</button>
     </form>
 </div>
 

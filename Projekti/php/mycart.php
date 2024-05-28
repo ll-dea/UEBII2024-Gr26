@@ -6,7 +6,6 @@ if (!isset($_SESSION["user"])) {
     exit();
 }
 
-// Function to get the price of an item with a 20% discount
 function getDiscountedPrice($item)
 {
     $originalPrice = getPriceByItem($item);
@@ -54,6 +53,11 @@ if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
 // Handle adding item to the cart
 if (isset($_POST['add_to_cart'])) {
     $item = $_POST['add_to_cart'];
+    addToCart($item);
+}
+
+// Function to add item to the cart by reference
+function addToCart(&$item) {
     if (array_key_exists($item, $_SESSION['cart'])) {
         $_SESSION['cart'][$item]++;
     } else {
@@ -64,12 +68,22 @@ if (isset($_POST['add_to_cart'])) {
 // Handle removing item from the cart
 if (isset($_GET['remove'])) {
     $itemToRemove = $_GET['remove'];
-    unset($_SESSION['cart'][$itemToRemove]);
+    removeFromCart($itemToRemove);
+}
+
+// Function to remove item from the cart by reference
+function removeFromCart(&$item) {
+    unset($_SESSION['cart'][$item]);
 }
 
 // Handle sorting the cart items
 if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     $sortOption = $_GET['sort'];
+    sortCart($sortOption);
+}
+
+// Function to sort the cart by reference
+function sortCart(&$sortOption) {
     switch ($sortOption) {
         case 'name-asc':
             ksort($_SESSION['cart']);
@@ -89,6 +103,7 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             break;
     }
 }
+
 ?>
 
 <!DOCTYPE html>

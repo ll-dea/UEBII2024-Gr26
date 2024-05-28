@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $items = [
     "tools" => [
         "Gloves" => ["price" => 10],

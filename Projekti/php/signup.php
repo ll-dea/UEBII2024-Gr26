@@ -1,63 +1,11 @@
 
 
-<!-- session_start();
-
-$errors = array();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $emri = trim($_POST['emri'] ?? '');
-    $mbiemri = trim($_POST['mbiemri'] ?? '');
-    $email = $_POST['email'] ?? '';
-    $telefoni = $_POST['telefoni'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    if (empty($emri)) {
-        $errors['error_emri'] = "Ju lutemi shkruani emrin.";
-    } elseif (!preg_match("/^[A-Za-z-' ]*$/", $emri)) {
-        $errors['error_emri'] = "Emri i përdoruesit mund të përmbajë vetëm shkronja, viza, dhe hapësira.";
-    }
-
-    if (empty($mbiemri)) {
-        $errors['error_mbiemri'] = "Ju lutemi shkruani mbiemrin.";
-    } elseif (!preg_match('/^[A-Za-z\s]+$/', $mbiemri)) {
-        $errors['error_mbiemri'] = "Mbiemri duhet të përmbajë vetëm shkronja dhe hapsira.";
-    }
-
-    if (empty($email)) {
-        $errors['error_email'] = "Ju lutemi vendosni adresën e emailit.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['error_email'] = "Adresa e emailit nuk është e vlefshme.";
-    }
-
-    if (empty($password)) {
-        $errors['error_password'] = "Ju lutemi vendosni fjalëkalimin.";
-    } elseif (!preg_match('/^.*(?=.{8,})(?=.*[!@#$%^&*()\-_=+{};:,<.>]).*$/', $password)) {
-        $errors['error_password'] = "Fjalëkalimi duhet të jetë të paktën 8 karaktere dhe të përmbajë së paku një karakter special.";
-    }
-
-    if (empty($errors)) {
-        $_SESSION['emri'] = $emri;
-        $_SESSION['mbiemri'] = $mbiemri;
-        $_SESSION['email'] = $email;
-        $_SESSION['telefoni'] = $telefoni;
-        $_SESSION['password'] = $password; // Consider hashing the password before storing it for security reasons
-
-        session_write_close();
-        header('Location: konfirmimi.php');
-        exit();
-    }
-} -->
-
-
-
-   
-
-
    <?php
      session_start();
     if(isset($_SESSION["users"])){
     header("Location: ../index.php");
     }
+
     
 
 $errors = [];
