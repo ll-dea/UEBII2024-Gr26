@@ -44,6 +44,7 @@ try{
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    
     
+       
 
 <body class="truculenta" style="padding: 0px;margin-right:0px">
     <!-- include(), -->
@@ -415,7 +416,7 @@ try{
             <label for="comment" class="form-label">Comment:</label>
             <textarea id="comment" name="comment" class="form-control" required></textarea>
         </div>
-        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit">Submit</button>
     </form>
 </div>
 
