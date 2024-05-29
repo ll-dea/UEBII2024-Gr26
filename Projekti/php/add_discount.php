@@ -1,6 +1,8 @@
 
 <?php
+
 session_start();
+
 
 if(isset($_POST['category']) && isset($_POST['item'])) {
     $category = $_POST['category'];
@@ -34,4 +36,5 @@ function getPriceByItem2($item)
         return 0;
     }
 }
+
 ?>

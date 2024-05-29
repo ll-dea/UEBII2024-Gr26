@@ -1,77 +1,63 @@
 <?php
-
 session_start();
+
 if (!isset($_SESSION["user"])) {
     header("Location: ../index.php");
+    exit();
 }
 
-function getPriceByItem2($item)
+function getDiscountedPrice($item)
 {
-
-    $originalPrice = 0;
-
-
-    switch ($item) {
-    case 'Digging Set':
-     $originalPrice = 100;
-      break;
-    case 'Ornamental Plant':
-      $originalPrice = 30;
-       break;
-    case 'Flower Light':
-      $originalPrice = 50;
-       break;
-    case 'Flower Vase':
-       $originalPrice = 40;
-         break;
-    case 'Watering Can ':
-       $originalPrice = 20;
-        break;
-     case 'Wheelbarrow':
-      $originalPrice = 120;
-        break;
-        case'Garden Boots':
-            $originalPrice = 70;
-            break;   
-     case 'Pink Flamingo':
-       $originalPrice = 90;
-         break;
-     case 'Rake':
-        $originalPrice = 60;
-         break;
-     case 'Cactus Plant':
-      $originalPrice = 20;
-        break;
-      case 'Electric ':
-        $originalPrice = 180;
-         break;
-      case 'Fidle Leaf':
-         $originalPrice = 40;
-           break;
-        default:
-            $originalPrice = 0;
-            break;
-    }
-
-
-    $discountedPrice = $originalPrice * 0.8; // 20% discount
-
-
-    return $discountedPrice;
+    $originalPrice = getPriceByItem($item);
+    return $originalPrice * 0.8; // 20% discount
 }
-?>
-<?php
-session_start();
+
+// Function to get the original price of an item
+function getPriceByItem($item)
+{
+    $prices = [
+        'Gloves' => 10,
+        'Pruning Shears' => 15,
+        'Loppers' => 20,
+        'Garden Fork' => 18,
+        'Snake Plant' => 25,
+        'ZZ Plant' => 30,
+        'Peace Lily' => 22,
+        'Pothos' => 12,
+        'Lighting' => 50,
+        'Garments' => 8,
+        'Shelf' => 40,
+        'Vertical Gardening' => 50,
+        'Digging Set' => 100,
+        'Ornamental Plant' => 30,
+        'Flower Light' => 50,
+        'Flower Vase' => 40,
+        'Watering Can' => 20,
+        'Wheelbarrow' => 120,
+        'Garden Boots' => 70,
+        'Pink Flamingo' => 90,
+        'Rake' => 60,
+        'Cactus Plant' => 20,
+        'Electric' => 180,
+        'Fidle Leaf' => 40
+    ];
+
+    return isset($prices[$item]) ? $prices[$item] : 0;
+}
 
 // Initialize cart if not set
 if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-
-
+// Handle adding item to the cart
 if (isset($_POST['add_to_cart'])) {
     $item = $_POST['add_to_cart'];
+    addToCart($item);
+}
+
+// Function to add item to the cart by reference
+function addToCart(&$item) {
     if (array_key_exists($item, $_SESSION['cart'])) {
         $_SESSION['cart'][$item]++;
     } else {
@@ -79,34 +65,46 @@ if (isset($_POST['add_to_cart'])) {
     }
 }
 
-
+// Handle removing item from the cart
 if (isset($_GET['remove'])) {
     $itemToRemove = $_GET['remove'];
-    unset($_SESSION['cart'][$itemToRemove]);
+    removeFromCart($itemToRemove);
 }
 
+// Function to remove item from the cart by reference
+function removeFromCart(&$item) {
+    unset($_SESSION['cart'][$item]);
+}
 
+// Handle sorting the cart items
 if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
     $sortOption = $_GET['sort'];
+    sortCart($sortOption);
+}
+
+// Function to sort the cart by reference
+function sortCart(&$sortOption) {
     switch ($sortOption) {
         case 'name-asc':
-            ksort($_SESSION['cart']); 
+            ksort($_SESSION['cart']);
             break;
         case 'name-desc':
-            krsort($_SESSION['cart']); 
+            krsort($_SESSION['cart']);
             break;
         case 'price-asc':
-            asort($_SESSION['cart']); 
+            uasort($_SESSION['cart'], function($a, $b) {
+                return getPriceByItem($a) - getPriceByItem($b);
+            });
             break;
         case 'price-desc':
-            arsort($_SESSION['cart']); 
+            uasort($_SESSION['cart'], function($a, $b) {
+                return getPriceByItem($b) - getPriceByItem($a);
+            });
             break;
     }
 }
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,7 +141,6 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
         th,
         td {
             padding: 10px;
-            padding-left: 150px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -188,15 +185,12 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <a href="about.php">About</a>
             <a href="discount.php">Offers</a>
             <a href="signout.php">Sign Out</a>
-
-
         </nav>
         <div class="row" style="margin-right: 100px;">
             <div class="col-6">
                 <h1 style="float: right;">My Cart</h1>
             </div>
             <div class="col-6">
-                <!-- Dropdown list for sorting -->
                 <select style="float: left; margin-top:25px" id="sort-select" onchange="sortCart()">
                     <option value="default" selected disabled>Default</option>
                     <option value="name-asc" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'name-asc') echo 'selected'; ?>>Sort by Item Name (A-Z)</option>
@@ -208,7 +202,6 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
         </div>
     </header>
 
-
     <br><br><br><br><br><br><br><br><br>
     <br>
     <table>
@@ -218,151 +211,81 @@ if (isset($_GET['sort']) && is_array($_SESSION['cart'])) {
             <th>Price</th>
             <th>Action</th>
         </tr>
-       
+
         <?php
-
-
         $totalPrice = 0;
 
         foreach ($_SESSION['cart'] as $item => $quantity) {
-            // Assign price based on item name
-            $price = 0;
-
-            if (isset($_SESSION['cart'][$item])) {
-                // Check if the item has a price greater than 0
-                if ($regularPrice = getPriceByItem($item)) {
-                    $price += $regularPrice;
-                }
-                
-                if ($discountedPrice = getPriceByItem2($item)) {
-                    $price += $discountedPrice;
-                }
-
-                $totalPrice += $price * $quantity;
-                echo "<tr>";
-                echo "<td>$item</td>";
-                echo "<td>$quantity</td>";
-                echo "<td>$price</td>";
-                echo "<td><a href='mycart.php?remove=$item'>Remove</a></td>";
-                echo "</tr>";
-            }
+            $price = getDiscountedPrice($item);
+            $totalPrice += $price * $quantity;
+            echo "<tr>";
+            echo "<td>$item</td>";
+            echo "<td>$quantity</td>";
+            echo "<td>$$price</td>";
+            echo "<td><a href='mycart.php?remove=$item'>Remove</a></td>";
+            echo "</tr>";
         }
         ?>
 
-
         <tr>
             <td colspan="2" style="color: #8e0000;"><strong>Total</strong></td>
-            <td colspan="2"><?php echo "$" . $totalPrice; ?></td>
+            <td colspan="2"><?php echo "$" . number_format($totalPrice, 2); ?></td>
         </tr>
     </table>
 
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-10"> <form method="post" action="konfirmo_porosine.php">
+        <div class="col-10">
+            <form method="post" action="konfirmo_porosine.php">
+                <button style="float: right; margin-right: 20px; padding-left:30px;padding-right:30px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmOrderModal">Buy</button>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
 
-        <button style="float: right; margin-right: 20px; padding-left:30px;padding-right:30px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmOrderModal">Buy</button>
-    </form></div>
-    <div class="col-1"></div>
-   </div>
-
-   <div class="modal fade" id="confirmOrderModal" tabindex="-1" aria-labelledby="confirmOrderModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirmOrderModalLabel">Konfirmo Porosinë</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Jeni të sigurtë që dëshironi të konfirmoni porosinë tuaj?</p>
-                <div id="checkMark" style="display: none;">
-                    <img src="checkmark.png" alt="Check Mark" id="checkImage" style="width: 100px; height: 100px;">
-                    <p style="font-weight: bold; text-align: center; margin-top: 10px;">Porosia është konfirmuar me sukses!</p>
+    <div class="modal fade" id="confirmOrderModal" tabindex="-1" aria-labelledby="confirmOrderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmOrderModalLabel">Confirm Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <form id="confirmForm" method="post" action="konfirmo_porosine.php">
-                    <button type="submit" class="btn btn-primary" id="confirmBtn">Yes</button>
-                </form>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <div class="modal-body">
+                    <p>Are you sure you want to confirm your order?</p>
+                    <div id="checkMark" style="display: none;">
+                        <img src="checkmark.png" alt="Check Mark" id="checkImage" style="width: 100px; height: 100px;">
+                        <p style="font-weight: bold; text-align: center; margin-top: 10px;">Your order has been successfully confirmed!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <form id="confirmForm" method="post" action="konfirmo_porosine.php">
+                        <button type="submit" class="btn btn-primary" id="confirmBtn">Yes</button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#confirmBtn').click(function() {
-            $('#checkMark').show();
-            $('#confirmOrderModalLabel').text('Porosia është konfirmuar me sukses!');
-            $('#confirmOrderModal .modal-footer').html('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>');
-        });
-    });
-</script>
-    
-
-    <button style="margin-left:1320px ; font-size:1rem;  background-color: #ff7f49; border-color: #ff7f49;color: white;" class="btn " onclick="purchase()">Buy All</button>
-
-
-
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        // JavaScript function to redirect with sort option
+        $(document).ready(function() {
+            $('#confirmBtn').click(function() {
+                $('#checkMark').show();
+                $('#confirmOrderModalLabel').text('Order successfully confirmed!');
+                $('#confirmOrderModal .modal-footer').html('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>');
+            });
+        });
+
         function sortCart() {
             var sortOption = document.getElementById("sort-select").value;
             window.location.href = "mycart.php?sort=" + sortOption;
         }
     </script>
+
     <footer>
         &copy; 2024 Gardening Shop. All rights reserved.
     </footer>
 
 </body>
-
 </html>
-
-<?php
-function getPriceByItem($item)
-{
-    switch ($item) {
-        case 'Gloves':
-            return 10;
-        case 'Pruning Shears':
-            return 15;
-        case 'Loppers':
-            return 20;
-        case 'Garden Fork':
-            return 18;
-        case 'Snake Plant':
-            return 25;
-        case 'ZZ Plant':
-            return 30;
-        case 'Peace Lily':
-            return 22;
-        case 'Pothos':
-            return 12;
-        case 'Lighting':
-            return 50;
-        case 'Garmets':
-            return 8;
-        case 'Shelf':
-            return 40;
-        case 'Vertical Gardening':
-            return 50;
-        default:
-            return 0;
-    }
-}
-?>
-<script>
-    function purchase() {
-        if (confirm('Do you confirm purchasing?')) {
-            alert('Items purchased!');
-            <?php  ?>
-        } else {
-            alert('Purchase canceled!');
-        }
-    }
-</script>

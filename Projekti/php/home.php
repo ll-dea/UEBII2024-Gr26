@@ -43,7 +43,6 @@ try{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    
-    
        
 
 <body class="truculenta" style="padding: 0px;margin-right:0px">
@@ -416,7 +415,7 @@ try{
             <label for="comment" class="form-label">Comment:</label>
             <textarea id="comment" name="comment" class="form-control" required></textarea>
         </div>
-        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit">Submit</button>
+        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" >Submit</button>
     </form>
 </div>
 
