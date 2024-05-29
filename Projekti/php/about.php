@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION["user"])) {
-    header("Location: ../index.php");
+if(!isset($_SESSION["user"])) {
+   header("Location: ../index.php");
 }
 
 function error_handler($errno, $errstr, $errfile, $errline, $errcontext) {
@@ -16,10 +16,6 @@ function error_handler($errno, $errstr, $errfile, $errline, $errcontext) {
   echo "<div style='color: red;'>Një gabim ndodhi. Ju lutem kontaktoni administratorin e faqes.</div>";
 }
 
-
-
-
-echo $undefined_variable;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,48 +43,7 @@ echo $undefined_variable;
 </head>
 
 <body>
-
-  <header class="sticky-header">
-    <h1 style="margin-top:10px;">Gardening Shop</h1>
-    <nav>
-      <a href="home.php">Home</a>
-      <a href="mycart.php">My Cart</a>
-      <a href="about.php">About</a>
-      <a href="discount.php">Offers</a>
-      <a href="signout.php">Sign Out</a>
-
-
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary0" style=" background-color : #ff7f49">
-      <div class="container-fluid">
-        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#history-section">History</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#stafiID">Staff</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#kontakt">Contact</a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-
-
+  <?php include 'header.php'; ?>
   <div id="about-us" class="about-us">
     <div class="container">
       <div class="left-side">
@@ -294,9 +249,9 @@ echo $undefined_variable;
       <h2 style="margin-left: 15px;">Contact Us</h2>
       <form id="contactForm" onsubmit="return validateForm()">
         <div class="inputs">
-          <input style="height: 50px; width: 500px;" type="email" class="form-control" id="exampleInputEmail1"
+          <input style="height: 50px; width: 100%;" type="email" class="form-control" id="exampleInputEmail1"
             aria-describedby="emailHelp" placeholder="name.surname@gmail.com">
-          <textarea style="height: 100px ; width: 500px;" class="form-control" id="exampleFormControlTextarea1"
+          <textarea style="height: 100px ; width: 100%;" class="form-control" id="exampleFormControlTextarea1"
             rows="3"></textarea>
             
           <button type="submit" class="btn btn-light mx-auto " >Send</button>

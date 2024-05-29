@@ -5,7 +5,6 @@ if (!isset($_SESSION["user"])) {
     header("Location: ../index.php");
 }
 
-
 // Initialize cart if not set
 if (!isset($_SESSION['cart'])) {
   $_SESSION['cart'] = [];
@@ -54,19 +53,8 @@ function addItemToCart($item) {
 
 <body>
   <!-- HEADER -->
-
-  <header class="sticky-header" style="background-color: #ff7f49; padding-right:16px">
-    <h1>Gardening Shop</h1>
-    <nav>
-      <a href="home.php">Home</a>
-      <a href="mycart.php">My Cart</a>
-      <a href="about.php">About</a>
-      <a href="discount.php">Offers</a>
-      <a href="signout.php">Sign Out</a>
-
-    </nav>
-  </header>
-
+  <!-- require()  -->
+  <?php require  'header.php'; ?>
 
   <!-- Discount Offer Content -->
   <div class="discount-container row" style="margin-top:60px; ">
@@ -83,7 +71,7 @@ function addItemToCart($item) {
 
   <form action="mycart.php" method="post">
 
-    <div id="item1" class="row" style="padding-left: 5%; margin-top:50px; margin-bottom:100px;">
+    <!-- <div id="item1" class="row" style="padding-left: 5%; margin-top:50px; margin-bottom:100px;">
 
       <div id="item1emri1" class="col-3">
         <div class="card" style="width: 18rem;">
@@ -163,10 +151,90 @@ function addItemToCart($item) {
           </div>
         </div>
       </div>
+    </div> -->
+    <div id="item1" class="row" style="padding-left: 5%; margin-top:50px; margin-bottom:100px;">
+
+      <div id="item1emri1" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo31.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Digging Set">
+          <div class="card-body">
+            <h5 class="card-title">Digging Set</h5>
+            <button type="submit" name="add_to_cart" value="Digging Set">Buy</button>
+          </div>
+        </div>
+      </div>
+      <div id="item1emri2" class="col-3 ">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo32.jpg" class="card-img-top" style="height:270px; width:287px; margin-left: 0px;" alt="Ornamental Plant">
+          <div class="card-body">
+            <h5 class="card-title">Ornamental Plant</h5>
+            <button type="submit" name="add_to_cart" value="Ornamental Plant">Buy</button>
+          </div>
+        </div>
+      </div>
+      <div id="item1emri3" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo33.jpg" class="card-img-top" style="height:270px; margin-left: 0px;" alt="Flower Light">
+          <div class="card-body">
+            <h5 class="card-title">Flower Light</h5>
+
+            <button type="submit" name="add_to_cart" value="Flower Light">Buy</button>
+          </div>
+        </div>
+      </div>
+      <div id="item1emri4" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo34.jpg" class="card-img-top" style="height: 270px; margin-left: 0px;" alt="Flower Vase">
+          <div class="card-body">
+            <h5 class="card-title">Flower Vase</h5>
+
+            <button type="submit" name="add_to_cart" value="Flower Vase">Buy</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="item3" class="row" style="padding-left: 5%; margin-top:70px; margin-bottom:100px;">
+    <div id="item2" class="row" style="padding-left: 5%; margin-top:50px; margin-bottom:100px;">
+      <div id="item2emri1" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo35.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Plant Seeder">
+          <div class="card-body">
+            <h5 class="card-title">Plant Seeder</h5>
+            <button type="submit" name="add_to_cart" value="Plant Seeder">Buy</button>
+          </div>
+        </div>
+      </div>
+      <div id="item2emri2" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo36.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Pruning Shears">
+          <div class="card-body">
+            <h5 class="card-title">Pruning Shears</h5>
+            <button type="submit" name="add_to_cart" value="Pruning Shears">Buy</button>
+          </div>
+        </div>
+      </div>
+      <div id="item2emri3" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo37.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Watering Can">
+          <div class="card-body">
+            <h5 class="card-title">Watering Can</h5>
+            <button type="submit" name="add_to_cart" value="Watering Can">Buy</button>
+          </div>
+        </div>
+      </div>
+      <div id="item2emri4" class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img src="../HTML/foto/Photo38.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Wheelbarrow">
+          <div class="card-body">
+            <h5 class="card-title">Wheelbarrow</h5>
+            <button type="submit" name="add_to_cart" value="Wheelbarrow">Buy</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Additional items -->
+    <div id="item3" class="row" style="padding-left: 5%; margin-top:50px; margin-bottom:100px;">
       <div id="item3emri1" class="col-3">
         <div class="card" style="width: 18rem;">
           <img src="../HTML/foto/Photo39.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Rake">
@@ -176,9 +244,9 @@ function addItemToCart($item) {
           </div>
         </div>
       </div>
-      <div id="item3emri2" class="col-3 ">
+      <div id="item3emri2" class="col-3">
         <div class="card" style="width: 18rem;">
-          <img src="../HTML/foto/Photo40.jpg" class="card-img-top" style="height:270px; width:287px; margin-left: 0px;" alt=" Cactus Plant">
+          <img src="../HTML/foto/Photo40.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Cactus Plant">
           <div class="card-body">
             <h5 class="card-title">Cactus Plant</h5>
             <button type="submit" name="add_to_cart" value="Cactus Plant">Buy</button>
@@ -187,147 +255,153 @@ function addItemToCart($item) {
       </div>
       <div id="item3emri3" class="col-3">
         <div class="card" style="width: 18rem;">
-          <img src="../HTML/foto/Photo41.jpg" class="card-img-top" style="height:270px; margin-left: 0px;" alt="Eletric chainsaw">
+          <img src="../HTML/foto/Photo41.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Electric Chainsaw">
           <div class="card-body">
-            <h5 class="card-title"> Electric Chainsaw</h5>
-
+            <h5 class="card-title">Electric Chainsaw</h5>
             <button type="submit" name="add_to_cart" value="Electric Chainsaw">Buy</button>
           </div>
         </div>
       </div>
       <div id="item3emri4" class="col-3">
         <div class="card" style="width: 18rem;">
-          <img src="../HTML/foto/Photo42.jpg" class="card-img-top" style="height: 270px; margin-left: 0px;" alt="PFidle Leaf">
+          <img src="../HTML/foto/Photo42.jpg" class="card-img-top" style="height: 270px; width:287px; margin-left:0px;" alt="Fiddle Leaf">
           <div class="card-body">
-            <h5 class="card-title">Fidle Leaf</h5>
-
-            <button type="submit" name="add_to_cart" value="Fidle Leaf">Buy</button>
+            <h5 class="card-title">Fiddle Leaf</h5>
+            <button type="submit" name="add_to_cart" value="Fiddle Leaf">Buy</button>
           </div>
         </div>
       </div>
     </div>
+  </form>
+  <div id="discount-form" style="margin-top: 50px;">
+    <h3>Apply Discount</h3>
+    <input type="hidden" name="category" value="...">
+    <input type="hidden" name="item" value="...">
+    <input type="text" name="discount" placeholder="Enter discount percentage" required>
+    <button type="submit">Apply Discount</button>
+  </div>
 
 
-    <br><br><br>
-    <v class="container">
-      <div class="row">
-        <div class="container">
-          <div class="row">
-            <div class="container">
-              <div class="row">
+  <br><br><br>
+  <v class="container">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="container">
+            <div class="row">
 
-                <?php
-                class Product
+              <?php
+              class Product
+              {
+                public $name;
+                public $price;
+                public $description;
+
+                public function __construct($name, $price, $description)
                 {
-                  public $name;
-                  public $price;
-                  public $description;
-
-                  public function __construct($name, $price, $description)
-                  {
-                    $this->name = $name;
-                    $this->price = $price;
-                    $this->description = $description;
-                  }
+                  $this->name = $name;
+                  $this->price = $price;
+                  $this->description = $description;
                 }
-                class ExtendedProduct extends Product
+              }
+              class ExtendedProduct extends Product
+              {
+                protected $availability;
+
+                public function __construct($name, $price, $description, $availability)
                 {
-                  protected $availability;
-
-                  public function __construct($name, $price, $description, $availability)
-                  {
-                    parent::__construct($name, $price, $description);
-                    $this->availability = $availability;
-                  }
-
-                  // Shto metoda të tjera nëse është e nevojshme
-                  public function getAvailability()
-                  {
-                    return $this->availability;
-                  }
-
-                  public function getAvailabilityText()
-                  {
-                    if ($this->availability > 0) {
-                      return 'In stock';
-                    } else {
-                      return 'Out of stock. It will be back soon';
-                    }
-                  }
-
-                  public function setAvailability($availability)
-                  {
-                    $this->availability = $availability;
-                  }
+                  parent::__construct($name, $price, $description);
+                  $this->availability = $availability;
                 }
 
-                ?>
-                <?php
-                $products = array(
-                  new ExtendedProduct("Digging set ", 100, "Each tool in our Garden Digging Tool Set is constructed from high-quality materials, such as stainless steel, carbon steel, or forged aluminum, ensuring durability, strength, and longevity.", 5),
-                  new ExtendedProduct("Ornamental Plant", 30, "The Ornamental Plant, a delightful addition to any indoor or outdoor space, brings a touch of natural beauty and elegance to your home or garden.", 30),
-                  new ExtendedProduct("Flower Light", 50, "The Flower Light is a charming and versatile lighting accessory that adds a touch of elegance and ambiance to any indoor or outdoor space.", 25),
-                  new ExtendedProduct("Flower Vase", 40, "Crafted from high-quality materials such as glass, ceramic, or porcelain, our Flower Vase ensures durability and longevity.", 35),
+                // Shto metoda të tjera nëse është e nevojshme
+                public function getAvailability()
+                {
+                  return $this->availability;
+                }
 
-                  new ExtendedProduct(" Watering Can ", 20, "Crafted from high-quality materials such as durable plastic, galvanized metal, or corrosion-resistant stainless steel, our watering can is built to withstand regular use and outdoor elements.", 20),
-                  new ExtendedProduct("Wheelbarrow", 120, "Designed for user comfort and convenience, the ergonomic handles feature a comfortable grip and optimal leverage, allowing for easy pushing, pulling, and dumping of loads.", 40),
-                  new ExtendedProduct("Garden Boots", 70, "Constructed from waterproof materials such as rubber, neoprene, or PVC, our garden boots provide reliable protection against moisture, mud, and debris. Keep your feet dry and comfortable even when working in wet or muddy conditions", 0),
-                  new ExtendedProduct(" Pink Flamingo", 90, "Crafted from durable materials such as resin or metal, our Pink Flamingo Garden Decor features vivid pink hues and lifelike details that capture the graceful beauty of these iconic birds.", 10),
+                public function getAvailabilityText()
+                {
+                  if ($this->availability > 0) {
+                    return 'In stock';
+                  } else {
+                    return 'Out of stock. It will be back soon';
+                  }
+                }
 
-                  new ExtendedProduct("Rake", 60, "Our rake features an adjustable head or handle, allowing you to customize the tool's width and angle to suit different gardening needs.", 8),
-                  new ExtendedProduct("Cactus Plant", 20, " Our Cactus Plant boasts a captivating and exotic beauty that instantly adds visual interest and charm to any environment.", 60),
-                  new ExtendedProduct("Electric Chainsaw", 180, "Equipped with a high-performance electric motor, our chainsaw delivers ample cutting power to tackle a wide range of cutting tasks with ease. ", 9),
-                  new ExtendedProduct("Fidle Leaf", 40, " Fiddle Leaf Fig is a favorite among plant enthusiasts and interior decorators alike, adding a touch of tropical sophistication to any space.", 8)
+                public function setAvailability($availability)
+                {
+                  $this->availability = $availability;
+                }
+              }
+
+              ?>
+              <?php
+              $products = array(
+                new ExtendedProduct("Digging set ", 100, "Each tool in our Garden Digging Tool Set is constructed from high-quality materials, such as stainless steel, carbon steel, or forged aluminum, ensuring durability, strength, and longevity.", 5),
+                new ExtendedProduct("Ornamental Plant", 30, "The Ornamental Plant, a delightful addition to any indoor or outdoor space, brings a touch of natural beauty and elegance to your home or garden.", 30),
+                new ExtendedProduct("Flower Light", 50, "The Flower Light is a charming and versatile lighting accessory that adds a touch of elegance and ambiance to any indoor or outdoor space.", 25),
+                new ExtendedProduct("Flower Vase", 40, "Crafted from high-quality materials such as glass, ceramic, or porcelain, our Flower Vase ensures durability and longevity.", 35),
+
+                new ExtendedProduct(" Watering Can ", 20, "Crafted from high-quality materials such as durable plastic, galvanized metal, or corrosion-resistant stainless steel, our watering can is built to withstand regular use and outdoor elements.", 20),
+                new ExtendedProduct("Wheelbarrow", 120, "Designed for user comfort and convenience, the ergonomic handles feature a comfortable grip and optimal leverage, allowing for easy pushing, pulling, and dumping of loads.", 40),
+                new ExtendedProduct("Garden Boots", 70, "Constructed from waterproof materials such as rubber, neoprene, or PVC, our garden boots provide reliable protection against moisture, mud, and debris. Keep your feet dry and comfortable even when working in wet or muddy conditions", 0),
+                new ExtendedProduct(" Pink Flamingo", 90, "Crafted from durable materials such as resin or metal, our Pink Flamingo Garden Decor features vivid pink hues and lifelike details that capture the graceful beauty of these iconic birds.", 10),
+
+                new ExtendedProduct("Rake", 60, "Our rake features an adjustable head or handle, allowing you to customize the tool's width and angle to suit different gardening needs.", 8),
+                new ExtendedProduct("Cactus Plant", 20, " Our Cactus Plant boasts a captivating and exotic beauty that instantly adds visual interest and charm to any environment.", 60),
+                new ExtendedProduct("Electric Chainsaw", 180, "Equipped with a high-performance electric motor, our chainsaw delivers ample cutting power to tackle a wide range of cutting tasks with ease. ", 9),
+                new ExtendedProduct("Fidle Leaf", 40, " Fiddle Leaf Fig is a favorite among plant enthusiasts and interior decorators alike, adding a touch of tropical sophistication to any space.", 8)
               );
-                $products[0]->setAvailability(1);
+              $products[0]->setAvailability(1);
 
-                foreach ($products as $key => $product) {
-                ?>
+              foreach ($products as $key => $product) {
+              ?>
 
-                  <div class="modal fade" id="productModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= $key ?>" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="productModalLabel<?= $key ?>"><?= $product->name ?></h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p><?= $product->description ?></p>
-                          <p>Price: $<?= $product->price ?></p>
-                          <p><?= $product->getAvailabilityText() ?></p>
-                          <p>Hope you found this helpful!</p>
-                        </div>
+                <div class="modal fade" id="productModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="productModalLabel<?= $key ?>" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="productModalLabel<?= $key ?>"><?= $product->name ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p><?= $product->description ?></p>
+                        <p>Price: $<?= $product->price ?></p>
+                        <p><?= $product->getAvailabilityText() ?></p>
+                        <p>Hope you found this helpful!</p>
                       </div>
                     </div>
                   </div>
-                <?php }
+                </div>
+              <?php }
 
 
 
 
-                # Add hidden fields for previously added items
-                foreach ($_SESSION['cart'] as $item => $quantity) {
-                  echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
-                  echo "<input type='hidden' name='cart[$item][price]' value='$quantity'>";
-                }
-                ?>
+              # Add hidden fields for previously added items
+              foreach ($_SESSION['cart'] as $item => $quantity) {
+                echo "<input type='hidden' name='cart[$item][name]' value='Item $item'>";
+                echo "<input type='hidden' name='cart[$item][price]' value='$quantity'>";
+              }
+              ?>
 
 
-  </form>
+              </form>
 
 
 
 
-  <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #ff7900; border: 1px solid #ff7900; width:45px">
-    <span>&#9733; </span>
-  </button>
+              <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: #ff7900; border: 1px solid #ff7900; width:45px">
+                <span>&#9733; </span>
+              </button>
 
-  <footer style="width: 100%;">
-    &copy; 2024 Gardening Shop. All rights reserved.
+              <footer style="width: 100%;">
+                &copy; 2024 Gardening Shop. All rights reserved.
 
-  </footer>
+              </footer>
 
 
 </body>

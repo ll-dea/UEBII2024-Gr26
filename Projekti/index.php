@@ -39,12 +39,14 @@ if(isset($_SESSION["user"])){
     <nav style="padding-right: 5px;">
   
       <a href="./HTML/About.html">About Us</a>
+      
 
     </nav>
   </header>
+  
 <br><br><br><br><br><br>
 
-
+<!--Kerkesa 2.1  MySQL Injection-->
   <div class="container" >
   <?php
         if(isset($_POST['login'])){

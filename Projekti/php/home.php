@@ -43,20 +43,11 @@ try{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    
-    
+       
 
 <body class="truculenta" style="padding: 0px;margin-right:0px">
-
-    <header class="sticky-header">
-        <h1>Gardening Shop</h1>
-        <nav>
-            <a href="home.php">Home</a>
-            <a href="mycart.php">My Cart</a>
-            <a href="about.php">About</a>
-            <a href="signout.php">Sign Out</a>
-
-        </nav>
-    </header>
+    <!-- include(), -->
+    <?php include 'header.php'; ?>
     <br><br><br>
     <div>
         <video autoplay muted loop playsinline style="width: 100vw; height: 90vh; object-fit: cover; position:relative">
@@ -393,7 +384,7 @@ try{
 
 
 
-
+<!--Kerkesa 3.2 PHP dhe AJAX-->
 <div class="container mt-5">
     <h2>Write a review</h2>
     <form id="reviewForm" action="submit_review.php" method="post">
@@ -424,7 +415,7 @@ try{
             <label for="comment" class="form-label">Comment:</label>
             <textarea id="comment" name="comment" class="form-control" required></textarea>
         </div>
-        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit_reviews" id="submitBtn" value="Submit" >Submit</button>
     </form>
 </div>
 
