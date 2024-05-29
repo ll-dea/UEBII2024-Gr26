@@ -99,14 +99,9 @@ header.sticky-header {
 }
 
 .alert-danger {
-  color: #D8000C; /* Ngjyrë e kuqe e errët për të treguar urgjencën */
-  background-color: #FFD2D2; /* Ngjyrë e lehtë rozë për sfond për të ndihmuar në theksimin e tekst-it */
-  padding: 10px 20px; /* Shtimi i padding për të bërë mesazhin më të lexueshëm */
-  margin: 20px 0; /* Sigurimi i hapësirës rreth kutisë së mesazhit */
-  border: 1px solid #D8000C; /* Kufizim i kuq për të rrethuar dhe tërhequr vëmendje */
-  border-radius: 5px; /* Bordura e rrumbullakosur për estetikë më të butë */
-  font-family: Arial, sans-serif; /* Përdorimi i një fonti të qartë dhe të lexueshëm */
-  text-align: center; /* Qendrimi i tekstit brenda mesazhit të gabimit */
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 
 .alert-success {
