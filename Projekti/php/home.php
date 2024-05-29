@@ -384,7 +384,7 @@ try{
 
 
 
-
+<!--Kerkesa 3.2 PHP dhe AJAX-->
 <div class="container mt-5">
     <h2>Write a review</h2>
     <form id="reviewForm" action="submit_review.php" method="post">

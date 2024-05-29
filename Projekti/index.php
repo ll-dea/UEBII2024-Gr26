@@ -46,7 +46,7 @@ if(isset($_SESSION["user"])){
   
 <br><br><br><br><br><br>
 
-
+<!--Kerkesa 2.1  MySQL Injection-->
   <div class="container" >
   <?php
         if(isset($_POST['login'])){
