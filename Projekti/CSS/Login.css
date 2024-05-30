@@ -1,8 +1,20 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+
+
+
 body {
     font-family: "Truculenta";
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
@@ -25,8 +37,12 @@ header a:hover {
 
 .container {
     max-width: 500px;
-    margin: 100px auto;
-    padding: 0 10px;
+    padding: 20px 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-top: 50px;
+
+   
 }
 
 form {
@@ -45,15 +61,21 @@ input[type="email"] {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
+    width: 100%;
 }
 
-input[type="submit"] {
+button[type="submit"] {
     background-color: #ff7f49;
     color: #fff;
     cursor: pointer;
+    padding: 20px;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 10px;
 }
 
-input[type="submit"]:hover {
+button[type="submit"]:hover {
     background-color: #e36b31;
 }
 

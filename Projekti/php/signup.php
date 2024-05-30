@@ -101,59 +101,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Submit"]) && $_POST["S
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garden Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLrvdN5ajsI4E1OURyY4lg/5IVpL0s7jyl7fjg7xs" crossorigin="anonymous">
-    <link rel="stylesheet" href="../CSS/Login.css">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garden Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link rel="stylesheet" href="../CSS/login.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="sticky-header">
-        <h1>Garden Shop</h1>
-        <a href="../index.php">Home</a>
-        
-    </header>
+<body class="truculenta">
+<header class="sticky-header" style="background-color: ff7f49;">
+    <h1 style="padding-right: 5px;" >Gardening Shop</h1>
+    <nav style="padding-right: 5px;">
+     
+      
+      <a href="../HTML/About.html">About Us</a>
+
+     
+
+    </nav>
+  </header>
     <div class="container">
+        <?php 
+        if (!empty($errors)) {
+            foreach ($errors as $error) {
+                echo "<div class='error error-danger'>$error</div>";
+            }
+        }
+
+        if (isset($success)) {
+            echo "<div class='error error-success'>$success</div>";
+        }
+        ?>
         <form method="post" action="">
             <div class="form-group">
-                <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo htmlspecialchars($fullName); ?>" required placeholder="Full Name">
-                <?php if (isset($errors['error_fullname'])) echo '<div class="error error-danger">' . $errors['error_fullname'] . '</div>'; ?>
+                <input type="text" placeholder="Enter Full Name" name="fullname" class="form-control" value="<?php echo htmlspecialchars($fullName); ?>" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required placeholder="Email">
-                <?php if (isset($errors['error_email'])) echo '<div class="error error-danger">' . $errors['error_email'] . '</div>'; ?>
+                <input type="email" placeholder="Enter Email" name="email" class="form-control" value="<?php echo htmlspecialchars($email); ?>" required>
             </div>
             <div class="form-group">
-                <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>" required placeholder="Phone">
-                <?php if (isset($errors['error_phone'])) echo '<div class="error error-danger">' . $errors['error_phone'] . '</div>'; ?>
+                <input type="tel" placeholder="Enter Phone" name="phone" class="form-control" value="<?php echo htmlspecialchars($phone); ?>" required>
             </div>
             <div class="form-group">
-                <input type="date" class="form-control" id="birthdate" name="birthdate" value="<?php echo htmlspecialchars($birthdate); ?>" required placeholder="Birthdate">
-                <?php if (isset($errors['error_birthdate'])) echo '<div class="error error-danger">' . $errors['error_birthdate'] . '</div>'; ?>
+                <input type="date" placeholder="Enter Birthdate" name="birthdate" class="form-control" value="<?php echo htmlspecialchars($birthdate); ?>" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
-                <?php if (isset($errors['error_password'])) echo '<div class="error error-danger">' . $errors['error_password'] . '</div>'; ?>
+                <input type="password" placeholder="Enter Password" name="password" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="rpassword" name="rpassword" required placeholder="Repeat Password">
-                <?php if (isset($errors['error_rpassword'])) echo '<div class="error error-danger">' . $errors['error_rpassword'] . '</div>'; ?>
+                <input type="password" placeholder="Repeat Password" name="rpassword" class="form-control" required>
             </div>
-            <?php if (!empty($errors)) : ?>
-                <div class="error error-danger">Please correct the errors above.</div>
-            <?php endif; ?>
-            <?php if (isset($success)) : ?>
-                <div class="error error-success"><?php echo $success; ?></div>
-            <?php endif; ?>
-            <button type="submit" name="Submit" value="Sign Up" class="btn btn-primary">Sign Up</button>
+            <div class="form-btn">
+                <input type="submit" name="Submit" value="Sign Up" class="btn btn-primary">
+            </div>
+            
+            <a href="../index.php">Do you have an account? Login in!</a>
         </form>
     </div>
-    <footer class="footer">
-        <p>Copyright &copy; 2023 Gardening Shop. All rights reserved.</p>
+    <footer style="background-color: ff7f49;">
+        &copy; 2024 Signup Form. All rights reserved.
     </footer>
 </body>
 </html>
