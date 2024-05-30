@@ -90,28 +90,23 @@ header.sticky-header {
     padding-right: 5px;
 }
 
-/* Shto stilet për mesazhet e gabimit */
-.alert {
+/* Shto stilet për mesazhet e gabimit dhe suksesit */
+.error {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid transparent;
     border-radius: 4px;
+    text-align: center;
 }
 
-.alert-danger {
-  color: #D8000C; /* Ngjyrë e kuqe e errët për të treguar urgjencën */
-  background-color: #FFD2D2; /* Ngjyrë e lehtë rozë për sfond për të ndihmuar në theksimin e tekst-it */
-  padding: 10px 20px; /* Shtimi i padding për të bërë mesazhin më të lexueshëm */
-  margin: 20px 0; /* Sigurimi i hapësirës rreth kutisë së mesazhit */
-  border: 1px solid #D8000C; /* Kufizim i kuq për të rrethuar dhe tërhequr vëmendje */
-  border-radius: 5px; /* Bordura e rrumbullakosur për estetikë më të butë */
-  font-family: Arial, sans-serif; /* Përdorimi i një fonti të qartë dhe të lexueshëm */
-  text-align: center; /* Qendrimi i tekstit brenda mesazhit të gabimit */
+.error-danger {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border: 1px solid #D8000C;
 }
 
-.alert-success {
+.error-success {
     color: #3c763d;
     background-color: #dff0d8;
-    border-color: #d6e9c6;
+    border: 1px solid #d6e9c6;
 }
-
