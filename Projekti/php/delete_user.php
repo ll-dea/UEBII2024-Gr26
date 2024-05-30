@@ -18,6 +18,6 @@ function deleteUser($conn, $userId) {
     mysqli_close($conn);
 }
 
-// Thirrja e funksionit për të fshirë përdoruesin me ID 7
+
 //deleteUser($conn, 11);
 ?>

@@ -9,7 +9,7 @@ if(!$conn){
     die("Couldn't connect to database!");
 }
 
-// Funksioni për krijimin e tabelës
+
 function createTable($conn) {
     $sql = "CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -25,7 +25,5 @@ function createTable($conn) {
         echo "Error creating table: " . mysqli_error($conn);
     }
 }
-
-
 ?>
 
